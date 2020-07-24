@@ -1,5 +1,5 @@
 {
-  "name": "tiktak",
+  "name": "littok",
   "private": true,
   "dependencies": {
     "@babel/core": "^7.10.5",
@@ -16,16 +16,15 @@
     "webpack": "^4.44.0",
     "webpack-cli": "^3.3.12"
   },
-  "description": "TikTak the TikTok clone, is a social media app that lets users watch and create short 1 minute video clips that can be liked, commented on and shared with other users.",
+  "description": "LitTok the TikTok clone, is a social media app that lets users watch and create short 1 minute video clips that can be liked, commented on and shared with other users.",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "webpack.config.js",
   "directories": {
     "lib": "lib",
     "test": "test"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "webpack": "webpack --mode=development --watch"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
