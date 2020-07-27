@@ -1,6 +1,6 @@
 import React, { Component, useState } from "react";
 import logo from "../../../public/logo.png";
-console.log(logo);
+
 import Modal from "react-modal";
 import Login from "../session_form/signup_form";
 // class Navbar extends Component {
