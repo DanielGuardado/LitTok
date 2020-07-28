@@ -10,10 +10,15 @@ import "./App.css";
 
 const App = () => (
   <div>
-    <Navbar />
-    <Route path="/" exact component={Sidebar} />
+    <Switch>
     <AuthRoute path="/login" exact component={LoginFormContainer} />
     <AuthRoute path="/signup" exact component={SignUpFormContainer} />
+    <Route path="/">
+      <Navbar />
+      <Sidebar />
+    </Route>
+
+    </Switch>
   </div>
 );
 

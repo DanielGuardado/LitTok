@@ -1,3 +1,12 @@
+button {
+  padding: 0;
+  border: none;
+  font: inherit;
+  color: inherit;
+  background-color: transparent;
+  cursor: pointer;
+}
+
 .underline {
   border-bottom: solid 1px #cfdcdc;
 }
@@ -21,8 +30,34 @@
   color: #ffffff;
   font-family: Arial;
   font-size: 18px;
-  padding: 17px 65px;
+  padding: 12px 58px;
   text-decoration: none;
+}
+.LogButtonSide {
+  border-radius: 2px;
+  display: inline-block;
+  cursor: pointer;
+  color: #f12c54;
+  border: 1px solid #f12c54;
+  padding: 12px 58px;
+  text-decoration: none;
+}
+.LogButtonSide:hover {
+  text-decoration: none;
+  color: #f12c54;
+}
+.LogButtonSide2 {
+  border-radius: 2px;
+  display: inline-block;
+  cursor: pointer;
+  color: #f12c54;
+  border: 1px solid #f12c54;
+  padding: 12px 38px;
+  text-decoration: none;
+}
+.LogButtonSide2:hover {
+  text-decoration: none;
+  color: #f12c54;
 }
 .LogButton:hover {
   background-color: #f47792;
@@ -41,6 +76,21 @@
 
 .bold {
   font-weight: bold;
+}
+
+.navbar1 {
+  position: relative;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  z-index: 2;
+}
+
+.navbar2 {
+  position: relative;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 0.83rem 1rem;
 }
 
 input[type="text"],
@@ -71,4 +121,44 @@ textarea {
 
 body {
   text-align: center;
+}
+
+.new-line {
+  white-space: pre-line;
+}
+
+.disp1 {
+  display: block;
+  font-size: 23px;
+  padding: 5px;
+}
+
+.sidenav {
+  height: 100%;
+  width: 250px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  overflow-x: hidden;
+  padding-top: 90px;
+  font-weight: bold;
+}
+
+.active {
+  color: #f12c54;
+}
+
+.bpadding {
+  padding-bottom: 50px;
+}
+.bpadding2 {
+  padding-bottom: 25px;
+}
+
+.smallgrey {
+  font-size: 17px;
+  color: #999a9d;
+  font-weight: lighter;
+  padding: 2px;
 }

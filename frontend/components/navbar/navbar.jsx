@@ -29,16 +29,20 @@ class Navbar extends React.Component {
   render() {
     let loggedIn;
     if (this.props.currentUser.id) {
-      loggedIn = <button className="LogButton" onClick={this.props.logout}>Log out</button>;
+      loggedIn = (
+        <button className="LogButton" onClick={this.props.logout}>
+          Logout
+        </button>
+      );
     } else {
       loggedIn = (
         <Link to="/login" className="LogButton">
-          Log in
+          Login
         </Link>
       );
     }
     return (
-      <div className="navbar navbar-expand-lg navbar-light bg-light underline flex space-between">
+      <div className="navbar1 underline flex space-between">
         <Link to="/">
           <img src={window.logo} alt="littok" height="40" width="150" />
         </Link>

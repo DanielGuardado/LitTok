@@ -21,6 +21,16 @@ class Login extends React.Component {
     this.props.login(user);
   }
 
+  nav() {
+    return (
+      <div className="navbar2 underline flex space-between">
+        <Link to="/">
+          <img src={window.logo} alt="littok" height="40" width="150" />
+        </Link>
+      </div>
+    );
+  }
+
   loginForm() {
     const { username, password } = this.state;
     return (
@@ -64,7 +74,7 @@ class Login extends React.Component {
     const errors = this.props.errors ? this.errs() : "";
     return (
       <div>
-        {this.props.navLink}
+        {this.nav()}
         {this.loginForm()}
         {errors}
       </div>

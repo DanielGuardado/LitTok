@@ -59,6 +59,7 @@ class Signup extends React.Component {
             <input
               type="text"
               name="username"
+              placeholder="Username"
               onChange={this.handleInput("username")}
               value={username}
             />
@@ -69,7 +70,7 @@ class Signup extends React.Component {
         </form>
         <footer>
           <p>
-            Already have an account?<Link to="/login">Log in</Link>
+            Already have an account? <Link to="/login">Log in</Link>
           </p>
         </footer>
       </div>
@@ -79,10 +80,21 @@ class Signup extends React.Component {
     return <div>{this.props.errors}</div>;
   }
 
+  nav() {
+    return (
+      <div className="navbar2 underline flex space-between">
+        <Link to="/">
+          <img src={window.logo} alt="littok" height="40" width="150" />
+        </Link>
+      </div>
+    );
+  }
+
   render() {
     const errors = this.props.errors ? this.errs() : "";
     return (
       <div>
+        {this.nav()}
         {this.signupForm()}
         {errors}
       </div>
