@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+
 class Login extends React.Component {
   constructor(props) {
     super(props);
@@ -20,7 +21,8 @@ class Login extends React.Component {
     this.props.login(user);
   }
 
-  formHeader() {
+  loginForm() {
+    const { username, password } = this.state;
     return (
       <div className="containerlog center">
         <form className="center">
@@ -31,7 +33,7 @@ class Login extends React.Component {
             type="text"
             name="username"
             onChange={this.handleInput("username")}
-            value={this.state.username}
+            value={username}
           />
           <label htmlFor="password"></label>
           <input
@@ -39,7 +41,7 @@ class Login extends React.Component {
             type="password"
             name="password"
             onChange={this.handleInput("password")}
-            value={this.state.password}
+            value={password}
           />
           <p>Forgot password?</p>
           <button onClick={this.handleSubmit} className="LogButton">
@@ -47,8 +49,9 @@ class Login extends React.Component {
           </button>
         </form>
         <footer>
-          <p>Don't have an account?</p>
-          <Link to="/signup">Sign Up</Link>
+          <p>
+            Don't have an account?<Link to="/signup">Sign Up</Link>
+          </p>
         </footer>
       </div>
     );
@@ -62,7 +65,7 @@ class Login extends React.Component {
     return (
       <div>
         {this.props.navLink}
-        {this.formHeader()}
+        {this.loginForm()}
         {errors}
       </div>
     );

@@ -1,7 +1,6 @@
 import { connect } from "react-redux";
 import { logout, demoUser } from "../../actions/session_actions";
-import Greeting from "./greeting";
-
+import Sidebar from "./sidebar";
 
 const mapStateToProps = (state) => ({
   currentUser: state.session.currentUser
@@ -11,7 +10,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   logout: () => dispatch(logout()),
-  demoUser: () => dispatch(demoUser())
+  demoUser: () => dispatch(demoUser()),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Greeting);
+export default connect(mapStateToProps, mapDispatchToProps)(Sidebar);

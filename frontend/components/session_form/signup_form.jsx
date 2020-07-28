@@ -22,7 +22,8 @@ class Signup extends React.Component {
     this.props.signUp(user);
   }
 
-  formHeader() {
+  signupForm() {
+    const { birthday, email, password, username } = this.state;
     return (
       <div className="containerlog center">
         <form>
@@ -33,7 +34,7 @@ class Signup extends React.Component {
               type="date"
               name="birthday"
               onChange={this.handleInput("birthday")}
-              value={this.state.birthday}
+              value={birthday}
             />
           </label>
           <label>
@@ -43,14 +44,14 @@ class Signup extends React.Component {
               type="text"
               name="email"
               onChange={this.handleInput("email")}
-              value={this.state.email}
+              value={email}
             />
             <input
               placeholder="Password"
               type="password"
               name="password"
               onChange={this.handleInput("password")}
-              value={this.state.password}
+              value={password}
             />
           </label>
           <label>
@@ -59,7 +60,7 @@ class Signup extends React.Component {
               type="text"
               name="username"
               onChange={this.handleInput("username")}
-              value={this.state.username}
+              value={username}
             />
           </label>
           <button className="LogButton" onClick={this.handleSubmit}>
@@ -67,8 +68,9 @@ class Signup extends React.Component {
           </button>
         </form>
         <footer>
-          <p>Don't have an account?</p>
-          <Link to="/login">Log in</Link>
+          <p>
+            Already have an account?<Link to="/login">Log in</Link>
+          </p>
         </footer>
       </div>
     );
@@ -81,8 +83,7 @@ class Signup extends React.Component {
     const errors = this.props.errors ? this.errs() : "";
     return (
       <div>
-        {this.props.navLink}
-        {this.formHeader()}
+        {this.signupForm()}
         {errors}
       </div>
     );
