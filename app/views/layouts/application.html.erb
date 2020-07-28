@@ -9,6 +9,10 @@
     <%= javascript_include_tag 'application' %>
   </head>
 
+  <script type="text/javascript">
+    window.logo = "<%= image_url('logo2.png')%>"
+  </script>
+
   <body>
     <%= yield %>
   </body>

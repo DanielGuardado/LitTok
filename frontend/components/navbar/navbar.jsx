@@ -3,6 +3,7 @@ import logo from "../../../public/logo.png";
 
 import Modal from "react-modal";
 import Login from "../session_form/signup_form";
+import { Link } from "react-router-dom";
 // class Navbar extends Component {
 //   render() {
 //     return (
@@ -21,9 +22,20 @@ function Navbar() {
   }
 
   return (
-    <div className="flex-end navbar navbar-expand-lg navbar-light bg-light underline">
-      <img src="" alt="" />
-      <button onClick={openModal}>Login</button>
+    <div className="navbar navbar-expand-lg navbar-light bg-light underline flex space-between">
+      <Link to="/">
+        <img src={window.logo} alt="littok" height="40" width="150" />
+      </Link>
+      {/* <button className="flex-end" onClick={openModal}>
+        Login
+      </button> */}
+      {/* <a href="/login" className="LogButton">
+        
+      </a> */}
+
+      <Link to="/login" className="LogButton">
+        Log in
+      </Link>
     </div>
   );
 }

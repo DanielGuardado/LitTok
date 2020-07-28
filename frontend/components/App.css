@@ -1,8 +1,69 @@
 .underline {
-  border-bottom: solid 1px #CFDCDC;
+  border-bottom: solid 1px #cfdcdc;
+}
+
+.flex {
+  display: flex;
 }
 
 .flex-end {
-  display: flex;
   justify-content: flex-end;
 }
+.space-between {
+  justify-content: space-between;
+}
+
+.LogButton {
+  background-color: #f12c54;
+  border-radius: 2px;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: Arial;
+  font-size: 18px;
+  padding: 17px 65px;
+  text-decoration: none;
+}
+.LogButton:hover {
+  background-color: #f47792;
+  color: white;
+  text-decoration: none;
+}
+.LogButton:active {
+  position: relative;
+  top: 1px;
+  text-decoration: none;
+}
+
+.center {
+  align-self: center;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+input[type="text"],
+select,
+input[type="password"],
+textarea {
+  width: 100%; /* Full width */
+  padding: 12px; /* Some padding */
+  border: 1px solid #ccc; /* Gray border */
+  border-radius: 4px; /* Rounded borders */
+  box-sizing: border-box; /* Make sure that padding and width stays in place */
+  margin-top: 6px; /* Add a top margin */
+  margin-bottom: 16px; /* Bottom margin */
+  resize: vertical; /* Allow the user to vertically resize the textarea (not horizontally) */
+}
+
+.containerlog {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+  width: 500pxß;
+}
+body {
+    text-align: center;
+}
+

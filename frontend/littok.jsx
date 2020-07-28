@@ -1,6 +1,5 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { login, logout, signUp } from "./actions/session_actions";
 import configuereStore from "./store/store";
 import Root from "./components/root";
 
@@ -11,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
       entities: {
         users: { [window.currentUser.id]: window.currentUser },
       },
-      session: { id: window.currentUser.id },
+      session: { currentUser: window.currentUser },
     };
     store = configuereStore(preloadedState);
     delete window.currentUser;
@@ -19,10 +18,5 @@ document.addEventListener("DOMContentLoaded", () => {
     store = configuereStore();
   }
   const root = document.getElementById("root");
-  window.login = login;
-  window.logout = logout;
-  window.signUp = signUp;
-  window.getState = store.getState;
-  window.dispatch = store.dispatch;
   ReactDOM.render(<Root store={store} />, root);
 });
