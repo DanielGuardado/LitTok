@@ -44,9 +44,18 @@ class Sidebar extends React.Component {
     return (
       <div className="sidenav">
         <div className="bpadding">
-          <span className="disp1 active">For You</span>
-          <span className="disp1">Discover</span>
-          <span className="disp1">Following</span>
+          <span className="disp1 box active">
+            <img src={window.house} alt="littok" height="35" width="35" />
+            For You
+          </span>
+          <span className="disp1 box">
+            <img src={window.hash} alt="littok" height="30" width="30" />
+            Discover
+          </span>
+          <span className="disp1 box">
+            <img src={window.social} alt="littok" height="30" width="35" />
+            Following
+          </span>
         </div>
         <p className="smallgrey">
           Log in to follow creators, like videos, and comments.
