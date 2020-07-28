@@ -35,7 +35,7 @@
   text-decoration: none;
 }
 
-.center {
+.center1 {
   align-self: center;
 }
 
@@ -59,11 +59,16 @@ textarea {
 
 .containerlog {
   border-radius: 5px;
-  background-color: #f2f2f2;
   padding: 20px;
-  width: 500pxß;
-}
-body {
-    text-align: center;
+  width: 500px;
+  margin: auto;
+  text-align: left;
 }
 
+.center2 {
+  text-align: center;
+}
+
+body {
+  text-align: center;
+}

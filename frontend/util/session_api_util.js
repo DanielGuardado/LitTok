@@ -23,7 +23,9 @@ export const demoUser = () =>
     method: "POST",
     url: "/api/session",
     data: {
-      username: "123456",
-      password: "123456",
+      user: {
+        username: "LitToker",
+        password: "123456",
+      },
     },
   });

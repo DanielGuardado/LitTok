@@ -24,7 +24,7 @@ class Signup extends React.Component {
 
   formHeader() {
     return (
-      <div>
+      <div className="containerlog center">
         <form>
           <h2>Sign up</h2>
           <label>
@@ -62,7 +62,9 @@ class Signup extends React.Component {
               value={this.state.username}
             />
           </label>
-          <button onClick={this.handleSubmit}>Sign Up</button>
+          <button className="LogButton" onClick={this.handleSubmit}>
+            Sign Up
+          </button>
         </form>
         <footer>
           <p>Don't have an account?</p>

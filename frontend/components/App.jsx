@@ -10,7 +10,7 @@ import "./App.css";
 const App = () => (
   <div>
     <Navbar />
-    <GreetingContainer />
+    <Route path="/" exact component={GreetingContainer} />
     <AuthRoute path="/login" exact component={LoginFormContainer} />
     <AuthRoute path="/signup" exact component={SignUpFormContainer} />
   </div>

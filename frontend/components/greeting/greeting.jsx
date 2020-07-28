@@ -1,9 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { demoUser } from "../../util/session_api_util";
 
 class Greeting extends React.Component {
   constructor(props) {
     super(props);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+    this.props.demoUser();
   }
 
   render() {
@@ -20,6 +27,9 @@ class Greeting extends React.Component {
         <div>
           <Link to="/signup">Sign up</Link>
           <Link to="/login">Log in</Link>
+          <button className="LogButton" onClick={this.handleSubmit}>
+            Demo User
+          </button>
         </div>
       );
     }
