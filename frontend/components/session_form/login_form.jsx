@@ -11,6 +11,10 @@ class Login extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  componentWillUnmount(){
+    this.props.clearErrors()
+  }
+
   handleInput(field) {
     return (e) => this.setState({ [field]: e.currentTarget.value });
   }
@@ -19,7 +23,8 @@ class Login extends React.Component {
     e.preventDefault();
     const user = Object.assign({}, this.state);
     this.props.login(user);
-    if (this.props.handleClose) {
+
+    if (this.props.handleClose && this.props.currentUser.id) {
       //IT WORKED!!!!!
       this.props.handleClose();
     }
@@ -74,16 +79,17 @@ class Login extends React.Component {
     );
   }
   errs() {
-    return <div>{this.props.errors}</div>;
+    let errors = this.props.errors ? this.props.errors : "";
+    let errorMessages = errors.map((error, idx) => <div key={idx}>{error}</div>);
+    return <div>{errorMessages}</div>;
   }
 
   render() {
-    const errors = this.props.errors ? this.errs() : "";
     return (
       <div>
         {this.nav()}
         {this.loginForm()}
-        {errors}
+        {this.errs()}
       </div>
     );
   }

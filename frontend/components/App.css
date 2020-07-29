@@ -1,3 +1,38 @@
+/* form {
+  display: block;
+  margin-top: 0em;
+}
+h2,
+h1,
+h3 {
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  line-height: 1.2;
+  margin-top: 0;
+  font-size: 2rem;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+label {
+  display: inline-block;
+  margin-bottom: 0.5rem;
+}
+
+h2 {
+  display: block;
+  font-size: 1.5em;
+  margin-block-start: 0.83em;
+  margin-block-end: 0.83em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+} */
+
 button {
   padding: 0;
   border: none;
@@ -228,12 +263,13 @@ body {
 .modal-main {
   position: fixed;
   background-image: url("https://lh3.googleusercontent.com/f1xz7LM172xskFbF02EJpCJ5F5GbL3dfI4ZYvoujc98IrTqDygEoy5lne6_IgAwzBZhBnPGChdzh7C8-idbVfrPgjdL3opPhETLcNhcZsPxAorMjO3A_5LREN6wncfu5sFd6jiLzPmsc7ImQUQFuikH99QMyRHZbe7Hg52xg-BpswsSBcTTZJF-UuqtDTyMq7drUw0I9_IvrizTKmjlKLFHkhq1LRJzbBQfq94jI3YPlwAOKEGoimhOuTada-WkGEcjeJCJb9HhH1DX4laDO92wJ1WqoTOQDRmvKsyk_aOxcG1t4PllAx7Kn2hvjdSMFZXSP79pd6TxAwrT3vBXBo4S22fkRzllSvrHBmWWE7EO5YJfdtbTgKcQ2ajFT0u-izOlyvItg2WGqrz9v_FK7gyc3Yj3ghCHDj1uM8RvOLTqFTFsnZM-Tk9DF0hsppwBmr6PlPVpmzY41OJm3c8Plq66TkvWkCO2tSuqLyoP01q5mk49lOUjCPfps7KjOhL1c81Q6kspyQlFeSMZ1X-uXdRjjEG0vizvyzzpCafRPzM8hawkuT9bXRGoWLw2a-EdM7Ib0djqABrGkyS5ruvoq7wIM8S-pBGEA4IPnw6TitDhghf4yWhWIum6CopLHP6V6Ne5NIPOwhekKQUlwbVQp2omSF_H2WQcRZRe27cX9eSE9QciQoC7cQ0n3rJYMOw=w850-h700-no?authuser=0");
-  width: 70%;
+  width: 850px;
   height: 700px;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   border-radius: 5px;
+  padding-top: 100px;
 }
 
 .display-block {
@@ -244,6 +280,24 @@ body {
   display: none;
 }
 
-.not-active{
+.not-active {
   font-weight: normal;
+}
+
+.close-modal {
+  position: absolute;
+  font-size: 20px;
+  color: #a7a7ab;
+  margin-left: 300px;
+  top: 10px;
+  background-color: #f8f8f8;
+  border-radius: 50%;
+  display: inline-block;
+  cursor: pointer;
+  color: #a7a7ab;
+  font-family: Arial;
+  font-size: 23px;
+  font-weight: bold;
+  padding: 10px 12px;
+  text-decoration: none;
 }

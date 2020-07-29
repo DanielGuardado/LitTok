@@ -1,15 +1,16 @@
 import { connect } from "react-redux";
-import Navbar from "./navbar";
-import { logout } from "../../actions/session_actions";
+import Modals from "./modal";
+import { login, clearErrors } from "../../actions/session_actions";
 
-const mapStateToProps = (state) => ({
-  currentUser: state.session.currentUser
-    ? state.entities.users[state.session.currentUser.id]
-    : {},
-});
+// const mapStateToProps = (state) => ({
+//   errors: state.errors.session,
+//   currentUser: state.session.currentUser
+//     ? state.entities.users[state.session.currentUser.id]
+//     : {},
+// });
 
 const mapDispatchToProps = (dispatch) => ({
-  logout: () => dispatch(logout()),
+  clearErrors: () => dispatch(clearErrors()),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Navbar);
+export default connect(null, mapDispatchToProps)(Modals);

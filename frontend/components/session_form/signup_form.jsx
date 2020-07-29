@@ -12,6 +12,10 @@ class Signup extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  componentWillUnmount() {
+    this.props.clearErrors();
+  }
+
   handleInput(field) {
     return (e) => this.setState({ [field]: e.currentTarget.value });
   }
@@ -77,7 +81,11 @@ class Signup extends React.Component {
     );
   }
   errs() {
-    return <div>{this.props.errors}</div>;
+    let errors = this.props.errors ? this.props.errors : "";
+    let errorMessages = errors.map((error, key) => (
+      <div key={key}>{error}</div>
+    ));
+    return <div>{errorMessages}</div>;
   }
 
   nav() {
@@ -91,12 +99,11 @@ class Signup extends React.Component {
   }
 
   render() {
-    const errors = this.props.errors ? this.errs() : "";
     return (
       <div>
         {this.nav()}
         {this.signupForm()}
-        {errors}
+        {this.errs()}
       </div>
     );
   }

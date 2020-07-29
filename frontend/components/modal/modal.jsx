@@ -1,7 +1,5 @@
 import React from "react";
-import Modal from "react-modal";
 import ModalShow from "./modalShow";
-import Login from "../session_form/login_form_container";
 
 class Modals extends React.Component {
   constructor(props) {
@@ -20,11 +18,13 @@ class Modals extends React.Component {
   };
 
   render() {
-    const { classname } = this.props
+    const { classname } = this.props;
     return (
       <div>
-        <ModalShow show={this.state.show} handleClose={this.hideModal}>
-        </ModalShow>
+        <ModalShow
+          show={this.state.show}
+          handleClose={this.hideModal}
+        ></ModalShow>
         <button className={classname} onClick={this.showModal}>
           Login
         </button>

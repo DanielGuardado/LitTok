@@ -1,13 +1,16 @@
 import React from "react";
 import Login from "../session_form/login_form_container";
-const ModalShow = ({ handleClose, show}) => {
+
+const ModalShow = ({ handleClose, show }) => {
   const showHide = show ? "modal display-block" : "modal display-none";
 
   return (
     <div className={showHide}>
       <section className="modal-main">
-        <Login handleClose={handleClose}/>
-        <button onClick={handleClose}>X</button>
+        <button className="close-modal" onClick={handleClose}>
+          X
+        </button>
+        <Login handleClose={handleClose} />
       </section>
     </div>
   );
