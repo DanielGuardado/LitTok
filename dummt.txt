@@ -1,0 +1,56 @@
+import React from "react";
+import Login from "../session_form/login_form_container";
+import Logout from "../session_form/signup_form_container";
+
+const ModalShow = ({ handleClose, show }) => {
+  const showHide = show ? "modal display-block" : "modal display-none";
+  let logForm = <Login handleClose={handleClose} />;
+  let logoutForm = <Logout handleClose={handleClose} />;
+
+  return (
+    <div className={showHide}>
+      <section className="modal-main">
+        <button className="close-modal" onClick={handleClose}>
+          X
+        </button>
+        {logForm}
+      </section>
+      <p>
+        Don't have an account?{logoutForm}
+      </p>
+    </div>
+  );
+};
+
+export default ModalShow;
+
+
+import React from "react";
+import Login from "../session_form/login_form_container";
+import Logout from "../session_form/signup_form_container";
+
+const ModalShow = ({ handleClose, show }) => {
+  const showHide = show ? "modal display-block" : "modal display-none";
+  let logForm = true;
+  if (logForm === true) {
+    logForm = <Login handleClose={handleClose} />;
+  } else {
+    logForm = <Logout handleClose={handleClose} />;
+  }
+
+  return (
+    <div className={showHide}>
+      <section className="modal-main">
+        <button className="close-modal" onClick={handleClose}>
+          X
+        </button>
+        {logForm}
+        <p>
+          Don't have an account? <button>Signup</button>
+        </p>
+      </section>
+    </div>
+  );
+};
+
+export default ModalShow;

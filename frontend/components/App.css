@@ -12,13 +12,6 @@ h3 {
   font-size: 2rem;
 }
 
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
-    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-}
-
 label {
   display: inline-block;
   margin-bottom: 0.5rem;
@@ -32,6 +25,10 @@ h2 {
   margin-inline-start: 0px;
   margin-inline-end: 0px;
 } */
+
+button:focus {
+  outline: 0;
+}
 
 button {
   padding: 0;
@@ -288,13 +285,31 @@ body {
   position: absolute;
   font-size: 20px;
   color: #a7a7ab;
-  margin-left: 300px;
+  margin-left: 350px;
   top: 10px;
   background-color: #f8f8f8;
   border-radius: 50%;
   display: inline-block;
   cursor: pointer;
   color: #a7a7ab;
+  font-family: Arial;
+  font-size: 23px;
+  font-weight: bold;
+  padding: 8px 16px;
+  text-decoration: none;
+}
+
+.close-modal2 {
+  position: absolute;
+  font-size: 20px;
+  color: red;
+  margin-left: 300px;
+  top: 10px;
+  background-color: black;
+  border-radius: 50%;
+  display: inline-block;
+  cursor: pointer;
+  color: blue;
   font-family: Arial;
   font-size: 23px;
   font-weight: bold;

@@ -1,5 +1,6 @@
 import React from "react";
 import ModalShow from "./modalShow";
+import { clearErrors } from "../../actions/session_actions";
 
 class Modals extends React.Component {
   constructor(props) {

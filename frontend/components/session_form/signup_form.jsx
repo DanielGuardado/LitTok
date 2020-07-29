@@ -10,6 +10,7 @@ class Signup extends React.Component {
       birthday: "",
     };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleX = this.handleX.bind(this);
   }
 
   componentWillUnmount() {
@@ -24,6 +25,28 @@ class Signup extends React.Component {
     e.preventDefault();
     let user = Object.assign({}, this.state);
     this.props.signUp(user);
+    if (this.props.handleClose && this.props.currentUser.id) {
+      this.props.handleClose();
+    }
+  }
+
+  handleX() {
+    this.props.handleClose();
+    this.props.clearErrors();
+    this.props.resetState();
+  }
+
+  nav() {
+    if (this.props.handleClose) {
+      return;
+    }
+    return (
+      <div className="navbar2 underline flex space-between">
+        <Link to="/">
+          <img src={window.logo} alt="littok" height="40" width="150" />
+        </Link>
+      </div>
+    );
   }
 
   signupForm() {
@@ -72,14 +95,22 @@ class Signup extends React.Component {
             Sign Up
           </button>
         </form>
+      </div>
+    );
+  }
+
+  footerForm() {
+    if (!this.props.handleClose) {
+      return (
         <footer>
           <p>
             Already have an account? <Link to="/login">Log in</Link>
           </p>
         </footer>
-      </div>
-    );
+      );
+    }
   }
+
   errs() {
     let errors = this.props.errors ? this.props.errors : "";
     let errorMessages = errors.map((error, key) => (
@@ -88,21 +119,23 @@ class Signup extends React.Component {
     return <div>{errorMessages}</div>;
   }
 
-  nav() {
-    return (
-      <div className="navbar2 underline flex space-between">
-        <Link to="/">
-          <img src={window.logo} alt="littok" height="40" width="150" />
-        </Link>
-      </div>
-    );
+  buttonStatus() {
+    if (this.props.handleClose) {
+      return (
+        <button className="close-modal" onClick={this.handleX}>
+          ✘
+        </button>
+      );
+    }
   }
 
   render() {
     return (
       <div>
+        {this.buttonStatus()}
         {this.nav()}
         {this.signupForm()}
+        {this.footerForm()}
         {this.errs()}
       </div>
     );

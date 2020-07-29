@@ -9,10 +9,17 @@ class Login extends React.Component {
       password: "",
     };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleX = this.handleX.bind(this);
   }
 
-  componentWillUnmount(){
-    this.props.clearErrors()
+  // componentDidUpdate(prevProps) {
+  //   if (prevProps.errors === this.props.errors) {
+  //     this.props.clearErrors();
+  //   }
+  // }
+
+  componentWillUnmount() {
+    this.props.clearErrors();
   }
 
   handleInput(field) {
@@ -23,11 +30,16 @@ class Login extends React.Component {
     e.preventDefault();
     const user = Object.assign({}, this.state);
     this.props.login(user);
-
+    this.setState({ username: "", password: "" });
     if (this.props.handleClose && this.props.currentUser.id) {
       //IT WORKED!!!!!
       this.props.handleClose();
     }
+  }
+
+  handleX() {
+    this.props.handleClose();
+    this.props.clearErrors();
   }
 
   nav() {
@@ -41,6 +53,17 @@ class Login extends React.Component {
         </Link>
       </div>
     );
+  }
+  footerForm() {
+    if (!this.props.handleClose) {
+      return (
+        <footer>
+          <p>
+            Don't have an account?<Link to="/signup">Sign Up</Link>
+          </p>
+        </footer>
+      );
+    }
   }
 
   loginForm() {
@@ -70,25 +93,34 @@ class Login extends React.Component {
             Log in
           </button>
         </form>
-        <footer>
-          <p>
-            Don't have an account?<Link to="/signup">Sign Up</Link>
-          </p>
-        </footer>
       </div>
     );
   }
   errs() {
     let errors = this.props.errors ? this.props.errors : "";
-    let errorMessages = errors.map((error, idx) => <div key={idx}>{error}</div>);
+    let errorMessages = errors.map((error, idx) => (
+      <div key={idx}>{error}</div>
+    ));
     return <div>{errorMessages}</div>;
+  }
+
+  buttonStatus() {
+    if (this.props.handleClose) {
+      return (
+        <button className="close-modal" onClick={this.handleX}>
+          ✘
+        </button>
+      );
+    }
   }
 
   render() {
     return (
       <div>
+        {this.buttonStatus()}
         {this.nav()}
         {this.loginForm()}
+        {this.footerForm()}
         {this.errs()}
       </div>
     );
