@@ -56,7 +56,7 @@ class Signup extends React.Component {
         <form>
           <h2>Sign up</h2>
           <label>
-            When's your birthday?
+            When's your birthday?{" "}
             <input
               type="date"
               name="birthday"
