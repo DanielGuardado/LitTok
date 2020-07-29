@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Modals from '../modal/modal'
+import Modals from "../modal/modal";
 
 class Sidebar extends React.Component {
   constructor(props) {
@@ -47,11 +47,11 @@ class Sidebar extends React.Component {
             <img src={window.house} alt="littok" height="35" width="35" />
             For You
           </span>
-          <span className="disp1 box">
+          <span className="disp1 box not-active">
             <img src={window.hash} alt="littok" height="30" width="30" />
             Discover
           </span>
-          <span className="disp1 box">
+          <span className="disp1 box not-active">
             <img src={window.social} alt="littok" height="30" width="35" />
             Following
           </span>

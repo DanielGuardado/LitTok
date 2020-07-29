@@ -19,10 +19,16 @@ class Login extends React.Component {
     e.preventDefault();
     const user = Object.assign({}, this.state);
     this.props.login(user);
-    this.props.handleClose();
+    if (this.props.handleClose) {
+      //IT WORKED!!!!!
+      this.props.handleClose();
+    }
   }
 
   nav() {
+    if (this.props.handleClose) {
+      return;
+    }
     return (
       <div className="navbar2 underline flex space-between">
         <Link to="/">

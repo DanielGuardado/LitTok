@@ -21,7 +21,27 @@ button {
 .space-between {
   justify-content: space-between;
 }
-
+.LogoutButton:hover {
+  background-color: #f47792;
+  color: white;
+  text-decoration: none;
+}
+.LogoutButton:active {
+  position: relative;
+  top: 1px;
+  text-decoration: none;
+}
+.LogoutButton {
+  background-color: #f12c54;
+  border-radius: 2px;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: Arial;
+  font-size: 18px;
+  padding: 12px 52.5px;
+  text-decoration: none;
+}
 .LogButton {
   background-color: #f12c54;
   border-radius: 2px;
@@ -33,18 +53,15 @@ button {
   padding: 12px 58px;
   text-decoration: none;
 }
-.LogButtonSide {
-  border-radius: 2px;
-  display: inline-block;
-  cursor: pointer;
-  color: #f12c54;
-  border: 1px solid #f12c54;
-  padding: 12px 58px;
+.LogButton:hover {
+  background-color: #f47792;
+  color: white;
   text-decoration: none;
 }
-.LogButtonSide:hover {
+.LogButton:active {
+  position: relative;
+  top: 1px;
   text-decoration: none;
-  color: #f12c54;
 }
 /* button.bpadding {
   border-radius: 2px;
@@ -55,6 +72,15 @@ button {
   padding: 12px 38px;
   text-decoration: none;
 } */
+.LogButtonSide {
+  border-radius: 2px;
+  display: inline-block;
+  cursor: pointer;
+  color: #f12c54;
+  border: 1px solid #f12c54;
+  padding: 12px 58px;
+  text-decoration: none;
+}
 
 .LogButtonSide2 {
   border-radius: 2px;
@@ -82,15 +108,9 @@ button {
   text-decoration: none;
   color: #f12c54;
 }
-.LogButton:hover {
-  background-color: #f47792;
-  color: white;
+.LogButtonSide:hover {
   text-decoration: none;
-}
-.LogButton:active {
-  position: relative;
-  top: 1px;
-  text-decoration: none;
+  color: #f12c54;
 }
 
 .center1 {
@@ -222,4 +242,8 @@ body {
 
 .display-none {
   display: none;
+}
+
+.not-active{
+  font-weight: normal;
 }
