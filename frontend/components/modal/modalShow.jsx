@@ -21,16 +21,20 @@ class ModalShow extends React.Component {
   status() {
     if (this.state.logForm === true) {
       return (
-        <p>
+        <p className="small-login">
           Don't have an account?{" "}
-          <button onClick={this.handleSignupClick}>Signup</button>
+          <button className="red" onClick={this.handleSignupClick}>
+            Signup
+          </button>
         </p>
       );
     } else {
       return (
-        <p>
+        <p className="small-login">
           Already have an account?{" "}
-          <button onClick={this.handleLoginClick}>Login</button>
+          <button className="red" onClick={this.handleLoginClick}>
+            Login
+          </button>
         </p>
       );
     }
@@ -44,7 +48,9 @@ class ModalShow extends React.Component {
     if (logForm === true) {
       logForm2 = <Login handleClose={handleClose} />;
     } else {
-      logForm2 = <Logout handleClose={handleClose} resetState={this.handleLoginClick}/>;
+      logForm2 = (
+        <Logout handleClose={handleClose} resetState={this.handleLoginClick} />
+      );
     }
 
     return (

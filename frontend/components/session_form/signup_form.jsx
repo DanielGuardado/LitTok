@@ -103,8 +103,11 @@ class Signup extends React.Component {
     if (!this.props.handleClose) {
       return (
         <footer>
-          <p>
-            Already have an account? <Link to="/login">Log in</Link>
+          <p className="small-login">
+            Already have an account?{" "}
+            <Link className="red" to="/login">
+              Log in
+            </Link>
           </p>
         </footer>
       );

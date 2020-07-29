@@ -316,3 +316,13 @@ body {
   padding: 10px 12px;
   text-decoration: none;
 }
+
+.small-login {
+  font-size: 12px;
+  font-weight: normal;
+}
+
+.red {
+  color: #f12c54;
+  text-decoration: none;
+}
