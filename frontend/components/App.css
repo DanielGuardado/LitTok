@@ -46,7 +46,30 @@ button {
   text-decoration: none;
   color: #f12c54;
 }
+/* button.bpadding {
+  border-radius: 2px;
+  display: inline-block;
+  cursor: pointer;
+  color: #f12c54;
+  border: 1px solid #f12c54;
+  padding: 12px 38px;
+  text-decoration: none;
+} */
+
 .LogButtonSide2 {
+  border-radius: 2px;
+  display: inline-block;
+  cursor: pointer;
+  color: #f12c54;
+  border: 1px solid #f12c54;
+  padding: 12px 59px;
+  text-decoration: none;
+}
+.LogButtonSide2:hover {
+  text-decoration: none;
+  color: #f12c54;
+}
+.LogButtonSide3 {
   border-radius: 2px;
   display: inline-block;
   cursor: pointer;
@@ -55,7 +78,7 @@ button {
   padding: 12px 38px;
   text-decoration: none;
 }
-.LogButtonSide2:hover {
+.LogButtonSide3:hover {
   text-decoration: none;
   color: #f12c54;
 }
@@ -83,7 +106,6 @@ button {
   flex-wrap: wrap;
   align-items: center;
   padding: 0.5rem 1rem;
-  z-index: 2;
 }
 
 .navbar2 {
@@ -97,14 +119,14 @@ input[type="text"],
 select,
 input[type="password"],
 textarea {
-  width: 100%; /* Full width */
-  padding: 12px; /* Some padding */
-  border: 1px solid #ccc; /* Gray border */
-  border-radius: 4px; /* Rounded borders */
-  box-sizing: border-box; /* Make sure that padding and width stays in place */
-  margin-top: 6px; /* Add a top margin */
-  margin-bottom: 16px; /* Bottom margin */
-  resize: vertical; /* Allow the user to vertically resize the textarea (not horizontally) */
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
 }
 
 .containerlog {
@@ -137,7 +159,6 @@ body {
   height: 100%;
   width: 250px;
   position: fixed;
-  z-index: 1;
   top: 0;
   left: 0;
   overflow-x: hidden;
@@ -173,10 +194,6 @@ body {
 .box {
   display: flex;
   justify-content: space-evenly;
-}
-
-.zindex3 {
-  z-index: 2;
 }
 
 .modal {

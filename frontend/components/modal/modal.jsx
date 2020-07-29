@@ -20,11 +20,12 @@ class Modals extends React.Component {
   };
 
   render() {
+    const { classname } = this.props
     return (
       <div>
         <ModalShow show={this.state.show} handleClose={this.hideModal}>
         </ModalShow>
-        <button className="LogButton" onClick={this.showModal}>
+        <button className={classname} onClick={this.showModal}>
           Login
         </button>
       </div>

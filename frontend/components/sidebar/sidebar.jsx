@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Modals from '../modal/modal'
 
 class Sidebar extends React.Component {
   constructor(props) {
@@ -29,12 +30,10 @@ class Sidebar extends React.Component {
       status = (
         <div>
           <div className="bpadding2">
-            <Link to="/login" className="LogButtonSide">
-              Login
-            </Link>
+            <Modals classname={"LogButtonSide2"} />
           </div>
           <div>
-            <button className="LogButtonSide2" onClick={this.handleSubmit}>
+            <button className="LogButtonSide3" onClick={this.handleSubmit}>
               Demo User
             </button>
           </div>

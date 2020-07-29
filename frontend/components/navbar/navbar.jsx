@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Modals from "../modal/modal";
 class Navbar extends React.Component {
   constructor(props) {
     super(props);
@@ -35,11 +36,7 @@ class Navbar extends React.Component {
         </button>
       );
     } else {
-      loggedIn = (
-        <Link to="/login" className="LogButton">
-          Login
-        </Link>
-      );
+      loggedIn = <Modals classname={"LogButton"} />;
     }
     return (
       <div className="navbar1 underline flex space-between">
