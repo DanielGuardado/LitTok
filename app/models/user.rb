@@ -20,7 +20,8 @@ class User < ApplicationRecord
   after_initialize :ensure_session_token
 
   has_many :videos,
-    foreign_key: :id,
+    primary_key: :id,
+    foreign_key: :uploader_id,
     class_name: :Video,
     dependent: :destroy
 

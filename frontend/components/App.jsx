@@ -7,6 +7,7 @@ import Sidebar from "./sidebar/sidebar_container";
 import { Route, Switch } from "react-router-dom";
 import { AuthRoute } from "../util/route_util";
 import Navbar from "../components/navbar/navbar_conatiner";
+import VideoForm from '../components/video/video_form_container'
 
 const App = () => (
   <div>
@@ -16,6 +17,7 @@ const App = () => (
       <Route path="/">
         <Navbar />
         <Sidebar />
+        <VideoForm />
       </Route>
     </Switch>
   </div>

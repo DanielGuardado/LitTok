@@ -14,7 +14,7 @@ export const createVideo = (video) => (
     url: `/api/videos`,
     data: video,
     contentType: false,
-    processData: false
+    processData: false 
   })
 )
 

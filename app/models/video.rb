@@ -14,6 +14,7 @@ class Video < ApplicationRecord
   has_one_attached :video
 
   belongs_to :user,
+    primary_key: :id,
     foreign_key: :uploader_id,
     class_name: :User
 
