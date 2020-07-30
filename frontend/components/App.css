@@ -158,6 +158,7 @@ button {
   flex-wrap: wrap;
   align-items: center;
   padding: 0.5rem 1rem;
+  background-color: white;
 }
 
 .navbar2 {
@@ -325,4 +326,37 @@ body {
 .red {
   color: #f12c54;
   text-decoration: none;
+}
+
+.videoBox {
+  background-color: #020102;
+  border-radius: 5px;
+}
+
+.fixed {
+  position: fixed;
+  width: 100%;
+}
+
+
+.push-down {
+  padding-top: 200px;
+}
+
+.padding-bottom-vid {
+  padding-bottom: 70px;
+}
+
+.underline-vid {
+  border-bottom: solid 1px #cfdcdc;
+  padding-bottom: 15px;
+  padding-top: 20px;
+}
+
+html {
+  overflow: scroll;
+}
+::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
 }

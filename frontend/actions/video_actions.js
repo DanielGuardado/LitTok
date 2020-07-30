@@ -1,6 +1,8 @@
-export const RECEIVE_ALL_VIDEOS = "RECEIVE_USER";
-export const RECEIVE_VIDEO = "RECEIVE_ERRORS";
-export const REMOVE_VIDEO = "LOGOUT_USER";
+export const RECEIVE_ALL_VIDEOS = "RECEIVE_ALL_VIDEOS";
+export const RECEIVE_VIDEO = "RECEIVE_VIDEO";
+export const REMOVE_VIDEO = "REMOVE_VIDEO";
+
+//note more specific
 export const RECEIVE_ERRORS = "RECEIVE_ERRORS";
 export const CLEAR_ERRORS = "CLEAR_ERRORS";
 import * as VideoAPIutil from "../util/video_api_util";

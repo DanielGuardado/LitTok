@@ -18,7 +18,7 @@ class Navbar extends React.Component {
       loggedIn = <Modals classname={"LogButton"} />;
     }
     return (
-      <div className="navbar1 underline flex space-between">
+      <div className="navbar1 underline flex space-between fixed">
         <Link to="/">
           <img src={window.logo} alt="littok" height="40" width="150" />
         </Link>

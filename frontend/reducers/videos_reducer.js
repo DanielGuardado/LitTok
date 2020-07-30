@@ -5,7 +5,7 @@ import {
 } from "../actions/video_actions";
 
 const VideoReducer = (state = {}, action) => {
-  switch (action.key) {
+  switch (action.type) {
     case RECEIVE_ALL_VIDEOS:
       return action.videos;
     case RECEIVE_VIDEO:

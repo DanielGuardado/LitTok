@@ -62,7 +62,7 @@ class VideoForm extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="push-down">
         {this.videoUploadForm()}
         {this.errs()}
       </div>

@@ -7,7 +7,8 @@ import Sidebar from "./sidebar/sidebar_container";
 import { Route, Switch } from "react-router-dom";
 import { AuthRoute } from "../util/route_util";
 import Navbar from "../components/navbar/navbar_conatiner";
-import VideoForm from '../components/video/video_form_container'
+import VideoForm from "../components/video/video_form_container";
+import VideoIndex from "../components/video/video_index_container";
 
 const App = () => (
   <div>
@@ -18,6 +19,7 @@ const App = () => (
         <Navbar />
         <Sidebar />
         <VideoForm />
+        <VideoIndex />
       </Route>
     </Switch>
   </div>
