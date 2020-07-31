@@ -208,6 +208,7 @@ body {
   display: block;
   font-size: 23px;
   padding: 5px;
+  margin-right: 14px;
 }
 
 .sidenav {
@@ -334,6 +335,8 @@ body {
 .videoBox {
   background-color: #020102;
   border-radius: 5px;
+  margin-left: 245px;
+  margin-right: 550px;
 }
 
 /* .fixed {

@@ -1,4 +1,5 @@
 import React from "react";
+import DropZone from "react-dropzone";
 
 class VideoForm extends React.Component {
   constructor(props) {
@@ -9,8 +10,6 @@ class VideoForm extends React.Component {
       uploader_id: this.props.currentUser.id,
       videoUrl: null,
     };
-    // this.handleSubmit = this.handleSubmit.bind(this)
-    // this.handleFile = this.handleFile.bind(this)
   }
 
   handleInput(field) {
@@ -19,6 +18,7 @@ class VideoForm extends React.Component {
 
   handleFile(e) {
     const file = e.currentTarget.files[0];
+    debugger;
     const fileReader = new FileReader();
     fileReader.onloadend = () => {
       this.setState({ videoFile: file, videoUrl: fileReader.result });
@@ -60,10 +60,37 @@ class VideoForm extends React.Component {
     );
   }
 
+  onDrop = (acceptedFiles) => {
+    const file = acceptedFiles[0]
+    const fileReader = new FileReader();
+    fileReader.onloadend = () => {
+      this.setState({ videoFile: file, videoUrl: fileReader.result });
+    };
+    if (file) {
+      fileReader.readAsDataURL(file);
+    }
+  };
+
+  dropZone() {
+    return (
+      <div>
+        <DropZone onDrop={this.onDrop}>
+          {({ getRootProps, getInputProps }) => (
+            <div {...getRootProps()}>
+              <input {...getInputProps()} />
+              Click to upload
+            </div>
+          )}
+        </DropZone>
+      </div>
+    );
+  }
+
   render() {
     return (
       <div className="push-down">
         {this.videoUploadForm()}
+        {this.dropZone()}
         {this.errs()}
       </div>
     );

@@ -9,7 +9,6 @@ import { AuthRoute, ProtectedRoute } from "../util/route_util";
 import Navbar from "../components/navbar/navbar_conatiner";
 import VideoForm from "../components/video/video_form_container";
 import VideoIndex from "../components/video/video_index_container";
-
 const App = () => (
   <div>
     <Switch>
