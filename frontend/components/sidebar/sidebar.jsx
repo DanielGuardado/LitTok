@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Modals from "../modal/modal";
+import Navbar from '../navbar/navbar_conatiner'
 
 class Sidebar extends React.Component {
   constructor(props) {
@@ -41,7 +42,9 @@ class Sidebar extends React.Component {
       );
     }
     return (
-      <div className="sidenav">
+      <div>
+      <div className="sidenav zin">
+       <Navbar className="padding-reset"/>
         <div className="bpadding">
           <span className="disp1 box active">
             <img src={window.house} alt="littok" height="35" width="35" />
@@ -60,6 +63,7 @@ class Sidebar extends React.Component {
           Log in to follow creators, like videos, and comments.
         </p>
         {status}
+      </div>
       </div>
     );
   }

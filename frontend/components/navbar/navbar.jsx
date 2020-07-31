@@ -1,9 +1,31 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Modals from "../modal/modal";
+import VideoForm from "../video/video_form_container";
 class Navbar extends React.Component {
   constructor(props) {
     super(props);
+  }
+
+  uploadBtn() {
+    if (this.props.currentUser.id) {
+      return (
+        <div>
+          <Link to="/upload">
+            <img className="upload-btn" src={window.upload} alt="upload" />
+          </Link>
+        </div>
+      );
+    } else {
+      return (
+        <Link to="/login">
+          <img className="upload-btn" src={window.upload} alt="upload" />
+        </Link>
+        // <Modals classname={"LogButton"}>
+        //   <img className="upload-btn" src={window.upload} alt="upload" />
+        // </Modals>
+      );
+    }
   }
 
   render() {
@@ -22,6 +44,11 @@ class Navbar extends React.Component {
         <Link to="/">
           <img src={window.logo} alt="littok" height="40" width="150" />
         </Link>
+
+        {/* <Link to="/upload">
+          <img className="upload-btn" src={window.upload} alt="upload" />
+        </Link> */}
+        {this.uploadBtn()}
         {loggedIn}
       </div>
     );
