@@ -105,15 +105,7 @@ button {
   top: 1px;
   text-decoration: none;
 }
-/* button.bpadding {
-  border-radius: 2px;
-  display: inline-block;
-  cursor: pointer;
-  color: #f12c54;
-  border: 1px solid #f12c54;
-  padding: 12px 38px;
-  text-decoration: none;
-} */
+
 .LogButtonSide {
   border-radius: 2px;
   display: inline-block;
@@ -349,14 +341,6 @@ body {
   margin-right: 550px;
 }
 
-/* .fixed {
-  position: fixed;
-  width: 100%;
-} */
-
-/* .push-down {
-  padding-top: 200px;
-} */
 .zin {
   z-index: 5;
 }
@@ -568,4 +552,17 @@ html {
   position: relative;
   top: 1px;
   text-decoration: none;
+}
+
+.dropdown{
+  height: 30px;
+  background-color: #f12c54;
+  padding: 5px
+}
+
+.dropdown-drop{
+  max-width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-end;
 }
