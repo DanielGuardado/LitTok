@@ -1,6 +1,6 @@
 import React from "react";
 import ReactPlayer from "react-player";
-
+import {Link} from 'react-router-dom'
 class VideoIndexItem extends React.Component {
   constructor(props) {
     super(props);
@@ -9,6 +9,11 @@ class VideoIndexItem extends React.Component {
   videoRender() {
     return (
       <div className="underline-vid">
+        <div className="title-desc">
+          <h3>{this.props.video.username}</h3>
+          <Link to={`/videos/${this.props.video.id}`}><p>{this.props.video.description}</p></Link>
+        </div>
+
         <ReactPlayer
           playing={true}
           className="videoBox"

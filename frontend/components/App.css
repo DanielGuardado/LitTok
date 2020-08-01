@@ -31,6 +31,11 @@ input:focus {
   outline: none;
 }
 
+a:focus {
+  outline: none;
+  text-emphasis: none;
+}
+
 button:focus {
   outline: 0;
 }
@@ -364,8 +369,7 @@ body {
   margin-top: 20px;
   border-bottom: solid 1px #cfdcdc;
   padding-bottom: 30px;
-  display: flex;
-  justify-content: space-evenly;
+  padding-left: 100px;
 }
 
 html {
@@ -473,13 +477,69 @@ html {
   box-shadow: 0px 0px 4px 2px rgba(0, 0, 0, 0.48);
 }
 
-.no-file{
-position: absolute;
-    top: 510px;
-    left: 45px;
-    width: 240px;
-    font-size: 12px;
-    background: #F8F8F8;
-    color: #FF2C4A;
-    font-weight: bold;
+.no-file {
+  position: absolute;
+  top: 510px;
+  left: 45px;
+  width: 240px;
+  font-size: 12px;
+  background: #f8f8f8;
+  color: #ff2c4a;
+  font-weight: bold;
+}
+
+.title-desc {
+  width: 50%;
+}
+
+.show-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.details {
+  margin: 100px;
+}
+
+.background-show {
+  display: flex;
+  justify-content: center;
+  width: 70%;
+  background: rgb(234 231 231 / 55%);
+  height: 1000px;
+}
+
+.videoShowBox2 {
+  width: 80%;
+  height: 800px;
+}
+
+.closeVid {
+  position: absolute;
+  font-size: 20px;
+  color: #FFFFFF;
+  top: 25px;
+  background-color: #50504D;
+  border-radius: 50%;
+  display: inline-block;
+  cursor: pointer;
+  font-family: Arial;
+  font-size: 23px;
+  font-weight: bold;
+  padding: 8px 16px;
+  text-decoration: none;
+  left: 30px
+}
+
+.username {
+}
+
+.desc {
+  display: flex;
+  align-items: flex-start;
+}
+
+.static-username {
+  position: static;
+  margin: 100px 50px 20px 0px;
 }
