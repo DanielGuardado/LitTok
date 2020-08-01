@@ -517,9 +517,9 @@ html {
 .closeVid {
   position: absolute;
   font-size: 20px;
-  color: #FFFFFF;
+  color: #ffffff;
   top: 25px;
-  background-color: #50504D;
+  background-color: #50504d;
   border-radius: 50%;
   display: inline-block;
   cursor: pointer;
@@ -528,10 +528,7 @@ html {
   font-weight: bold;
   padding: 8px 16px;
   text-decoration: none;
-  left: 30px
-}
-
-.username {
+  left: 30px;
 }
 
 .desc {
@@ -543,7 +540,6 @@ html {
   position: static;
   margin: 100px 50px 20px 0px;
 }
-
 
 .DelButton {
   background-color: #f12c54;
