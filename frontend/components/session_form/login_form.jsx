@@ -12,12 +12,6 @@ class Login extends React.Component {
     this.handleX = this.handleX.bind(this);
   }
 
-  // componentDidUpdate(prevProps) {
-  //   if (prevProps.errors === this.props.errors) {
-  //     this.props.clearErrors();
-  //   }
-  // }
-
   componentWillUnmount() {
     this.props.clearErrors();
   }

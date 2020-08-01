@@ -11,7 +11,7 @@ const mapStateToProps = (state, ownProps) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   fetchVideo: (videoId) => dispatch(fetchVideo(videoId)),
-  deleteVideo: (videoId) => dispatch(deleteVideo(videoId))
+  deleteVideo: (videoId) => dispatch(deleteVideo(videoId)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(VideoShow);
