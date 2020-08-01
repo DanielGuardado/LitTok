@@ -25,6 +25,7 @@ const App = () => (
         <VideoIndex />
         {/* <Navbar /> */}
       </Route>
+      {/* <Route component={Error} /> */}
     </Switch>
   </div>
 );

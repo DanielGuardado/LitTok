@@ -21,11 +21,27 @@ class VideoShow extends React.Component {
     );
   }
 
+  deleteBtn() {
+    if (
+      JSON.stringify(this.props.currentUser.id) === this.props.video.uploader_id
+    ) {
+      return (
+        <button
+          className="DelButton"
+          onClick={() => this.props.deleteVideo(this.props.video.id)}
+        >
+          Delete Video
+        </button>
+      );
+    }
+  }
+
   render() {
     const { video } = this.props;
 
     return (
       <div>
+        {this.deleteBtn()}
         <div className="show-container">
           <div className="background-show">{this.vidShow()}</div>
           <Link className="closeVid" to="/">

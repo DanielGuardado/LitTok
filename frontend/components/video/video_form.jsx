@@ -68,7 +68,7 @@ class VideoForm extends React.Component {
             Upload
           </button>
         </form>
-        <button className="discard-btn" onClick={this.discard}>
+        <button className="discard-btn" onClick={() => this.discard()}>
           Discard
         </button>
       </div>
@@ -76,13 +76,13 @@ class VideoForm extends React.Component {
   }
 
   discard() {
-    this.setState = {
+    this.setState({
       description: "",
       videoFile: null,
       uploader_id: this.props.currentUser.id,
       videoUrl: null,
       statusTrigger: false,
-    };
+    });
   }
 
   onDrop = (acceptedFiles) => {
@@ -105,7 +105,8 @@ class VideoForm extends React.Component {
     } else {
       return (
         <div className="no-file">
-          No video is currently loaded, make sure video is less than 60 seconds long
+          No video is currently loaded, make sure video is less than 60 seconds
+          long
         </div>
       );
     }
