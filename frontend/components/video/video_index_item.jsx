@@ -15,6 +15,7 @@ class VideoIndexItem extends React.Component {
           height={520}
           width={350}
           controls={true}
+          volume={0}
           url={this.props.video.videoUrl}
         />
       </div>

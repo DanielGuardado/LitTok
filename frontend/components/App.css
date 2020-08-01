@@ -26,6 +26,11 @@ h2 {
   margin-inline-end: 0px;
 } */
 
+textarea:focus,
+input:focus {
+  outline: none;
+}
+
 button:focus {
   outline: 0;
 }
@@ -383,4 +388,98 @@ html {
   position: absolute;
   right: 212px;
   top: 19px;
+}
+
+.boxy {
+  margin-left: 20px;
+  width: 290px;
+  height: 450px;
+  background-image: url("https://i.imgur.com/TUOQo0E.png");
+}
+.heightUpload {
+  padding-top: 40px;
+  height: 450px;
+  border-radius: 3px;
+}
+
+.txt-light {
+  color: #b6b7b9;
+}
+
+.redtxt {
+  color: #f12c54;
+}
+
+.header-form {
+  width: 330px;
+}
+
+.caption {
+  position: absolute;
+  right: 200px;
+  width: 500px;
+}
+
+.caption-text {
+  display: flex;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.upload-btn1 {
+  background-color: #f12c54;
+  border-radius: 2px;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: Arial;
+  font-size: 14px;
+  padding: 12px 58.5px;
+  text-decoration: none;
+  position: absolute;
+  bottom: -40px;
+  left: 340px;
+}
+
+.upload2 {
+  display: flex;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.discard-btn {
+  position: relative;
+  bottom: -30px;
+  right: -32px;
+}
+
+.h1-upload {
+  font-size: 54px;
+  font-weight: bold;
+  padding-top: 50px;
+}
+
+.p-upload {
+  color: #83848a;
+  font-size: 18px;
+}
+
+.focus {
+  text-decoration: none;
+}
+
+.focus:focus {
+  -webkit-box-shadow: 0px 0px 4px 2px rgba(0, 0, 0, 0.48);
+  box-shadow: 0px 0px 4px 2px rgba(0, 0, 0, 0.48);
+}
+
+.no-file{
+position: absolute;
+    top: 510px;
+    left: 45px;
+    width: 240px;
+    font-size: 12px;
+    background: #F8F8F8;
+    color: #FF2C4A;
+    font-weight: bold;
 }

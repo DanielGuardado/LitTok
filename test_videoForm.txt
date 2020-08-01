@@ -10,8 +10,6 @@ class VideoForm extends React.Component {
       videoFile: null,
       uploader_id: this.props.currentUser.id,
       videoUrl: null,
-      statusTrigger: false,
-      sizeTrigger: false,
     };
   }
 
@@ -41,6 +39,16 @@ class VideoForm extends React.Component {
     }
     this.props.createVideo(formData);
   }
+  // handleSubmit(e) {
+  //   e.preventDefault();
+  //   const formData = new FormData();
+  //   formData.append("video[description", this.state.description);
+  //   formData.append("video[uploader_id]", this.state.uploader_id);
+  //   if (this.state.videoFile) {
+  //     formData.append("video[video]", this.state.videoFile);
+  //   }
+  //   this.props.createVideo(formData);
+  // }
 
   errs() {
     let errors = this.props.errors ? this.props.errors : "";
@@ -52,36 +60,29 @@ class VideoForm extends React.Component {
 
   videoUploadForm() {
     return (
-      <div className="caption">
+      <div>
         <form onSubmit={this.handleSubmit.bind(this)}>
-          <label className="upload2" htmlFor="description">
-            Caption
-          </label>
+          <h2 className="bold">Log in</h2>
+          <label htmlFor="description">Caption</label>
           <input
-            className="focus"
             type="text"
             name="description"
             onChange={this.handleInput("description")}
             value={this.state.description}
           />
-          <button type="submit" className="upload-btn1">
-            Upload
-          </button>
+          <button type="submit">Upload</button>
         </form>
-        <button className="discard-btn" onClick={this.discard}>
-          Discard
-        </button>
+        <button onClick={this.discard}>Discard</button>
       </div>
     );
   }
 
-  discard() {
+  discard(){
     this.setState = {
-      description: "",
+      description: "test",
       videoFile: null,
       uploader_id: this.props.currentUser.id,
       videoUrl: null,
-      statusTrigger: false,
     };
   }
 
@@ -90,32 +91,11 @@ class VideoForm extends React.Component {
     const fileReader = new FileReader();
     fileReader.onloadend = () => {
       this.setState({ videoFile: file, videoUrl: fileReader.result });
-      this.setState({ statusTrigger: true });
     };
     if (file) {
       fileReader.readAsDataURL(file);
     }
   };
-
-  uplaodedMessage() {
-    if (this.state.statusTrigger) {
-      return (
-        <div className="no-file">Your video has been succesfully loaded</div>
-      );
-    } else {
-      return (
-        <div className="no-file">
-          No video is currently loaded, make sure video is less than 60 seconds long
-        </div>
-      );
-    }
-  }
-
-  sizeError() {
-    if (this.state.sizeTrigger) {
-      return <div>Your video is too long!</div>;
-    }
-  }
 
   nav() {
     return (
@@ -130,18 +110,10 @@ class VideoForm extends React.Component {
   dropZone() {
     return (
       <div className="boxy">
-        <DropZone
-          onDrop={this.onDrop}
-          accept="video/*"
-          minSize={0}
-          maxSize={160000000}
-        >
-          {({ getRootProps, getInputProps, isDragActive, isDragReject }) => (
-            <div {...getRootProps()} className="heightUpload txt-light">
-              <input {...getInputProps()} className="txt-light" />
-              {!isDragActive && "Drag and drop a video"}
-              {isDragActive && !isDragReject && "Drop Me!"}
-              {isDragReject && "File type must be a video"}
+        <DropZone onDrop={this.onDrop}>
+          {({ getRootProps, getInputProps }) => (
+            <div {...getRootProps()} className="heightUpload">
+              <input {...getInputProps()} />
             </div>
           )}
         </DropZone>
@@ -153,16 +125,12 @@ class VideoForm extends React.Component {
     return (
       <div className="push-down">
         {this.nav()}
-        <div className="header-form">
-          <h1 className="h1-upload">Upload video</h1>
-          <p className="p-upload">
-            This video will be published to @{this.props.currentUser.username}
-          </p>
-        </div>
+        <h1>Upload video</h1>
+        <p>
+          This video will be published to @{this.props.currentUser.username}
+        </p>
         {this.videoUploadForm()}
         {this.dropZone()}
-        {this.uplaodedMessage()}
-        {this.sizeError()}
         {this.errs()}
       </div>
     );
