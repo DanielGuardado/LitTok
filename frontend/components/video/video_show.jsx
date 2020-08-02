@@ -9,7 +9,6 @@ class VideoShow extends React.Component {
     this.state = {
       editTrigger: false,
       description: this.props.video.description,
-      descTrigger: false,
     };
   }
   componentDidMount() {
@@ -17,13 +16,13 @@ class VideoShow extends React.Component {
   }
 
   btnTrigger = () => {
-    debugger;
     this.setState({ editTrigger: true });
   };
 
-  editTrigger = () => {
-    debugger;
-    this.setState({ descTrigger: true });
+  //REMEMBER  THIS!!!!!!!! HUGEEE!!!!!!
+  //FLOW OF INFORMATION
+  editDescrip = (description) => {
+    this.setState({ description: description });
   };
 
   btnTriggerOff = () => {
@@ -69,6 +68,7 @@ class VideoShow extends React.Component {
           video={this.props.video}
           updateVideo={this.props.updateVideo}
           editTrigger={this.editTrigger}
+          editDescrip={this.editDescrip}
         />
       );
     }
@@ -86,14 +86,6 @@ class VideoShow extends React.Component {
     }
   }
 
-  editDesc() {
-    if (!this.state.descTrigger) {
-      return <p className="desc">{this.props.video.description}</p>;
-    } else {
-      return <p className="desc">{this.props.video.description}</p>;
-    }
-  }
-
   render() {
     const { video } = this.props;
 
@@ -107,7 +99,7 @@ class VideoShow extends React.Component {
           </Link>
           <div className="details">
             <h1 className="static-username">{video.username}</h1>
-            {this.editDesc()}
+            <p className="desc">{this.state.description}</p>
             {this.editBtn()}
             {this.editTrig()}
           </div>

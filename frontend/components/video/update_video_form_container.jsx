@@ -10,8 +10,9 @@ class UpdateVideoForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     this.props.updateVideo(this.state);
+    this.clearDesc();
     this.props.btnTriggerOff();
-    this.props.editTrigger();
+    this.props.editDescrip(this.state.description);
   }
 
   update(field) {
@@ -30,7 +31,7 @@ class UpdateVideoForm extends React.Component {
             />
           </label>
           <button className="edit-btn" type="submit">
-            Edit Caption
+            Submit
           </button>
         </form>
       </div>
