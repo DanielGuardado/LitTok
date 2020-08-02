@@ -53,5 +53,10 @@ export const createVideo = (video) => (dispatch) => (
   (errors) => dispatch(receiveErrors(errors.responseJSON))
 );
 
+export const updateVideo = (video) => (dispatch) =>
+  VideoAPIutil.updateVideo(video).then((video) =>
+    dispatch(receiveVideo(video))
+  );
+
 export const deleteVideo = (videoId) => (dispatch) =>
   VideoAPIutil.deleteVideo(videoId).then(() => dispatch(removeVideo(videoId)));
