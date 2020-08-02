@@ -25,6 +25,12 @@ class User < ApplicationRecord
     class_name: :Video,
     dependent: :destroy
 
+  has_many :comments,
+    primary_key: :id,
+    foreign_key: :author_id,
+    class_name: :Comment,
+    dependent: :destroy
+
 
   def self.find_by_credentials(username, password)
     user = User.find_by(username: username)
