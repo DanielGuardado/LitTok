@@ -560,33 +560,3 @@ html {
   top: 1px;
   text-decoration: none;
 }
-<<<<<<< HEAD
-=======
-
-.dropdown {
-  height: 30px;
-  background-color: #f12c54;
-  padding: 5px;
-}
-
-.dropdown-drop {
-  max-width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: flex-end;
-}
-
-.edit-btn {
-  border-radius: 2px;
-  display: inline-block;
-  cursor: pointer;
-  color: #f12c54;
-  border: 1px solid #f12c54;
-  padding: 12px 59px;
-  text-decoration: none;
-}
-.edit-btn:hover {
-  text-decoration: none;
-  color: #f12c54;
-}
->>>>>>> video_feature

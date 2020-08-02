@@ -10,7 +10,6 @@ class UpdateVideoForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     this.props.updateVideo(this.state);
-    this.clearDesc();
     this.props.btnTriggerOff();
     this.props.editDescrip(this.state.description);
   }
