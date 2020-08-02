@@ -99,7 +99,7 @@ class VideoForm extends React.Component {
   uplaodedMessage() {
     if (this.state.statusTrigger) {
       return (
-        <div className="no-file">Your video has been succesfully loaded</div>
+        <div className="no-file1">Your video has been succesfully loaded</div>
       );
     } else {
       return (

@@ -8,19 +8,24 @@ export const fetchVideo = (videoId) =>
     url: `/api/videos/${videoId}`,
   });
 
-export const createVideo = (video) => (
+export const createVideo = (video) =>
   $.ajax({
-    method: 'POST',
+    method: "POST",
     url: `/api/videos`,
     data: video,
     contentType: false,
-    processData: false 
-  })
-)
+    processData: false,
+  });
 
-export const deleteVideo = (videoId) => (
+export const updateVideo = (video) =>
   $.ajax({
-    method: 'DELETE',
-    url: `/api/videos/${videoId}`
-  })
-)
+    method: "PATCH",
+    url: `/api/videos/${video.id}`,
+    data: { video },
+  });
+
+export const deleteVideo = (videoId) =>
+  $.ajax({
+    method: "DELETE",
+    url: `/api/videos/${videoId}`,
+  });
