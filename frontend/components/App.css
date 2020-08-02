@@ -555,11 +555,6 @@ html {
   color: white;
   text-decoration: none;
 }
-.DelButton:active {
-  position: relative;
-  top: 1px;
-  text-decoration: none;
-}
 
 .dropdown {
   height: 30px;
