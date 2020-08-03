@@ -43,8 +43,8 @@ class Sidebar extends React.Component {
     }
     return (
       <div>
-        <div className="sidenav zin">
           <Navbar className="padding-reset" />
+        <div className="sidenav zin">
           <div className="bpadding">
             <span className="disp1 box active">
               <img src={window.house} alt="littok" height="35" width="35" />
