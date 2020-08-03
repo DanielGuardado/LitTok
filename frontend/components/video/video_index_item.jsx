@@ -15,7 +15,7 @@ class VideoIndexItem extends React.Component {
         onEnter={() => this.setState({ playing: true })}
         onLeave={() => this.setState({ playing: false })}
       >
-        <div className="underline-vid">
+        <div>
           <div className="title-desc">
             <h3>{this.props.video.username}</h3>
             <Link to={`/videos/${this.props.video.id}`}>
@@ -31,6 +31,7 @@ class VideoIndexItem extends React.Component {
             volume={0}
             url={this.props.video.videoUrl}
           />
+          <div className="border-bottom-gr"></div>
         </div>
       </Waypoint>
     );

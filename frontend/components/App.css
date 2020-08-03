@@ -354,11 +354,7 @@ body {
   padding-bottom: 70px;
 }
 
-.underline-vid {
-  margin-top: 20px;
-  border-bottom: solid 1px #cfdcdc;
-  padding-bottom: 30px;
-}
+
 
 html {
   overflow: scroll;
@@ -491,7 +487,12 @@ html {
 }
 
 .title-desc {
-  width: 50%;
+  width: 345px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-left: 250px;
+  text-align: initial;
 }
 
 .show-container {
@@ -588,10 +589,16 @@ html {
 .flex-root {
   display: flow-root;
   justify-content: center;
-  margin-left: 190px;
+  margin-left: 185px;
 }
 
 .flex-root-child {
   margin-left: 200px;
   flex-direction: column;
+}
+
+.border-bottom-gr {
+  width: 850px;
+  padding-bottom: 30px;
+  border-bottom: solid 1px #cfdcdc;
 }

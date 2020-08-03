@@ -43,7 +43,6 @@ class Sidebar extends React.Component {
     }
     return (
       <React.Fragment>
-        <Navbar className="padding-reset" login={<Modals />}/>
         <div className="sidenav zin">
           <div className="bpadding">
             <span className="disp1 box active">
@@ -63,6 +62,7 @@ class Sidebar extends React.Component {
             Log in to follow creators, like videos, and comments.
           </p>
           {status}
+        <Navbar className="padding-reset" login={<Modals />}/>
         </div>
       </React.Fragment>
     );
