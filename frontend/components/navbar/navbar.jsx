@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Modals from "../modal/modal";
-import VideoForm from "../video/video_form_container";
 class Navbar extends React.Component {
   constructor(props) {
     super(props);
@@ -38,6 +37,7 @@ class Navbar extends React.Component {
       );
     } else {
       loggedIn = <Modals classname={"LogButton"} />;
+      // loggedIn = this.props.login
     }
     return (
       <div className="navbar1 underline flex space-between fixed">

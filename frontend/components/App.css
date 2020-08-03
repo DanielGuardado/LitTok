@@ -156,6 +156,9 @@ button {
 }
 
 .navbar1 {
+  z-index: 6;
+  display: flex;
+  justify-content: space-between;
   position: fixed;
   flex-wrap: wrap;
   align-items: center;
@@ -214,6 +217,8 @@ body {
 }
 
 .sidenav {
+  display: flex;
+  flex-direction: column;
   height: 100%;
   width: 250px;
   position: fixed;
@@ -353,7 +358,6 @@ body {
   margin-top: 20px;
   border-bottom: solid 1px #cfdcdc;
   padding-bottom: 30px;
-  padding-left: 100px;
 }
 
 html {
@@ -370,6 +374,9 @@ html {
 
 .margin-top10 {
   margin-top: 160px;
+  display: flex;
+  justify-content: center;
+  margin-left: 200px;
 }
 
 .upload-btn {
@@ -576,4 +583,15 @@ html {
   left: 20px;
   background: black;
   border-radius: 5px;
+}
+
+.flex-root {
+  display: flow-root;
+  justify-content: center;
+  margin-left: 190px;
+}
+
+.flex-root-child {
+  margin-left: 200px;
+  flex-direction: column;
 }

@@ -14,11 +14,11 @@ class VideoIndex extends React.Component {
     const vid = this.props.videos.map((video, idx) => (
       <VideoIndexItem key={idx} video={video} />
     ));
-    return <div>{vid}</div>;
+    return <div className="flex-root-child">{vid}</div>;
   }
 
   render() {
-    return <div>{this.videosShow()}</div>;
+    return <div className="flex-root">{this.videosShow()}</div>;
   }
 }
 export default VideoIndex;
