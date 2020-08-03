@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import { createComment } from "../../actions/comment_actions";
+import { createComment, deleteComment } from "../../actions/comment_actions";
 import CreateCommentForm from "./create_comment_form";
 
 const mapDispatchToProps = (dispatch) => ({

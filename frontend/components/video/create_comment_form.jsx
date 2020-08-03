@@ -8,11 +8,13 @@ class CreateCommentForm extends React.Component {
       video_id: this.props.videoId,
       author_id: this.props.authorId,
     };
+    this.handleSubmit = this.handleSubmit.bind(this)
   }
 
-  handleSubmit = (e) => {
+  handleSubmit(e){
     e.preventDefault();
     this.props.createComment(this.state);
+    this.props.cmntTrigger();
   };
 
   update(field) {
@@ -25,12 +27,13 @@ class CreateCommentForm extends React.Component {
         <form onSubmit={this.handleSubmit}>
           <label>
             <input
+              placeholder="Leave a comment"
               type="text"
               value={this.state.body}
               onChange={this.update("body")}
             />
           </label>
-          <button className="edit-btn" type="submit">
+          <button className="comment-btn" type="submit">
             Submit
           </button>
         </form>

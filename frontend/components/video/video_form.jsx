@@ -1,6 +1,7 @@
 import React from "react";
 import DropZone from "react-dropzone";
 import { Link } from "react-router-dom";
+import ReactPlayer from "react-player";
 
 class VideoForm extends React.Component {
   constructor(props) {
@@ -13,6 +14,23 @@ class VideoForm extends React.Component {
       statusTrigger: false,
       sizeTrigger: false,
     };
+  }
+
+  previewVid() {
+    const url = this.state.videoUrl;
+    if (this.state.videoUrl) {
+      return (
+        <ReactPlayer
+          playing={true}
+          className="video-preview"
+          height={450}
+          width={285}
+          controls={true}
+          volume={0}
+          url={url}
+        />
+      );
+    }
   }
 
   handleInput(field) {
@@ -29,7 +47,7 @@ class VideoForm extends React.Component {
       fileReader.readAsDataURL(file);
     }
   }
-  
+
   onDrop = (acceptedFiles) => {
     const file = acceptedFiles[0];
     const fileReader = new FileReader();
@@ -68,6 +86,7 @@ class VideoForm extends React.Component {
           <label className="upload2" htmlFor="description">
             Caption
           </label>
+
           <input
             className="focus"
             type="text"
@@ -95,7 +114,6 @@ class VideoForm extends React.Component {
       statusTrigger: false,
     });
   }
-
 
   uplaodedMessage() {
     if (this.state.statusTrigger) {
@@ -165,6 +183,7 @@ class VideoForm extends React.Component {
         {this.uplaodedMessage()}
         {this.sizeError()}
         {this.errs()}
+        {this.previewVid()}
       </div>
     );
   }

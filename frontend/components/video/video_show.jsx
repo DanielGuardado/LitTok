@@ -9,16 +9,20 @@ class VideoShow extends React.Component {
     super(props);
     this.state = {
       editTrigger: false,
-      description: this.props.video.description,
+      commentTrigger: false,
     };
+    this.videoComments = this.videoComments.bind(this);
   }
   componentDidMount() {
-    debugger;
     this.props.fetchVideo(this.props.match.params.videoId);
   }
 
   btnTrigger = () => {
     this.setState({ editTrigger: true });
+  };
+
+  cmntTrigger = () => {
+    this.setState({ commentTrigger: true });
   };
 
   //REMEMBER  THIS!!!!!!!! HUGEEE!!!!!!
@@ -76,19 +80,35 @@ class VideoShow extends React.Component {
     }
   }
   commentForm() {
-    return (
-      <CreateCommentForm
-        authorId={this.props.currentUser.id}
-        videoId={this.props.video.id}
-      />
-    );
+    if (this.props.video.id) {
+      return (
+        <CreateCommentForm
+          authorId={this.props.currentUser.id}
+          videoId={this.props.video.id}
+          cmntTrigger={this.cmntTrigger}
+        />
+      );
+    }
   }
 
   videoComments() {
-    if (this.props.video.comments) {
-      const comment = this.props.video.comments.map((comment, idx) => (
-        <li key={idx}>{comment.body}</li>
-      ));
+    const { video, currentUser, deleteComment } = this.props;
+    if (video.comments) {
+      const comment = this.props.video.comments.map((comment, idx) => {
+        //keep this in mind
+        if (comment.author_id === currentUser.id) {
+          return (
+            <li key={idx}>
+              {comment.body}{" "}
+              <button onClick={() => deleteComment(comment.id)}>
+                Delete Comment
+              </button>
+            </li>
+          );
+        } else {
+          return <li key={idx}>{comment.body}</li>;
+        }
+      });
       return <ul>{comment}</ul>;
     }
   }
@@ -107,7 +127,6 @@ class VideoShow extends React.Component {
 
   render() {
     const { video } = this.props;
-
     return (
       <div>
         {this.deleteBtn()}
@@ -118,11 +137,11 @@ class VideoShow extends React.Component {
           </Link>
           <div className="details">
             <h1 className="static-username">{video.username}</h1>
-            <p className="desc">{this.state.description}</p>
+            <p className="desc">{video.description}</p>
             {this.editBtn()}
             {this.editTrig()}
-            {this.commentForm()}
             {this.videoComments()}
+            {this.commentForm()}
           </div>
         </div>
       </div>

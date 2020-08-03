@@ -555,3 +555,25 @@ html {
   color: white;
   text-decoration: none;
 }
+
+.comment-btn {
+  border-radius: 2px;
+  display: inline-block;
+  cursor: pointer;
+  color: #f12c54;
+  border: 1px solid #f12c54;
+  padding: 12px 59px;
+  text-decoration: none;
+}
+.comment-btn:hover {
+  text-decoration: none;
+  color: #f12c54;
+}
+
+.video-preview {
+  position: absolute;
+  top: 230px;
+  left: 20px;
+  background: black;
+  border-radius: 5px;
+}
