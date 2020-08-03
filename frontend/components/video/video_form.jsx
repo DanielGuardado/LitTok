@@ -29,6 +29,18 @@ class VideoForm extends React.Component {
       fileReader.readAsDataURL(file);
     }
   }
+  
+  onDrop = (acceptedFiles) => {
+    const file = acceptedFiles[0];
+    const fileReader = new FileReader();
+    fileReader.onloadend = () => {
+      this.setState({ videoFile: file, videoUrl: fileReader.result });
+      this.setState({ statusTrigger: true });
+    };
+    if (file) {
+      fileReader.readAsDataURL(file);
+    }
+  };
 
   handleSubmit(e) {
     e.preventDefault();
@@ -84,17 +96,6 @@ class VideoForm extends React.Component {
     });
   }
 
-  onDrop = (acceptedFiles) => {
-    const file = acceptedFiles[0];
-    const fileReader = new FileReader();
-    fileReader.onloadend = () => {
-      this.setState({ videoFile: file, videoUrl: fileReader.result });
-      this.setState({ statusTrigger: true });
-    };
-    if (file) {
-      fileReader.readAsDataURL(file);
-    }
-  };
 
   uplaodedMessage() {
     if (this.state.statusTrigger) {

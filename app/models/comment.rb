@@ -23,14 +23,14 @@ class Comment < ApplicationRecord
     foreign_key: :video_id,
     class_name: :Video
 
-  belongs_to :parent,
-    primary_key: :id,
-    foreign_key: :parent_comment_id,
-    class_name: :Comment
-  #self referencing thru assosiation
-  has_many :comments,
-    primary_key: :id,
-    foreign_key: :parent_id,
-    class_name: :Comment,
-    dependent: :destroy
+  # belongs_to :parent,
+  #   primary_key: :id,
+  #   foreign_key: :parent_comment_id,
+  #   class_name: :Comment
+  # #self referencing thru assosiation
+  # has_many :comments,
+  #   primary_key: :id,
+  #   foreign_key: :parent_id,
+  #   class_name: :Comment,
+  #   dependent: :destroy
 end

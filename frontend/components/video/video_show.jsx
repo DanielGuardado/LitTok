@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import ReactPlayer from "react-player";
 import UpdateVideoForm from "./update_video_form_container";
+import CreateCommentForm from "./create_comment_form_container";
 
 class VideoShow extends React.Component {
   constructor(props) {
@@ -12,7 +13,8 @@ class VideoShow extends React.Component {
     };
   }
   componentDidMount() {
-    this.props.fetchVideo(this.props.video.id);
+    debugger;
+    this.props.fetchVideo(this.props.match.params.videoId);
   }
 
   btnTrigger = () => {
@@ -73,6 +75,23 @@ class VideoShow extends React.Component {
       );
     }
   }
+  commentForm() {
+    return (
+      <CreateCommentForm
+        authorId={this.props.currentUser.id}
+        videoId={this.props.video.id}
+      />
+    );
+  }
+
+  videoComments() {
+    if (this.props.video.comments) {
+      const comment = this.props.video.comments.map((comment, idx) => (
+        <li key={idx}>{comment.body}</li>
+      ));
+      return <ul>{comment}</ul>;
+    }
+  }
 
   editBtn() {
     if (
@@ -102,6 +121,8 @@ class VideoShow extends React.Component {
             <p className="desc">{this.state.description}</p>
             {this.editBtn()}
             {this.editTrig()}
+            {this.commentForm()}
+            {this.videoComments()}
           </div>
         </div>
       </div>
