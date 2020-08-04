@@ -736,10 +736,9 @@ a:hover {
 video:focus {
   text-decoration: none;
   color: inherit;
+  outline: none;
 }
 *:focus {
-  background: none;
-  border: 0px;
   outline: none;
 }
 
@@ -750,4 +749,109 @@ video:focus {
 .video-title-text {
   font-size: 19px;
   font-weight: 700;
+}
+
+.splash-header {
+  display: flex;
+  flex-direction: column;
+  margin-top: 100px;
+  padding-bottom: 30px;
+}
+
+.splash-title {
+  font-size: 72px;
+  font-weight: 700;
+}
+
+.splash-caption {
+  font-size: 24px;
+  font-weight: 400;
+}
+
+.video-stream {
+  display: flex;
+  justify-content: center;
+  height: 584px;
+}
+.video-splash {
+  background-color: #020102;
+}
+
+.splash-links {
+  background-color: black;
+  border-bottom: 1px solid white;
+  display: flex;
+  height: 150px;
+  justify-content: center;
+  align-items: center;
+  margin: 0px;
+}
+
+.footer-splash {
+  display: flex;
+  justify-content: center;
+  background: black;
+  height: 300px;
+}
+
+.splash-footer-ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 70%;
+  padding: 35px 55px 0px 35px;
+  font-size: 11px;
+  color: white;
+  font-weight: 500;
+}
+
+.first-li {
+  font-weight: 700;
+}
+
+.footer-img {
+  height: 110px;
+  width: 198px;
+  position: relative;
+  right: -100px;
+  top: 25px;
+}
+
+.splash-aside-footer {
+  display: flex;
+  height: 10%;
+  position: relative;
+  top: 260px;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.splash-footer-input {
+  position: relative;
+  top: 230px;
+  width: 150px;
+  padding: 5px;
+  background: black;
+  color: white;
+  border-radius: 0px;
+  left: -75px;
+}
+
+.img-pad-splash {
+  padding: 1px;
+  border: 1px solid white;
+  margin: 7px;
+  border-radius: 5px;
+}
+
+.splash-apps {
+font-size: 24px;
+    font-weight: 700;
+    color: white;
+    background: black;
+    margin: 0;
+    position: relative;
+    top: 10px;
+    height: 0px;
+    left: 20px;
 }

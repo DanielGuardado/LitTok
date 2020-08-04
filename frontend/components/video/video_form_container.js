@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import VideoForm from "./video_form";
-import { clearErrors, createVideo } from "../../actions/video_actions";
+import { createVideo } from "../../actions/video_actions";
 
 const mapStateToProps = (state) => ({
   errors: state.errors.session,
@@ -10,7 +10,6 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  clearErrors: () => dispatch(clearErrors()),
   createVideo: (video) => dispatch(createVideo(video)),
 });
 

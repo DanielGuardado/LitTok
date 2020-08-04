@@ -9,6 +9,7 @@ import { AuthRoute, ProtectedRoute } from "../util/route_util";
 import VideoForm from "../components/video/video_form_container";
 import VideoIndex from "../components/video/video_index_container";
 import VideoShow from "../components/video/video_show_container";
+import Splash from "../components/splash/splash_container";
 
 const App = () => (
   <div>
@@ -17,6 +18,7 @@ const App = () => (
       <AuthRoute path="/signup" exact component={SignUpFormContainer} />
       <ProtectedRoute path="/upload" exact component={VideoForm} />
       <Route path="/videos/:videoId" exact component={VideoShow} />
+      <Route path="/splash" exact component={Splash} />
       <Route path="/">
         <Sidebar />
         <VideoIndex />
