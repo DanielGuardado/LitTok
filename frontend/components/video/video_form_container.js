@@ -3,7 +3,7 @@ import VideoForm from "./video_form";
 import { clearErrors, createVideo } from "../../actions/video_actions";
 
 const mapStateToProps = (state) => ({
-  errors: state.errors.video,
+  errors: state.errors.session,
   currentUser: state.session.currentUser
     ? state.entities.users[state.session.currentUser.id]
     : {},

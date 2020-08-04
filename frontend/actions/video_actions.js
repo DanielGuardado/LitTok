@@ -22,12 +22,12 @@ const removeVideo = (videoId) => ({
   videoId,
 });
 
-export const receiveErrors = (errors) => ({
+export const receiveVideoErrors = (errors) => ({
   type: RECEIVE_ERRORS,
   errors,
 });
 
-export const clearErrors = () => ({
+export const clearVideoErrors = () => ({
   type: CLEAR_ERRORS,
   errors: [],
 });
@@ -47,8 +47,9 @@ export const fetchVideo = (videoId) => (dispatch) => (
 );
 
 export const createVideo = (video) => (dispatch) =>
-  VideoAPIutil.createVideo(video).then((video) =>
-    dispatch(receiveVideo(video))
+  VideoAPIutil.createVideo(video).then(
+    (video) => dispatch(receiveVideo(video)),
+    (errors) => dispatch(receiveVideoErrors(errors.responseJSON))
   );
 
 export const updateVideo = (video) => (dispatch) =>

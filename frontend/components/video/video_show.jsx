@@ -101,7 +101,7 @@ class VideoShow extends React.Component {
       );
     } else {
       return (
-        <footer className="footer-comment"><Link to="/login">Login</Link> to leave a comment!</footer>
+        <footer className="footer-comment"><Link className="login-link" to="/login">Login</Link> to leave a comment!</footer>
       );
     }
   }

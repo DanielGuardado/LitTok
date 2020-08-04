@@ -3,6 +3,7 @@ import { createComment } from "../../actions/comment_actions";
 import CreateCommentForm from "./create_comment_form";
 
 const mapStateToProps = (state) => ({
+  errors: state.errors.session,
   comment: state.entities.comments,
 });
 

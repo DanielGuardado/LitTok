@@ -76,7 +76,7 @@ class VideoForm extends React.Component {
     let errorMessages = errors.map((error, idx) => (
       <div key={idx}>{error}</div>
     ));
-    return <div>{errorMessages}</div>;
+    return <div className="red">{errorMessages}</div>;
   }
 
   videoUploadForm() {

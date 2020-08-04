@@ -17,20 +17,20 @@ class VideoIndexItem extends React.Component {
       >
         <div>
           <div className="title-desc">
-            <h3>{this.props.video.username}</h3>
-            <Link to={`/videos/${this.props.video.id}`}>
-              <p>{this.props.video.description}</p>
-            </Link>
+            <h3 className="video-title-text">{this.props.video.username}</h3>
+            <p className="video-caption-text">{this.props.video.description}</p>
           </div>
-          <ReactPlayer
-            playing={this.state.playing}
-            className="videoBox"
-            height={520}
-            width={350}
-            controls={true}
-            volume={0}
-            url={this.props.video.videoUrl}
-          />
+          <Link to={`/videos/${this.props.video.id}`}>
+            <ReactPlayer
+              playing={this.state.playing}
+              className="videoBox"
+              height={520}
+              width={350}
+              controls={true}
+              volume={0}
+              url={this.props.video.videoUrl}
+            />
+          </Link>
           <div className="border-bottom-gr"></div>
         </div>
       </Waypoint>
