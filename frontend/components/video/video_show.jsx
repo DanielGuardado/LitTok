@@ -164,15 +164,34 @@ class VideoShow extends React.Component {
   }
 
   renderNewComment() {
-    const { currentUser } = this.props;
+    const { currentUser, deleteComment } = this.props;
     if (this.state.comments) {
-      const com = Object.values(this.state.comments).map((comment, idx) => (
-        <ul key={idx}>
-          <li className="comment-author">{currentUser.username}</li>
-          <li>{comment.body}</li>
-        </ul>
-      ));
-      return com;
+      if (JSON.stringify(currentUser.id) === this.props.video.uploader_id) {
+        const com = Object.values(this.state.comments).map((comment, idx) => (
+          <ul key={idx}>
+            <li className="comment-author">{currentUser.username}</li>
+            <li>
+              {comment.body}{" "}
+              <button
+                title="Delete Comment"
+                className="red"
+                onClick={() => deleteComment(comment.id)}
+              >
+                ✘
+              </button>
+            </li>
+          </ul>
+        ));
+        return com;
+      } else {
+        const com = Object.values(this.state.comments).map((comment, idx) => (
+          <ul key={idx}>
+            <li className="comment-author">{currentUser.username}</li>
+            <li>{comment.body}</li>
+          </ul>
+        ));
+        return com;
+      }
     }
   }
 
