@@ -17,11 +17,19 @@ class CreateCommentForm extends React.Component {
     this.props
       .createComment(this.state)
       .then(() => this.props.editComments(this.props.comment));
-    this.setState({body: ""})
+    this.setState({ body: "" });
   }
 
   update(field) {
     return (e) => this.setState({ [field]: e.currentTarget.value });
+  }
+
+  errs() {
+    let errors = this.props.errors ? this.props.errors : "";
+    let errorMessages = errors.map((error, idx) => (
+      <div key={idx}>{error}</div>
+    ));
+    return <div className="red">{errorMessages}</div>;
   }
 
   render() {
@@ -41,6 +49,7 @@ class CreateCommentForm extends React.Component {
             Submit
           </button>
         </form>
+        {this.errs()}
       </div>
     );
   }

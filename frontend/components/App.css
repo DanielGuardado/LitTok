@@ -648,7 +648,7 @@ html {
 
 .comment-flex {
   overflow: scroll;
-  height: 450px;
+  height: 425px;
 
   padding: 0;
 }
@@ -751,4 +751,3 @@ video:focus {
   font-size: 19px;
   font-weight: 700;
 }
-
