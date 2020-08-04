@@ -18,11 +18,11 @@ const App = () => (
       <AuthRoute path="/signup" exact component={SignUpFormContainer} />
       <ProtectedRoute path="/upload" exact component={VideoForm} />
       <Route path="/videos/:videoId" exact component={VideoShow} />
-      <Route path="/splash" exact component={Splash} />
-      <Route path="/">
+      <Route path="/foryou">
         <Sidebar />
         <VideoIndex />
       </Route>
+      <Route path="/" exact component={Splash} />
     </Switch>
   </div>
 );

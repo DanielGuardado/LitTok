@@ -42,7 +42,7 @@ class Login extends React.Component {
     }
     return (
       <div className="navbar2 underline flex space-between">
-        <Link to="/">
+        <Link to="/foryou">
           <img src={window.logo} alt="littok" height="40" width="150" />
         </Link>
       </div>

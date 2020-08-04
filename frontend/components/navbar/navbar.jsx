@@ -41,7 +41,7 @@ class Navbar extends React.Component {
     }
     return (
       <div className="navbar1 underline flex space-between fixed">
-        <Link to="/">
+        <Link to="/foryou">
           <img src={window.logo} alt="littok" height="40" width="150" />
         </Link>
 

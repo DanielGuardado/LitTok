@@ -101,7 +101,12 @@ class VideoShow extends React.Component {
       );
     } else {
       return (
-        <footer className="footer-comment"><Link className="login-link" to="/login">Login</Link> to leave a comment!</footer>
+        <footer className="footer-comment">
+          <Link className="login-link" to="/login">
+            Login
+          </Link>{" "}
+          to leave a comment!
+        </footer>
       );
     }
   }
@@ -172,7 +177,7 @@ class VideoShow extends React.Component {
     return (
       <div>
         {this.deleteBtn()}
-        <Link className="closeVid" to="/">
+        <Link className="closeVid" to="/foryou">
           ✘
         </Link>
         <div className="show-container">
