@@ -20,16 +20,17 @@ class UpdateVideoForm extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="house-edit-form">
         <form onSubmit={this.handleSubmit}>
           <label>
-            <input
+            <textarea
+            className="edit-imp"
               type="text"
               value={this.state.description}
               onChange={this.update("description")}
             />
           </label>
-          <button className="edit-btn" type="submit">
+          <button className="comment-btn edit-sub-btn" type="submit">
             Submit
           </button>
         </form>

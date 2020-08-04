@@ -1,4 +1,5 @@
 import React from "react";
+import { fetchComment } from "../../util/comment_api_util";
 
 class CreateCommentForm extends React.Component {
   constructor(props) {
@@ -8,14 +9,15 @@ class CreateCommentForm extends React.Component {
       video_id: this.props.videoId,
       author_id: this.props.authorId,
     };
-    this.handleSubmit = this.handleSubmit.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleSubmit(e){
+  handleSubmit(e) {
     e.preventDefault();
-    this.props.createComment(this.state);
-    this.props.cmntTrigger();
-  };
+    this.props
+      .createComment(this.state)
+      .then(() => this.props.editComments(this.props.comment));
+  }
 
   update(field) {
     return (e) => this.setState({ [field]: e.currentTarget.value });
@@ -24,9 +26,9 @@ class CreateCommentForm extends React.Component {
   render() {
     return (
       <div>
-        <form onSubmit={this.handleSubmit}>
+        <form className="comment-form" onSubmit={this.handleSubmit}>
           <label>
-            <input
+            <textarea
               placeholder="Leave a comment"
               type="text"
               value={this.state.body}

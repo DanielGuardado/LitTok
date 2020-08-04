@@ -354,8 +354,6 @@ body {
   padding-bottom: 70px;
 }
 
-
-
 html {
   overflow: scroll;
 }
@@ -501,7 +499,12 @@ html {
 }
 
 .details {
-  margin: 100px;
+  margin-top: 100px;
+  margin-left: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 30%;
 }
 
 .background-show {
@@ -509,7 +512,7 @@ html {
   justify-content: center;
   width: 70%;
   background: rgb(234 231 231 / 55%);
-  height: 1000px;
+  height: 100%;
 }
 
 .videoShowBox2 {
@@ -518,6 +521,7 @@ html {
 }
 
 .closeVid {
+  z-index: 2;
   position: absolute;
   font-size: 20px;
   color: #ffffff;
@@ -537,6 +541,9 @@ html {
 .desc {
   display: flex;
   align-items: flex-start;
+  border-bottom: 1px solid #cfdcdc;
+  padding: 20px;
+  text-align: left;
 }
 
 .static-username {
@@ -557,6 +564,7 @@ html {
   position: absolute;
   top: 20px;
   right: 20px;
+  width: 22%;
 }
 .DelButton:hover {
   background-color: #f47792;
@@ -602,3 +610,56 @@ html {
   padding-bottom: 30px;
   border-bottom: solid 1px #cfdcdc;
 }
+
+.edit-btn {
+  position: relative;
+  right: 10px;
+  top: 240px;
+}
+
+.edit-imp {
+  position: absolute;
+  right: 3px;
+  top: 70px;
+  width: 30%;
+}
+
+.edit-sub-btn {
+  position: absolute;
+  right: 20px;
+  top: 155px;
+  width: 22%;
+}
+
+.house-edit-form {
+  width: 0px;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.comment-form {
+  display: flex;
+  flex-direction: column;
+  margin: 0px 70px;
+}
+
+.comment-flex {
+  overflow: scroll;
+  height: 450px;
+
+  padding: 0;
+}
+.comment-flex1 {
+  padding: 0;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.comment-author {
+  text-align: left;
+}
+

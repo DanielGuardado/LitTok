@@ -46,12 +46,10 @@ export const fetchVideo = (videoId) => (dispatch) => (
   (errors) => dispatch(receiveErrors(errors.responseJSON))
 );
 
-export const createVideo = (video) => (dispatch) => (
+export const createVideo = (video) => (dispatch) =>
   VideoAPIutil.createVideo(video).then((video) =>
     dispatch(receiveVideo(video))
-  ),
-  (errors) => dispatch(receiveErrors(errors.responseJSON))
-);
+  );
 
 export const updateVideo = (video) => (dispatch) =>
   VideoAPIutil.updateVideo(video).then((video) =>

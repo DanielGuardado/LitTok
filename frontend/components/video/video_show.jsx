@@ -10,9 +10,11 @@ class VideoShow extends React.Component {
     this.state = {
       editTrigger: false,
       commentTrigger: false,
+      comments: null,
     };
     this.videoComments = this.videoComments.bind(this);
   }
+
   componentDidMount() {
     this.props.fetchVideo(this.props.match.params.videoId);
   }
@@ -25,6 +27,9 @@ class VideoShow extends React.Component {
     this.setState({ commentTrigger: true });
   };
 
+  editComments = (comments) => {
+    this.setState({ comments: comments });
+  };
   //REMEMBER  THIS!!!!!!!! HUGEEE!!!!!!
   //FLOW OF INFORMATION
   editDescrip = (description) => {
@@ -57,7 +62,11 @@ class VideoShow extends React.Component {
         <div>
           <button
             className="DelButton"
-            onClick={() => this.props.deleteVideo(this.props.video.id)}
+            onClick={() =>
+              this.props
+                .deleteVideo(this.props.video.id)
+                .then(() => this.props.history.push("/"))
+            }
           >
             Delete Video
           </button>
@@ -86,6 +95,8 @@ class VideoShow extends React.Component {
           authorId={this.props.currentUser.id}
           videoId={this.props.video.id}
           cmntTrigger={this.cmntTrigger}
+          editComments={this.editComments}
+          comments={this.props.video.comments}
         />
       );
     }
@@ -96,20 +107,31 @@ class VideoShow extends React.Component {
     if (video.comments) {
       const comment = this.props.video.comments.map((comment, idx) => {
         //keep this in mind
-        if (comment.author_id === currentUser.id) {
+        if (comment.comment.author_id === currentUser.id) {
           return (
-            <li key={idx}>
-              {comment.body}{" "}
-              <button onClick={() => deleteComment(comment.id)}>
-                Delete Comment
-              </button>
-            </li>
+            <ul key={idx}>
+              <li className="comment-author">{comment.author}</li>
+              <li className="delete-comment">
+                {comment.comment.body}{" "}
+                <button
+                  className="red"
+                  onClick={() => deleteComment(comment.comment.id)}
+                >
+                  ✘
+                </button>
+              </li>
+            </ul>
           );
         } else {
-          return <li key={idx}>{comment.body}</li>;
+          return (
+            <ul key={idx}>
+              <li className="comment-author">{comment.author}</li>
+              <li>{comment.comment.body}</li>
+            </ul>
+          );
         }
       });
-      return <ul>{comment}</ul>;
+      return <ul className="comment-flex1">{comment}</ul>;
     }
   }
 
@@ -119,9 +141,24 @@ class VideoShow extends React.Component {
     ) {
       return (
         <div>
-          <button onClick={this.btnTrigger}>Edit</button>
+          <button className="edit-btn" onClick={this.btnTrigger}>
+            Edit
+          </button>
         </div>
       );
+    }
+  }
+
+  renderNewComment() {
+    const { currentUser } = this.props;
+    if (this.state.comments) {
+      const com = Object.values(this.state.comments).map((comment, idx) => (
+        <ul key={idx}>
+          <li className="comment-author">{currentUser.username}</li>
+          <li>{comment.body}</li>
+        </ul>
+      ));
+      return com;
     }
   }
 
@@ -130,18 +167,23 @@ class VideoShow extends React.Component {
     return (
       <div>
         {this.deleteBtn()}
+        <Link className="closeVid" to="/">
+          ✘
+        </Link>
         <div className="show-container">
-          <div className="background-show">{this.vidShow()}</div>
-          <Link className="closeVid" to="/">
-            X
-          </Link>
-          <div className="details">
-            <h1 className="static-username">{video.username}</h1>
-            <p className="desc">{video.description}</p>
+          <div className="flex w-100">
+            <div className="background-show">{this.vidShow()}</div>
+            <div className="details">
+              <h1 className="static-username">{video.username}</h1>
+              <div className="comment-flex">
+                <p className="desc">{video.description}</p>
+                {this.videoComments()}
+                {this.renderNewComment()}
+              </div>
+              {this.commentForm()}
+            </div>
             {this.editBtn()}
             {this.editTrig()}
-            {this.videoComments()}
-            {this.commentForm()}
           </div>
         </div>
       </div>
