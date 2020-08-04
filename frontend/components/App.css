@@ -602,6 +602,7 @@ html {
 
 .flex-root-child {
   margin-left: 200px;
+  margin-right: 400px;
   flex-direction: column;
 }
 
@@ -663,3 +664,57 @@ ul {
   text-align: left;
 }
 
+.footer-wrapper {
+  font-size: 11px;
+  color: #9b9ca0;
+  flex-wrap: wrap;
+  font-weight: 500;
+  position: absolute;
+  bottom: -15px;
+}
+
+.footer-links {
+  display: flex;
+  padding: 0;
+  flex-wrap: wrap;
+}
+.footer-links2 {
+  display: flex;
+  padding: 0;
+  flex-wrap: wrap;
+}
+
+.p5 {
+  padding: 0px 5px 0px 10px;
+}
+
+.aside-footer {
+  display: flex;
+  padding-left: 10px;
+}
+.footer-input {
+  width: 175px;
+  color: #d8d8d9;
+  border: 1px solid #7f8086;
+  padding: 10px;
+  margin-right: 50px;
+}
+
+.github-logo {
+  position: relative;
+  bottom: -160px;
+}
+
+.scroll-back-button {
+  position: fixed;
+  bottom: 10px;
+  right: 30px;
+}
+
+.textarea {
+  border: 1px solid rgb(241, 44, 83);
+}
+.footer-comment {
+  color: #f12c54;
+  margin-left: 70px;
+}

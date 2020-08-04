@@ -89,7 +89,7 @@ class VideoShow extends React.Component {
     }
   }
   commentForm() {
-    if (this.props.video.id) {
+    if (this.props.video.id && this.props.currentUser.id) {
       return (
         <CreateCommentForm
           authorId={this.props.currentUser.id}
@@ -98,6 +98,10 @@ class VideoShow extends React.Component {
           editComments={this.editComments}
           comments={this.props.video.comments}
         />
+      );
+    } else {
+      return (
+        <footer className="footer-comment"><Link to="/login">Login</Link> to leave a comment!</footer>
       );
     }
   }
@@ -114,6 +118,7 @@ class VideoShow extends React.Component {
               <li className="delete-comment">
                 {comment.comment.body}{" "}
                 <button
+                  title="Delete Comment"
                   className="red"
                   onClick={() => deleteComment(comment.comment.id)}
                 >

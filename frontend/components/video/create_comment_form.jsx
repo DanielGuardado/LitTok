@@ -17,6 +17,7 @@ class CreateCommentForm extends React.Component {
     this.props
       .createComment(this.state)
       .then(() => this.props.editComments(this.props.comment));
+    this.setState({body: ""})
   }
 
   update(field) {
@@ -29,6 +30,7 @@ class CreateCommentForm extends React.Component {
         <form className="comment-form" onSubmit={this.handleSubmit}>
           <label>
             <textarea
+              className="textarea"
               placeholder="Leave a comment"
               type="text"
               value={this.state.body}

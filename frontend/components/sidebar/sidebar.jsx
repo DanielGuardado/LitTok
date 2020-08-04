@@ -18,6 +18,13 @@ class Sidebar extends React.Component {
     return <div></div>;
   }
 
+  scrollTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
   render() {
     let status;
     if (this.props.currentUser.id) {
@@ -41,6 +48,7 @@ class Sidebar extends React.Component {
         </div>
       );
     }
+
     return (
       <React.Fragment>
         <div className="sidenav zin">
@@ -62,8 +70,43 @@ class Sidebar extends React.Component {
             Log in to follow creators, like videos, and comments.
           </p>
           {status}
-        <Navbar className="padding-reset" login={<Modals />}/>
+          <a href="https://github.com/DanielGuardado/LitTok">
+            <img
+              className="github-logo"
+              src={window.github}
+              alt=""
+              width={170}
+            />
+          </a>
+          <footer className="footer-wrapper">
+            <ul className="footer-links">
+              <li className="p5">Home</li>
+              <li className="p5">About</li>
+              <li className="p5">Newsroom</li>
+              <li className="p5">Careers</li>
+              <li className="p5">LitTok</li>
+            </ul>
+            <ul className="footer-links2">
+              <li className="p5">Help</li>
+              <li className="p5">Safety</li>
+              <li className="p5">Community</li>
+              <li className="p5">Guidelines</li>
+              <li className="p5">Terms</li>
+              <li className="p5">Privacy</li>
+              <li className="p5">Copyright</li>
+            </ul>
+            <aside className="aside-footer">© 2020 LitTok</aside>
+            <form action="#">
+              <select className="footer-input" name="english" id="english">
+                <option value="english">English</option>
+              </select>
+            </form>
+          </footer>
+          <Navbar className="padding-reset" login={<Modals />} />
         </div>
+        <button className="scroll-back-button" onClick={this.scrollTop}>
+          <img src={window.scrollup} alt="" />
+        </button>
       </React.Fragment>
     );
   }
