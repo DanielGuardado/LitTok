@@ -4,7 +4,7 @@ import {
   deleteVideo,
   updateVideo,
 } from "../../actions/video_actions";
-import { deleteComment } from "../../actions/comment_actions";
+import { deleteComment, clearComments } from "../../actions/comment_actions";
 import VideoShow from "./video_show";
 
 const mapStateToProps = (state) => {
@@ -21,6 +21,7 @@ const mapDispatchToProps = (dispatch) => ({
   deleteVideo: (videoId) => dispatch(deleteVideo(videoId)),
   updateVideo: (videoId) => dispatch(updateVideo(videoId)),
   deleteComment: (commentId) => dispatch(deleteComment(commentId)),
+  clearComments: () => dispatch(clearComments()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(VideoShow);

@@ -3,6 +3,7 @@ export const RECEIVE_COMMENT = "RECEIVE_COMMENT";
 export const REMOVE_COMMENT = "REMOVE_COMMENT";
 export const RECEIVE_ERRORS = "RECEIVE_ERRORS";
 export const CLEAR_ERRORS = "CLEAR_ERRORS";
+export const CLEAR_COMMENTS = "CLEAR_COMMENTS";
 import * as CommentAPIutil from "../util/comment_api_util";
 
 const receiveAllComments = (comments) => ({
@@ -27,6 +28,11 @@ export const clearCommentErrors = () => ({
   type: CLEAR_ERRORS,
   errors: [],
 });
+
+export const clearComments = () => ({
+  type: CLEAR_COMMENTS,
+  comments: {}
+})
 
 export const fetchComments = () => (dispatch) =>
   CommentAPIutil.fetchComments().then((comments) =>

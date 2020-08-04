@@ -14,10 +14,17 @@ class VideoShow extends React.Component {
     };
     this.videoComments = this.videoComments.bind(this);
   }
+  componentWillUnmount() {
+    // this.setState({ comments: null });
+    this.props.clearComments();
+  }
 
   componentDidMount() {
     this.props.fetchVideo(this.props.match.params.videoId);
   }
+  editComments = (comments) => {
+    this.setState({ comments: comments });
+  };
 
   btnTrigger = () => {
     this.setState({ editTrigger: true });
@@ -27,9 +34,6 @@ class VideoShow extends React.Component {
     this.setState({ commentTrigger: true });
   };
 
-  editComments = (comments) => {
-    this.setState({ comments: comments });
-  };
   //REMEMBER  THIS!!!!!!!! HUGEEE!!!!!!
   //FLOW OF INFORMATION
   editDescrip = (description) => {
@@ -65,7 +69,7 @@ class VideoShow extends React.Component {
             onClick={() =>
               this.props
                 .deleteVideo(this.props.video.id)
-                .then(() => this.props.history.push("/"))
+                .then(() => this.props.history.push("/foryou"))
             }
           >
             Delete Video
