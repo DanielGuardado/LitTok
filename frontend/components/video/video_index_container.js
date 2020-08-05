@@ -1,5 +1,6 @@
 import { connect } from "react-redux";
 import { fetchVideos } from "../../actions/video_actions";
+import { fetchLikes } from "../../actions/like_actions";
 import VideoIndex from "./video_index";
 
 const mapStateToProps = (state) => ({
@@ -8,6 +9,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   fetchVideos: () => dispatch(fetchVideos()),
+  fetchLikes: () => dispatch(fetchLikes())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(VideoIndex);

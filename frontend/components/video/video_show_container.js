@@ -5,6 +5,7 @@ import {
   updateVideo,
 } from "../../actions/video_actions";
 import { deleteComment, clearComments } from "../../actions/comment_actions";
+import { fetchLikes } from "../../actions/like_actions";
 import VideoShow from "./video_show";
 
 const mapStateToProps = (state) => {
@@ -13,6 +14,7 @@ const mapStateToProps = (state) => {
     currentUser: state.session.currentUser
       ? state.entities.users[state.session.currentUser.id]
       : {},
+    likes: Object.values(state.entities.likes),
   };
 };
 
@@ -22,6 +24,7 @@ const mapDispatchToProps = (dispatch) => ({
   updateVideo: (videoId) => dispatch(updateVideo(videoId)),
   deleteComment: (commentId) => dispatch(deleteComment(commentId)),
   clearComments: () => dispatch(clearComments()),
+  fetchLikes: () => dispatch(fetchLikes()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(VideoShow);

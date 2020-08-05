@@ -18,19 +18,10 @@ const removeLike = (likeId) => ({
 });
 
 export const fetchLikes = () => (dispatch) =>
-  LikeAPIutil.fetchLikes().then((likes) =>
-    dispatch(receiveAllLikes(likes))
-  );
+  LikeAPIutil.fetchLikes().then((likes) => dispatch(receiveAllLikes(likes)));
 export const fetchLike = (likeId) => (dispatch) =>
-  LikeAPIutil.fetchLike(likeId).then((like) =>
-    dispatch(receiveLike(like))
-  );
+  LikeAPIutil.fetchLike(likeId).then((like) => dispatch(receiveLike(like)));
 export const createLike = (like) => (dispatch) =>
-  LikeAPIutil.createLike(like).then(
-    (like) => dispatch(receiveLike(like)),
-    (errors) => dispatch(receiveLikeErrors(errors.responseJSON))
-  );
+  LikeAPIutil.createLike(like).then((like) => dispatch(receiveLike(like)));
 export const deleteLike = (likeId) => (dispatch) =>
-  LikeAPIutil.deleteLike(likeId).then(() =>
-    dispatch(removeLike(likeId))
-  );
+  LikeAPIutil.deleteLike(likeId).then(() => dispatch(removeLike(likeId)));

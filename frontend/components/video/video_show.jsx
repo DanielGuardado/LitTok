@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import ReactPlayer from "react-player";
 import UpdateVideoForm from "./update_video_form_container";
 import CreateCommentForm from "./create_comment_form_container";
+import Like from "../like/like_container";
 
 class VideoShow extends React.Component {
   constructor(props) {
@@ -21,6 +22,7 @@ class VideoShow extends React.Component {
 
   componentDidMount() {
     this.props.fetchVideo(this.props.match.params.videoId);
+    this.props.fetchLikes();
   }
   editComments = (comments) => {
     this.setState({ comments: comments });
@@ -165,6 +167,7 @@ class VideoShow extends React.Component {
 
   renderNewComment() {
     const { currentUser, deleteComment } = this.props;
+    // debugger;
     if (this.state.comments) {
       if (JSON.stringify(currentUser.id) === this.props.video.uploader_id) {
         const com = Object.values(this.state.comments).map((comment, idx) => (
@@ -195,6 +198,22 @@ class VideoShow extends React.Component {
     }
   }
 
+  likeCount() {
+    let count = 0;
+    if (this.props.likes && this.props.video.id) {
+      this.props.likes.forEach((like) => {
+        if (like.likeable_id === this.props.video.id) {
+          count += 1;
+        }
+      });
+      return <p className="Likes">♡{count}</p>;
+    }
+  }
+
+  addLike() {
+    return <Like videoId={this.props.video.id} />;
+  }
+
   render() {
     const { video } = this.props;
     return (
@@ -209,7 +228,10 @@ class VideoShow extends React.Component {
             <div className="details">
               <h1 className="static-username">{video.username}</h1>
               <div className="comment-flex">
-                <p className="desc">{video.description}</p>
+                <div className="desc-main">
+                  <p className="desc">{video.description}</p>
+                  {this.likeCount()}
+                </div>
                 {this.videoComments()}
                 {this.renderNewComment()}
               </div>
@@ -217,6 +239,7 @@ class VideoShow extends React.Component {
             </div>
             {this.editBtn()}
             {this.editTrig()}
+            {this.addLike()}
           </div>
         </div>
       </div>

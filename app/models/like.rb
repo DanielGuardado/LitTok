@@ -17,6 +17,8 @@ end
 #video = Video.first
 #video.likeable
 #video.likes
-#video.likes << Like.new(liker_id:6, likeable_id:100, likeable_type: 'Video')
+#####video.likes << Like.new(liker_id:6, likeable_id:100, likeable_type: 'Video')
+#video.likes << Like.new(liker_id:8,likeable_type: 'Video')
+#always need a new liker id because the same user can't like the same viddeo twice.
 #Like.all
 #User.first.likes
