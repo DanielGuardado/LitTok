@@ -31,6 +31,11 @@ class User < ApplicationRecord
     class_name: :Comment,
     dependent: :destroy
 
+  has_many :likes,
+  primary_key: :id,
+  foreign_key: :liker_id,
+  class_name: :Like,
+  dependent: :destroy
 
   def self.find_by_credentials(username, password)
     user = User.find_by(username: username)

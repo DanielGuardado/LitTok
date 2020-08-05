@@ -23,6 +23,8 @@ class Video < ApplicationRecord
     foreign_key: :video_id,
     class_name: :Comment
 
+  has_many :likes, as: :likeable
+
   def ensure_video
     unless self.video.attached?
       errors[:video] << "must be attached"

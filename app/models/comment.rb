@@ -23,6 +23,8 @@ class Comment < ApplicationRecord
     foreign_key: :video_id,
     class_name: :Video
 
+  has_many :likes, as: :likeable
+
   # belongs_to :parent,
   #   primary_key: :id,
   #   foreign_key: :parent_comment_id,
