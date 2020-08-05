@@ -367,7 +367,7 @@ html {
 }
 
 .margin-top10 {
-  margin-top: 160px;
+  margin-top: 115px;
   display: flex;
   justify-content: center;
   margin-left: 200px;
@@ -499,7 +499,7 @@ html {
 }
 
 .details {
-  margin-top: 100px;
+  margin-top: 15px;
   margin-left: 15px;
   display: flex;
   flex-direction: column;
@@ -517,7 +517,7 @@ html {
 
 .videoShowBox2 {
   width: 80%;
-  height: 800px;
+  height: 100%;
 }
 
 .closeVid {
@@ -543,6 +543,7 @@ html {
   flex-direction: column;
   align-items: flex-start;
   border-bottom: 1px solid #cfdcdc;
+  margin-bottom: 15px;
 }
 
 .desc {
@@ -550,7 +551,6 @@ html {
   align-items: flex-start;
   text-align: left;
 }
-
 
 .static-username {
   position: static;
@@ -567,10 +567,6 @@ html {
   font-size: 18px;
   padding: 12px 58px;
   text-decoration: none;
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  width: 22%;
 }
 .DelButton:hover {
   background-color: #f47792;
@@ -614,32 +610,18 @@ html {
 
 .border-bottom-gr {
   width: 850px;
-  padding-bottom: 30px;
+  padding-bottom: 15px;
   border-bottom: solid 1px #cfdcdc;
 }
 
 .edit-btn {
   position: relative;
-  right: 10px;
-  top: 240px;
-}
-
-.edit-imp {
-  position: absolute;
-  right: 3px;
-  top: 70px;
-  width: 30%;
-}
-
-.edit-sub-btn {
-  position: absolute;
-  right: 20px;
-  top: 155px;
-  width: 22%;
+  top: -20px;
+  color: #999999;
 }
 
 .house-edit-form {
-  width: 0px;
+  width: 100%;
 }
 
 .w-100 {
@@ -860,4 +842,41 @@ video:focus {
   top: 10px;
   height: 0px;
   left: 20px;
+}
+
+.comment-index {
+  width: 345px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin-left: 250px;
+  text-align: initial;
+  padding-top: 5px;
+  font-size: 30px;
+  font-weight: 600;
+}
+
+.comment-section {
+  display: flex;
+  padding: 15px;
+  align-items: center;
+}
+
+.comment-body {
+  margin: auto;
+}
+
+.Likes {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.comment-container {
+  width: 100%;
+}
+
+.edit-form {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 15px;
 }

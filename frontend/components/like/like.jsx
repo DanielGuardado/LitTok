@@ -39,7 +39,7 @@ class Like extends React.Component {
         if (like && like.likeable_id === typeId) {
           status = (
             <button className="red" onClick={() => this.handleDislike(like.id)}>
-              ♡
+              <img style={{width: this.props.width}} src={window.redheart} alt="" />
             </button>
           );
         }
@@ -49,11 +49,25 @@ class Like extends React.Component {
       return status;
     } else {
       if (this.props.currentUser.id) {
-        return <button onClick={this.handleLike}>♡</button>;
+        return (
+          <button onClick={this.handleLike}>
+            <img
+              style={{ width: this.props.width }}
+              src={window.bwheart}
+              alt=""
+            />
+          </button>
+        );
       } else {
         return (
           <Link to="/login">
-            <button>Login</button>
+            <button>
+              <img
+                style={{ width: this.props.width }}
+                src={window.bwheart}
+                alt=""
+              />
+            </button>
           </Link>
         );
       }

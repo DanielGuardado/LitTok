@@ -27,8 +27,6 @@ class VideoShow extends React.Component {
   //   }
   // }
 
-
-
   componentDidMount() {
     this.props.fetchVideo(this.props.match.params.videoId);
     this.props.fetchLikes();
@@ -38,7 +36,8 @@ class VideoShow extends React.Component {
   };
 
   btnTrigger = () => {
-    this.setState({ editTrigger: true });
+    let edt = this.state.editTrigger;
+    this.setState({ editTrigger: !edt });
   };
 
   cmntTrigger = () => {
@@ -56,14 +55,15 @@ class VideoShow extends React.Component {
   };
 
   vidShow() {
+    const h = "100%";
     return (
       <ReactPlayer
         playing={true}
         className="videoShowBox2"
-        height={885}
+        height={h}
         width={665}
         controls={true}
-        volume={0}
+        volume={0.2}
         url={this.props.video.videoUrl}
       />
     );
@@ -135,9 +135,11 @@ class VideoShow extends React.Component {
           return (
             <ul key={idx}>
               <li className="comment-author">{comment.author}</li>
-              <li className="delete-comment">
-                <Like commentId={comment.comment.id} />
-                {comment.comment.body}{" "}
+              <li className="comment-section">
+                <div>
+                  <Like width={25} commentId={comment.comment.id} />
+                </div>
+                <div className="comment-body">{comment.comment.body}</div>
                 <button
                   title="Delete Comment"
                   className="red"
@@ -152,8 +154,11 @@ class VideoShow extends React.Component {
           return (
             <ul key={idx}>
               <li className="comment-author">{comment.author}</li>
-              <li>
-                <Like commentId={comment.comment.id} /> {comment.comment.body}
+              <li className="comment-section">
+                <div>
+                  <Like width={25} commentId={comment.comment.id} />
+                </div>
+                <div className="comment-body">{comment.comment.body}</div>
               </li>
             </ul>
           );
@@ -221,7 +226,8 @@ class VideoShow extends React.Component {
     return (
       <p className="Likes">
         {this.addLike()}
-        {this.props.video.likeCount} C{this.props.video.commentCount}
+        {this.props.video.likeCount} <img src={window.comment} />
+        {this.props.video.commentCount}
       </p>
     );
   }
@@ -234,7 +240,6 @@ class VideoShow extends React.Component {
     const { video } = this.props;
     return (
       <div>
-        {this.deleteBtn()}
         <Link className="closeVid" to="/foryou">
           ✘
         </Link>
@@ -246,15 +251,16 @@ class VideoShow extends React.Component {
               <div className="comment-flex">
                 <div className="desc-main">
                   <p className="desc">{video.description}</p>
+                  {this.editBtn()}
+                  {this.editTrig()}
                   {this.likeCount()}
                 </div>
                 {this.videoComments()}
+                {this.deleteBtn()}
                 {this.renderNewComment()}
               </div>
               {this.commentForm()}
             </div>
-            {this.editBtn()}
-            {this.editTrig()}
           </div>
         </div>
       </div>

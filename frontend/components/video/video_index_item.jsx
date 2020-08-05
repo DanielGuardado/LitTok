@@ -20,14 +20,6 @@ class VideoIndexItem extends React.Component {
           <div className="title-desc">
             <h3 className="video-title-text">{this.props.video.username}</h3>
             <p className="video-caption-text">{this.props.video.description}</p>
-            <p className="comment-index">
-              <Like fetchLikes={this.props.fetchLikes} videoId={this.props.video.id} />
-              {this.props.video.likeCount}{" "}
-              <Link to={`/videos/${this.props.video.id}`}>
-                {" "}
-                C {this.props.video.commentCount}{" "}
-              </Link>
-            </p>
           </div>
           <Link to={`/videos/${this.props.video.id}`}>
             <ReactPlayer
@@ -40,6 +32,21 @@ class VideoIndexItem extends React.Component {
               url={this.props.video.videoUrl}
             />
           </Link>
+          <div className="comment-index">
+            <div>
+              <Like
+                fetchLikes={this.props.fetchLikes}
+                videoId={this.props.video.id}
+              />
+              {this.props.video.likeCount}{" "}
+            </div>
+            <div>
+              <Link to={`/videos/${this.props.video.id}`}>
+                {" "}
+                <img src={window.comment} /> {this.props.video.commentCount}{" "}
+              </Link>
+            </div>
+          </div>
           <div className="border-bottom-gr"></div>
         </div>
       </Waypoint>
