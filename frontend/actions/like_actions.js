@@ -26,7 +26,6 @@ const receiveLike = (payload) => {
   }
 };
 const removeLike = (payload) => {
-  debugger;
   if (payload.video) {
     return {
       type: REMOVE_LIKE,
@@ -53,4 +52,4 @@ export const createLike = (like) => (dispatch) =>
     dispatch(receiveLike(payload))
   );
 export const deleteLike = (likeId) => (dispatch) =>
-  LikeAPIutil.deleteLike(likeId).then(() => dispatch(removeLike(likeId)));
+  LikeAPIutil.deleteLike(likeId).then((payload) => dispatch(removeLike(payload)));

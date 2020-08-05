@@ -25,7 +25,7 @@ class Api::LikesController < ApplicationController
     @likeable_id = @like.likeable_id
     @likeable_type = @like.likeable_type
     if @like.destroy
-      render :show
+      render :destroy
     else
       render json: @like.errors.full_messages, status: 404
     end

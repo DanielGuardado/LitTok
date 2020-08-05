@@ -7,6 +7,6 @@ json.set! @likeable_type.downcase do
     json.partial! '/api/videos/video', video: @video
   else
     @comment = Comment.find(@likeable_id)
-    json.partial! '/api/comments/comment', commment: @comment
+    json.partial! '/api/comments/comment', comment: @comment
   end
 end
