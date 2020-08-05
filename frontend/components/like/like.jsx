@@ -28,18 +28,18 @@ class Like extends React.Component {
 
   likeButton() {
     let status;
-    let typeId
+    let typeId;
     if (this.props.videoId) {
       typeId = this.props.videoId;
     } else {
-      typeId = this.props.commentId
+      typeId = this.props.commentId;
     }
     if (this.props.currentUser.likes) {
       this.props.currentUser.likes.forEach((like) => {
         if (like && like.likeable_id === typeId) {
           status = (
-            <button onClick={() => this.handleDislike(like.id)}>
-              Dislike
+            <button className="red" onClick={() => this.handleDislike(like.id)}>
+              ♡
             </button>
           );
         }
@@ -49,7 +49,7 @@ class Like extends React.Component {
       return status;
     } else {
       if (this.props.currentUser.id) {
-        return <button onClick={this.handleLike}>Like</button>;
+        return <button onClick={this.handleLike}>♡</button>;
       } else {
         return (
           <Link to="/login">
@@ -61,7 +61,7 @@ class Like extends React.Component {
   }
 
   render() {
-    return <div>{this.likeButton()}</div>;
+    return <>{this.likeButton()}</>;
   }
 }
 export default Like;

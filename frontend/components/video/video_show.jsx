@@ -20,6 +20,15 @@ class VideoShow extends React.Component {
     this.props.clearComments();
   }
 
+  // componentDidUpdate(prevProps) {
+  //   debugger;
+  //   if (prevProps.likes.length !== this.props.likes.length) {
+  //     this.props.fetchLikes();
+  //   }
+  // }
+
+
+
   componentDidMount() {
     this.props.fetchVideo(this.props.match.params.videoId);
     this.props.fetchLikes();
@@ -127,7 +136,8 @@ class VideoShow extends React.Component {
             <ul key={idx}>
               <li className="comment-author">{comment.author}</li>
               <li className="delete-comment">
-                <Like commentId={comment.comment.id} />♡ {comment.comment.body}{" "}
+                <Like commentId={comment.comment.id} />
+                {comment.comment.body}{" "}
                 <button
                   title="Delete Comment"
                   className="red"
@@ -143,7 +153,7 @@ class VideoShow extends React.Component {
             <ul key={idx}>
               <li className="comment-author">{comment.author}</li>
               <li>
-                <Like commentId={comment.comment.id} /> ♡ {comment.comment.body}
+                <Like commentId={comment.comment.id} /> {comment.comment.body}
               </li>
             </ul>
           );
@@ -210,7 +220,8 @@ class VideoShow extends React.Component {
     //   });
     return (
       <p className="Likes">
-        ♡{this.props.video.likeCount} C{this.props.video.commentCount}
+        {this.addLike()}
+        {this.props.video.likeCount} C{this.props.video.commentCount}
       </p>
     );
   }
@@ -235,7 +246,6 @@ class VideoShow extends React.Component {
               <div className="comment-flex">
                 <div className="desc-main">
                   <p className="desc">{video.description}</p>
-                  {this.addLike()}
                   {this.likeCount()}
                 </div>
                 {this.videoComments()}

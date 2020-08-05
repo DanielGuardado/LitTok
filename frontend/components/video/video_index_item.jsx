@@ -21,7 +21,7 @@ class VideoIndexItem extends React.Component {
             <h3 className="video-title-text">{this.props.video.username}</h3>
             <p className="video-caption-text">{this.props.video.description}</p>
             <p className="comment-index">
-              <Like videoId={this.props.video.id} /> ♡
+              <Like fetchLikes={this.props.fetchLikes} videoId={this.props.video.id} />
               {this.props.video.likeCount}{" "}
               <Link to={`/videos/${this.props.video.id}`}>
                 {" "}
