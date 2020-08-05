@@ -142,7 +142,9 @@ class VideoShow extends React.Component {
           return (
             <ul key={idx}>
               <li className="comment-author">{comment.author}</li>
-              <li>♡ {comment.comment.body}</li>
+              <li>
+                <Like commentId={comment.comment.id} /> ♡ {comment.comment.body}
+              </li>
             </ul>
           );
         }
