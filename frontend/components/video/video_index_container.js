@@ -5,6 +5,7 @@ import VideoIndex from "./video_index";
 
 const mapStateToProps = (state) => ({
   videos: Object.values(state.entities.videos),
+  likes: Object.values(state.entities.likes),
 });
 
 const mapDispatchToProps = (dispatch) => ({

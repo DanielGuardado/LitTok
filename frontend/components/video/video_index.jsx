@@ -13,7 +13,7 @@ class VideoIndex extends React.Component {
 
   videosShow() {
     const vid = this.props.videos.map((video, idx) => (
-      <VideoIndexItem key={idx} video={video} />
+      <VideoIndexItem key={idx} video={video} likes={this.props.likes}/>
     ));
     return <div className="flex-root-child">{vid}</div>;
   }

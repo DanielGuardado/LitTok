@@ -2,6 +2,7 @@ import React from "react";
 import ReactPlayer from "react-player";
 import { Link } from "react-router-dom";
 import { Waypoint } from "react-waypoint";
+import Like from "../like/like_container";
 
 class VideoIndexItem extends React.Component {
   constructor(props) {
@@ -19,6 +20,14 @@ class VideoIndexItem extends React.Component {
           <div className="title-desc">
             <h3 className="video-title-text">{this.props.video.username}</h3>
             <p className="video-caption-text">{this.props.video.description}</p>
+            <p className="comment-index">
+              <Like videoId={this.props.video.id} /> ♡
+              {this.props.video.likeCount}{" "}
+              <Link to={`/videos/${this.props.video.id}`}>
+                {" "}
+                C {this.props.video.commentCount}{" "}
+              </Link>
+            </p>
           </div>
           <Link to={`/videos/${this.props.video.id}`}>
             <ReactPlayer

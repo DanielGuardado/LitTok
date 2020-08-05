@@ -26,7 +26,7 @@ class Like extends React.Component {
         if (like && like.likeable_id === videoId) {
           status = (
             <button onClick={() => this.handleDislike(like.id)}>
-              Delete Test
+              Dislike
             </button>
           );
         }
@@ -36,7 +36,7 @@ class Like extends React.Component {
       return status;
     } else {
       if (this.props.currentUser.id) {
-        return <button onClick={this.handleLike}>Like test</button>;
+        return <button onClick={this.handleLike}>Like</button>;
       } else {
         return (
           <Link to="/login">

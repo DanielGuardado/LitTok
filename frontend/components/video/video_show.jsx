@@ -127,7 +127,7 @@ class VideoShow extends React.Component {
             <ul key={idx}>
               <li className="comment-author">{comment.author}</li>
               <li className="delete-comment">
-                {comment.comment.body}{" "}
+                <Like commentId={comment.comment.id} />♡ {comment.comment.body}{" "}
                 <button
                   title="Delete Comment"
                   className="red"
@@ -142,7 +142,7 @@ class VideoShow extends React.Component {
           return (
             <ul key={idx}>
               <li className="comment-author">{comment.author}</li>
-              <li>{comment.comment.body}</li>
+              <li>♡ {comment.comment.body}</li>
             </ul>
           );
         }
@@ -174,7 +174,7 @@ class VideoShow extends React.Component {
           <ul key={idx}>
             <li className="comment-author">{currentUser.username}</li>
             <li>
-              {comment.body}{" "}
+              ♡ {comment.body}{" "}
               <button
                 title="Delete Comment"
                 className="red"
@@ -190,7 +190,7 @@ class VideoShow extends React.Component {
         const com = Object.values(this.state.comments).map((comment, idx) => (
           <ul key={idx}>
             <li className="comment-author">{currentUser.username}</li>
-            <li>{comment.body}</li>
+            <li>♡ {comment.body}</li>
           </ul>
         ));
         return com;
@@ -199,15 +199,18 @@ class VideoShow extends React.Component {
   }
 
   likeCount() {
-    let count = 0;
-    if (this.props.likes && this.props.video.id) {
-      this.props.likes.forEach((like) => {
-        if (like.likeable_id === this.props.video.id) {
-          count += 1;
-        }
-      });
-      return <p className="Likes">♡{count}</p>;
-    }
+    // let count = 0;
+    // if (this.props.likes && this.props.video.id) {
+    //   this.props.likes.forEach((like) => {
+    //     if (like.likeable_id === this.props.video.id) {
+    //       count += 1;
+    //     }
+    //   });
+    return (
+      <p className="Likes">
+        ♡{this.props.video.likeCount} C{this.props.video.commentCount}
+      </p>
+    );
   }
 
   addLike() {
@@ -230,6 +233,7 @@ class VideoShow extends React.Component {
               <div className="comment-flex">
                 <div className="desc-main">
                   <p className="desc">{video.description}</p>
+                  {this.addLike()}
                   {this.likeCount()}
                 </div>
                 {this.videoComments()}
@@ -239,7 +243,6 @@ class VideoShow extends React.Component {
             </div>
             {this.editBtn()}
             {this.editTrig()}
-            {this.addLike()}
           </div>
         </div>
       </div>
