@@ -12,9 +12,10 @@ const receiveAllVideos = (videos) => ({
   videos,
 });
 
-const receiveVideo = (video) => ({
+const receiveVideo = (payload) => ({
   type: RECEIVE_VIDEO,
-  video,
+  video: payload.video,
+  comments: payload.comments
 });
 
 const removeVideo = (videoId) => ({
@@ -40,8 +41,8 @@ export const fetchVideos = () => (dispatch) => (
 );
 
 export const fetchVideo = (videoId) => (dispatch) => (
-  VideoAPIutil.fetchVideo(videoId).then((video) =>
-    dispatch(receiveVideo(video))
+  VideoAPIutil.fetchVideo(videoId).then((payload) =>
+    dispatch(receiveVideo(payload))
   ),
   (errors) => dispatch(receiveErrors(errors.responseJSON))
 );

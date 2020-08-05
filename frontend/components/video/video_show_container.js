@@ -8,13 +8,23 @@ import { deleteComment, clearComments } from "../../actions/comment_actions";
 import { fetchLikes } from "../../actions/like_actions";
 import VideoShow from "./video_show";
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, ownProps) => {
+  // debugger;
+  const video = state.entities.videos[ownProps.match.params.videoId];
+  const comments = Object.values(state.entities.comments);
   return {
-    video: state.entities.videos,
+    //video: state.entities.videos,
+    video,
     currentUser: state.session.currentUser
       ? state.entities.users[state.session.currentUser.id]
       : {},
     likes: Object.values(state.entities.likes),
+    comments:
+      video && comments.length > 0
+        ? video.commentIds.map(
+            (commentId) => state.entities.comments[commentId]
+          )
+        : [],
   };
 };
 

@@ -8,20 +8,49 @@ const receiveAllLikes = (likes) => ({
   type: RECEIVE_ALL_LIKES,
   likes,
 });
-const receiveLike = (like) => ({
-  type: RECEIVE_LIKE,
-  like,
-});
-const removeLike = (likeId) => ({
-  type: REMOVE_LIKE,
-  likeId,
-});
+const receiveLike = (payload) => {
+  if (payload.video) {
+    return {
+      type: RECEIVE_LIKE,
+      like: payload.like,
+      video: payload.video,
+    };
+  } else if (payload.comment) {
+    return {
+      type: RECEIVE_LIKE,
+      like: payload.like,
+      comment: payload.comment,
+    };
+  } else {
+    return { type: "Ignore" };
+  }
+};
+const removeLike = (payload) => {
+  debugger;
+  if (payload.video) {
+    return {
+      type: REMOVE_LIKE,
+      likeId: payload.like.id,
+      video: payload.video,
+    };
+  } else if (payload.comment) {
+    return {
+      type: REMOVE_LIKE,
+      likeId: payload.like.id,
+      comment: payload.comment,
+    };
+  } else {
+    return { type: "Ignore" };
+  }
+};
 
 export const fetchLikes = () => (dispatch) =>
   LikeAPIutil.fetchLikes().then((likes) => dispatch(receiveAllLikes(likes)));
 export const fetchLike = (likeId) => (dispatch) =>
   LikeAPIutil.fetchLike(likeId).then((like) => dispatch(receiveLike(like)));
 export const createLike = (like) => (dispatch) =>
-  LikeAPIutil.createLike(like).then((like) => dispatch(receiveLike(like)));
+  LikeAPIutil.createLike(like).then((payload) =>
+    dispatch(receiveLike(payload))
+  );
 export const deleteLike = (likeId) => (dispatch) =>
   LikeAPIutil.deleteLike(likeId).then(() => dispatch(removeLike(likeId)));

@@ -111,7 +111,7 @@ class VideoShow extends React.Component {
           videoId={this.props.video.id}
           cmntTrigger={this.cmntTrigger}
           editComments={this.editComments}
-          comments={this.props.video.comments}
+          comments={this.props.comments}
         />
       );
     } else {
@@ -127,23 +127,24 @@ class VideoShow extends React.Component {
   }
 
   videoComments() {
-    const { video, currentUser, deleteComment } = this.props;
-    if (video.comments) {
-      const comment = this.props.video.comments.map((comment, idx) => {
+    const { currentUser, deleteComment, comments } = this.props;
+    if (comments) {
+      const comment = this.props.comments.map((comment, idx) => {
         //keep this in mind
-        if (comment.comment.author_id === currentUser.id) {
+
+        if (comment.author_id === currentUser.id) {
           return (
             <ul key={idx}>
               <li className="comment-author">{comment.author}</li>
               <li className="comment-section">
                 <div>
-                  <Like width={25} commentId={comment.comment.id} />
+                  <Like width={25} commentId={comment.id} />
                 </div>
-                <div className="comment-body">{comment.comment.body}</div>
+                <div className="comment-body">{comment.body}</div>
                 <button
                   title="Delete Comment"
                   className="red"
-                  onClick={() => deleteComment(comment.comment.id)}
+                  onClick={() => deleteComment(comment.id)}
                 >
                   ✘
                 </button>
@@ -156,9 +157,9 @@ class VideoShow extends React.Component {
               <li className="comment-author">{comment.author}</li>
               <li className="comment-section">
                 <div>
-                  <Like width={25} commentId={comment.comment.id} />
+                  <Like width={25} commentId={comment.id} />
                 </div>
-                <div className="comment-body">{comment.comment.body}</div>
+                <div className="comment-body">{comment.body}</div>
               </li>
             </ul>
           );
@@ -237,7 +238,13 @@ class VideoShow extends React.Component {
   }
 
   render() {
-    const { video } = this.props;
+    const { video, comments } = this.props;
+
+    if (!video) {
+      return null;
+    }
+    debugger;
+
     return (
       <div>
         <Link className="closeVid" to="/foryou">

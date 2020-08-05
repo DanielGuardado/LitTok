@@ -3,6 +3,7 @@ import {
   RECEIVE_VIDEO,
   REMOVE_VIDEO,
 } from "../actions/video_actions";
+import { RECEIVE_LIKE, REMOVE_LIKE } from "../actions/like_actions";
 //fix that state
 const VideoReducer = (state = {}, action) => {
   Object.freeze(state);
@@ -10,8 +11,20 @@ const VideoReducer = (state = {}, action) => {
   switch (action.type) {
     case RECEIVE_ALL_VIDEOS:
       return action.videos;
+    case RECEIVE_LIKE:
+      if (!action.video) {
+        return state;
+      } else {
+        return Object.assign({}, state, { [action.video.id]: action.video });
+      }
+    case REMOVE_LIKE:
+      if (!action.video) {
+        return state;
+      } else {
+        return Object.assign({}, state, { [action.video.id]: action.video });
+      }
     case RECEIVE_VIDEO:
-      return Object.assign(copyState, action.video );
+      return Object.assign(copyState, { [action.video.id]: action.video });
     case REMOVE_VIDEO:
       delete copyState[action.videoId];
       return copyState;
