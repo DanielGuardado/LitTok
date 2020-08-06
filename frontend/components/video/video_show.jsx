@@ -143,7 +143,7 @@ class VideoShow extends React.Component {
               <li className="comment-author">{comment.author}</li>
               <li className="comment-section">
                 <div>
-                  <Like width={25} commentId={comment.id} />
+                  <Like likes={this.props.likes} width={25} commentId={comment.id} />
                 </div>
                 <div className="comment-body">{comment.body}</div>
               </li>
@@ -222,7 +222,7 @@ class VideoShow extends React.Component {
   }
 
   addLike() {
-    return <Like videoId={this.props.video.id} />;
+    return <Like likes={this.props.likes} videoId={this.props.video.id} />;
   }
 
   render() {

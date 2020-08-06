@@ -35,6 +35,7 @@ class VideoIndexItem extends React.Component {
           <div className="comment-index">
             <div>
               <Like
+                likes={this.props.likes}
                 fetchLikes={this.props.fetchLikes}
                 videoId={this.props.video.id}
               />

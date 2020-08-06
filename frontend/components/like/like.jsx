@@ -5,10 +5,18 @@ import { fetchLike } from "../../util/likes_api_util";
 class Like extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { like: false };
+    this.state = { like: false, pic: window.bwheart };
     this.handleLike = this.handleLike.bind(this);
     this.handleDislike = this.handleDislike.bind(this);
   }
+
+  // shouldComponentUpdate(nextProps, nextState) {
+  //   if (nextState.like !== this.state.like) {
+  //     return true;
+  //   } else {
+  //     return false;
+  //   }
+  // }
 
   handleLike() {
     if (this.props.videoId) {
@@ -18,7 +26,8 @@ class Like extends React.Component {
           likeable_id: this.props.videoId,
           liker_id: this.props.currentUser.id,
         })
-        .then(this.props.fetchLikes())
+        .then(this.setState({ pic: window.redheart }))
+
         .then(this.setState({ like: !this.state.like }));
     } else {
       this.props
@@ -27,17 +36,60 @@ class Like extends React.Component {
           likeable_id: this.props.commentId,
           liker_id: this.props.currentUser.id,
         })
-        .then(this.props.fetchLikes())
+        .then(this.setState({ pic: window.redheart }))
+
         .then(this.setState({ like: !this.state.like }));
     }
   }
 
+  // handleLike(typeId) {
+  //   this.props
+  //     .createLike({
+  //       likeable_type: typeId,
+  //       likeable_id: this.props.videoId,
+  //       liker_id: this.props.currentUser,
+  //     })
+  //     .then(this.setState({ like: !this.state.like }));
+  // }
+
   handleDislike(likeId) {
     this.props
       .deleteLike(likeId)
-      .then(this.props.fetchLikes())
       .then(this.setState({ like: !this.state.like }));
   }
+
+  // b1() {
+  //   if (!this.props.likes) {
+  //     return;
+  //   }
+  //   const { currentUser } = this.props;
+  //   let status;
+  //   let typeId;
+  //   if (this.props.videoId) {
+  //     typeId = this.props.videoId;
+  //   } else {
+  //     typeId = this.props.commentId;
+  //   }
+
+  //   const a = this.props.likes.map((like) => {
+  //     if (like.liker_id !== currentUser.id) {
+  //       debugger;
+  //       return (
+  //         <button onClick={() => this.handleDislike(like.id)}>Like</button>
+  //       );
+  //     } else {
+  //       debugger;
+  //       return (
+  //         <button
+  //           onClick={() => this.handleLike(like.likeable_type, currentUser.id)}
+  //         >
+  //           dislike
+  //         </button>
+  //       );
+  //     }
+  //   });
+  //   return a;
+  // }
 
   button() {
     let status;
@@ -76,7 +128,7 @@ class Like extends React.Component {
           <button onClick={this.handleLike}>
             <img
               style={{ width: this.props.width }}
-              src={window.bwheart}
+              src={this.state.pic}
               alt=""
             />
           </button>
@@ -151,6 +203,8 @@ class Like extends React.Component {
 
   render() {
     return <>{this.button()}</>;
+    // return <>{this.likeButton()}</>;
+    // return <>{this.b1()}</>;
   }
 }
 export default Like;
