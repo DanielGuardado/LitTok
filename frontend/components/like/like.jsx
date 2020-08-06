@@ -19,7 +19,7 @@ class Like extends React.Component {
           liker_id: this.props.currentUser.id,
         })
         .then(this.props.fetchLikes())
-        .then(this.setState({ like: true }));
+        .then(this.setState({ like: !this.state.like }));
     } else {
       this.props
         .createLike({
@@ -28,7 +28,7 @@ class Like extends React.Component {
           liker_id: this.props.currentUser.id,
         })
         .then(this.props.fetchLikes())
-        .then(this.setState({ like: true }));
+        .then(this.setState({ like: !this.state.like }));
     }
   }
 
@@ -36,7 +36,7 @@ class Like extends React.Component {
     this.props
       .deleteLike(likeId)
       .then(this.props.fetchLikes())
-      .then(this.setState({ like: true }));
+      .then(this.setState({ like: !this.state.like }));
   }
 
   button() {
