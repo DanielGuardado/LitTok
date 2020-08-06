@@ -24,15 +24,15 @@ export const receiveCommentErrors = (errors) => ({
   errors,
 });
 
-export const clearCommentErrors = () => ({
-  type: CLEAR_ERRORS,
-  errors: [],
-});
+// export const clearCommentErrors = () => ({
+//   type: CLEAR_ERRORS,
+//   errors: [],
+// });
 
-export const clearComments = () => ({
-  type: CLEAR_COMMENTS,
-  comments: {}
-})
+// export const clearComments = () => ({
+//   type: CLEAR_COMMENTS,
+//   comments: {}
+// })
 
 export const fetchComments = () => (dispatch) =>
   CommentAPIutil.fetchComments().then((comments) =>

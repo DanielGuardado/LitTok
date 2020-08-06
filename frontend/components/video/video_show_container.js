@@ -4,7 +4,7 @@ import {
   deleteVideo,
   updateVideo,
 } from "../../actions/video_actions";
-import { deleteComment, clearComments } from "../../actions/comment_actions";
+import { deleteComment } from "../../actions/comment_actions";
 import { fetchLikes } from "../../actions/like_actions";
 import VideoShow from "./video_show";
 
@@ -33,7 +33,6 @@ const mapDispatchToProps = (dispatch) => ({
   deleteVideo: (videoId) => dispatch(deleteVideo(videoId)),
   updateVideo: (videoId) => dispatch(updateVideo(videoId)),
   deleteComment: (commentId) => dispatch(deleteComment(commentId)),
-  clearComments: () => dispatch(clearComments()),
   fetchLikes: () => dispatch(fetchLikes()),
 });
 

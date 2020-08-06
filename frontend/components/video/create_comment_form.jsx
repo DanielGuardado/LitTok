@@ -1,5 +1,4 @@
 import React from "react";
-import { fetchComment } from "../../util/comment_api_util";
 
 class CreateCommentForm extends React.Component {
   constructor(props) {
@@ -15,9 +14,8 @@ class CreateCommentForm extends React.Component {
   handleSubmit(e) {
     // let com = {};
     e.preventDefault();
-    this.props
-      .createComment(this.state)
-      .then(() => this.props.editComments(this.props.comment));
+    this.props.createComment(this.state).then(this.props.fetchVideo(this.state.video_id));
+    // .then(() => this.props.editComments(this.props.comment));
     // .createComment(this.state)
     // .then(() => this.props.editComments(this.props.comment));
     this.setState({ body: "" });

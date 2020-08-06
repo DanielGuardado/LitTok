@@ -19,6 +19,7 @@ const CommentsReducer = (state = {}, action) => {
         return state
       } else {
         return Object.assign({}, state, { [action.comment.id]: action.comment })
+        // return Object.assign({}, state, action.comment )
       }
     case REMOVE_LIKE:
       if (!action.comment) {

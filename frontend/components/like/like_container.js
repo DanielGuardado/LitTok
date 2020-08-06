@@ -1,5 +1,10 @@
 import { connect } from "react-redux";
-import { createLike, deleteLike,} from "../../actions/like_actions";
+import {
+  createLike,
+  deleteLike,
+  fetchLikes,
+  fetchLike,
+} from "../../actions/like_actions";
 import Like from "./like";
 
 const mapStateToProps = (state) => {
@@ -14,6 +19,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => ({
   createLike: (like) => dispatch(createLike(like)),
   deleteLike: (likeId) => dispatch(deleteLike(likeId)),
+  fetchLikes: () => dispatch(fetchLikes()),
+  fetchLike: (likeId) => dispatch(fetchLike(likeId)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Like);

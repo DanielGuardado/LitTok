@@ -4,6 +4,7 @@ import {
   REMOVE_VIDEO,
 } from "../actions/video_actions";
 import { RECEIVE_LIKE, REMOVE_LIKE } from "../actions/like_actions";
+import { RECEIVE_COMMENT } from "../actions/comment_actions";
 //fix that state
 const VideoReducer = (state = {}, action) => {
   Object.freeze(state);
@@ -18,6 +19,13 @@ const VideoReducer = (state = {}, action) => {
         return Object.assign({}, state, { [action.video.id]: action.video });
       }
     case REMOVE_LIKE:
+      if (!action.video) {
+        return state;
+      } else {
+        return Object.assign({}, state, { [action.video.id]: action.video });
+      }
+      //test
+    case RECEIVE_COMMENT:
       if (!action.video) {
         return state;
       } else {

@@ -15,7 +15,7 @@ const receiveAllVideos = (videos) => ({
 const receiveVideo = (payload) => ({
   type: RECEIVE_VIDEO,
   video: payload.video,
-  comments: payload.comments
+  comments: payload.comments,
 });
 
 const removeVideo = (videoId) => ({
@@ -33,19 +33,15 @@ export const clearVideoErrors = () => ({
   errors: [],
 });
 
-export const fetchVideos = () => (dispatch) => (
+export const fetchVideos = () => (dispatch) =>
   VideoAPIutil.fetchVideos().then((videos) =>
     dispatch(receiveAllVideos(videos))
-  ),
-  (errors) => dispatch(receiveErrors(errors.responseJSON))
-);
+  );
 
-export const fetchVideo = (videoId) => (dispatch) => (
+export const fetchVideo = (videoId) => (dispatch) =>
   VideoAPIutil.fetchVideo(videoId).then((payload) =>
     dispatch(receiveVideo(payload))
-  ),
-  (errors) => dispatch(receiveErrors(errors.responseJSON))
-);
+  );
 
 export const createVideo = (video) => (dispatch) =>
   VideoAPIutil.createVideo(video).then(

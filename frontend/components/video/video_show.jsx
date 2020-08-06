@@ -15,37 +15,18 @@ class VideoShow extends React.Component {
     };
     this.videoComments = this.videoComments.bind(this);
   }
-  componentWillUnmount() {
-    // this.setState({ comments: null });
-    this.props.clearComments();
-  }
-
-  // componentDidUpdate(prevProps) {
-  //   debugger;
-  //   if (prevProps.likes.length !== this.props.likes.length) {
-  //     this.props.fetchLikes();
-  //   }
-  // }
 
   componentDidMount() {
     this.props.fetchVideo(this.props.match.params.videoId);
     this.props.fetchLikes();
   }
-  editComments = (comments) => {
-    this.setState({ comments: comments });
-  };
 
+  //REMEMBER  THIS!!!!!!!! HUGEEE!!!!!!
+  //FLOW OF INFORMATION
   btnTrigger = () => {
     let edt = this.state.editTrigger;
     this.setState({ editTrigger: !edt });
   };
-
-  cmntTrigger = () => {
-    this.setState({ commentTrigger: true });
-  };
-
-  //REMEMBER  THIS!!!!!!!! HUGEEE!!!!!!
-  //FLOW OF INFORMATION
   editDescrip = (description) => {
     this.setState({ description: description });
   };
@@ -107,6 +88,7 @@ class VideoShow extends React.Component {
     if (this.props.video.id && this.props.currentUser.id) {
       return (
         <CreateCommentForm
+          fetchVideo={this.props.fetchVideo}
           authorId={this.props.currentUser.id}
           videoId={this.props.video.id}
           cmntTrigger={this.cmntTrigger}
@@ -128,11 +110,11 @@ class VideoShow extends React.Component {
 
   videoComments() {
     const { currentUser, deleteComment, comments } = this.props;
-    if (comments) {
+    if (comments && comments.length > 0) {
+      // debugger;
       const comment = this.props.comments.map((comment, idx) => {
         //keep this in mind
-
-        if (comment.author_id === currentUser.id) {
+        if (comment && comment.author_id === currentUser.id) {
           return (
             <ul key={idx}>
               <li className="comment-author">{comment.author}</li>
@@ -144,14 +126,18 @@ class VideoShow extends React.Component {
                 <button
                   title="Delete Comment"
                   className="red"
-                  onClick={() => deleteComment(comment.id)}
+                  onClick={() =>
+                    deleteComment(comment.id).then(
+                      this.props.fetchVideo(this.props.match.params.videoId)
+                    )
+                  }
                 >
                   ✘
                 </button>
               </li>
             </ul>
           );
-        } else {
+        } else if (comment) {
           return (
             <ul key={idx}>
               <li className="comment-author">{comment.author}</li>
@@ -163,6 +149,8 @@ class VideoShow extends React.Component {
               </li>
             </ul>
           );
+        } else {
+          return;
         }
       });
       return <ul className="comment-flex1">{comment}</ul>;
@@ -183,38 +171,38 @@ class VideoShow extends React.Component {
     }
   }
 
-  renderNewComment() {
-    const { currentUser, deleteComment } = this.props;
-    // debugger;
-    if (this.state.comments) {
-      if (JSON.stringify(currentUser.id) === this.props.video.uploader_id) {
-        const com = Object.values(this.state.comments).map((comment, idx) => (
-          <ul key={idx}>
-            <li className="comment-author">{currentUser.username}</li>
-            <li>
-              ♡ {comment.body}{" "}
-              <button
-                title="Delete Comment"
-                className="red"
-                onClick={() => deleteComment(comment.id)}
-              >
-                ✘
-              </button>
-            </li>
-          </ul>
-        ));
-        return com;
-      } else {
-        const com = Object.values(this.state.comments).map((comment, idx) => (
-          <ul key={idx}>
-            <li className="comment-author">{currentUser.username}</li>
-            <li>♡ {comment.body}</li>
-          </ul>
-        ));
-        return com;
-      }
-    }
-  }
+  // renderNewComment() {
+  //   const { currentUser, deleteComment } = this.props;
+  //   // debugger;
+  //   if (this.state.comments) {
+  //     if (JSON.stringify(currentUser.id) === this.props.video.uploader_id) {
+  //       const com = Object.values(this.state.comments).map((comment, idx) => (
+  //         <ul key={idx}>
+  //           <li className="comment-author">{currentUser.username}</li>
+  //           <li>
+  //             ♡ {comment.body}{" "}
+  //             <button
+  //               title="Delete Comment"
+  //               className="red"
+  //               onClick={() => deleteComment(comment.id)}
+  //             >
+  //               ✘
+  //             </button>
+  //           </li>
+  //         </ul>
+  //       ));
+  //       return com;
+  //     } else {
+  //       const com = Object.values(this.state.comments).map((comment, idx) => (
+  //         <ul key={idx}>
+  //           <li className="comment-author">{currentUser.username}</li>
+  //           <li>♡ {comment.body}</li>
+  //         </ul>
+  //       ));
+  //       return com;
+  //     }
+  //   }
+  // }
 
   likeCount() {
     // let count = 0;
@@ -263,7 +251,7 @@ class VideoShow extends React.Component {
                 </div>
                 {this.videoComments()}
                 {this.deleteBtn()}
-                {this.renderNewComment()}
+                {/* {this.renderNewComment()} */}
               </div>
               {this.commentForm()}
             </div>
