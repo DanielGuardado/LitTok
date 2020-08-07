@@ -5,7 +5,7 @@ import { fetchLike } from "../../util/likes_api_util";
 class Like extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { like: false, pic: window.bwheart };
+    this.state = { like: false, pic: window.bwfire };
     this.handleLike = this.handleLike.bind(this);
     this.handleDislike = this.handleDislike.bind(this);
   }
@@ -27,7 +27,7 @@ class Like extends React.Component {
           likeable_id: this.props.videoId,
           liker_id: this.props.currentUser.id,
         })
-        .then(this.setState({ pic: window.redheart }))
+        .then(this.setState({ pic: window.firered }))
 
         .then(this.setState({ like: !this.state.like }));
     } else {
@@ -37,7 +37,7 @@ class Like extends React.Component {
           likeable_id: this.props.commentId,
           liker_id: this.props.currentUser.id,
         })
-        .then(this.setState({ pic: window.redheart }))
+        .then(this.setState({ pic: window.firred }))
 
         .then(this.setState({ like: !this.state.like }));
     }
@@ -112,7 +112,7 @@ class Like extends React.Component {
               >
                 <img
                   style={{ width: this.props.width }}
-                  src={window.redheart}
+                  src={window.firered}
                   alt=""
                 />
               </button>
@@ -140,7 +140,7 @@ class Like extends React.Component {
             <button>
               <img
                 style={{ width: this.props.width }}
-                src={window.bwheart}
+                src={window.bwfire}
                 alt=""
               />
             </button>
