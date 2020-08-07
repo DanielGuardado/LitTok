@@ -10,6 +10,7 @@ class Like extends React.Component {
     this.handleDislike = this.handleDislike.bind(this);
   }
 
+  
   // shouldComponentUpdate(nextProps, nextState) {
   //   if (nextState.like !== this.state.like) {
   //     return true;

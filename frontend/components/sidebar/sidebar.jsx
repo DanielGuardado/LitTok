@@ -37,6 +37,9 @@ class Sidebar extends React.Component {
     } else {
       status = (
         <div>
+          <p className="smallgrey">
+            Log in to follow creators, like videos, and comments.
+          </p>
           <div className="bpadding2">
             <Modals classname={"LogButtonSide2"} />
           </div>
@@ -66,9 +69,6 @@ class Sidebar extends React.Component {
               Following
             </span>
           </div>
-          <p className="smallgrey">
-            Log in to follow creators, like videos, and comments.
-          </p>
           {status}
           <a href="https://github.com/DanielGuardado/LitTok">
             <img

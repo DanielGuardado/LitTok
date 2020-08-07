@@ -785,9 +785,9 @@ video:focus {
 .splash-footer-ul {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  height: 70%;
-  padding: 35px 55px 0px 35px;
+  justify-content: space-evenly;
+  height: 55%;
+  padding: 25px 55px 0px 35px;
   font-size: 11px;
   color: white;
   font-weight: 500;
@@ -839,9 +839,11 @@ video:focus {
   background: black;
   margin: 0;
   position: relative;
-  top: 10px;
-  height: 0px;
-  left: 20px;
+  top: 0px;
+  height: 25px;
+  /* left: 20px; */
+  padding-top: 15px;
+  padding-left: 30px;
 }
 
 .comment-index {
