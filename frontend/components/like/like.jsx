@@ -5,12 +5,11 @@ import { fetchLike } from "../../util/likes_api_util";
 class Like extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { like: false, pic: window.bwfire };
+    this.state = { like: false, pic: window.bwfire1 };
     this.handleLike = this.handleLike.bind(this);
     this.handleDislike = this.handleDislike.bind(this);
   }
 
-  
   // shouldComponentUpdate(nextProps, nextState) {
   //   if (nextState.like !== this.state.like) {
   //     return true;
@@ -27,7 +26,7 @@ class Like extends React.Component {
           likeable_id: this.props.videoId,
           liker_id: this.props.currentUser.id,
         })
-        .then(this.setState({ pic: window.firered }))
+        .then(this.setState({ pic: window.firered1 }))
 
         .then(this.setState({ like: !this.state.like }));
     } else {
@@ -37,7 +36,7 @@ class Like extends React.Component {
           likeable_id: this.props.commentId,
           liker_id: this.props.currentUser.id,
         })
-        .then(this.setState({ pic: window.firred }))
+        .then(this.setState({ pic: window.firered1 }))
 
         .then(this.setState({ like: !this.state.like }));
     }
@@ -112,7 +111,7 @@ class Like extends React.Component {
               >
                 <img
                   style={{ width: this.props.width }}
-                  src={window.firered}
+                  src={window.firered1}
                   alt=""
                 />
               </button>
@@ -140,7 +139,7 @@ class Like extends React.Component {
             <button>
               <img
                 style={{ width: this.props.width }}
-                src={window.bwfire}
+                src={window.bwfire1}
                 alt=""
               />
             </button>
