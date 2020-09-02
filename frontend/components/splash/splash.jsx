@@ -51,59 +51,45 @@ export default class Splash extends Component {
           </header>
         </div>
         <ul className="video-stream">{this.videoRen()}</ul>
-        <h2 className="splash-apps">Download now</h2>
-        <ul className="splash-links">
-          <li className="img-pad-splash">
-            <img src={window.qr} alt="" />
-          </li>
-          <li className="img-pad-splash">
-            <img src={window.apple} alt="" />
-          </li>
-          <li className="img-pad-splash">
-            <img src={window.google} alt="" />
-          </li>
-          <li className="img-pad-splash">
-            <img src={window.amazon} alt="" />
-          </li>
-        </ul>
         <footer className="footer-splash">
           <img src={window.logoInvert} alt="littok" className="footer-img" />
-          <form action="#">
+          {/* <form action="#">
             <select className="splash-footer-input" name="english" id="english">
               <option value="english">English</option>
             </select>
-          </form>
+          </form> */}
           <ul className="splash-footer-ul">
-            <li className="first-li">Company</li>
-            <li>About LitTok</li>
-            <li>Newsroom</li>
-            <li>Contact</li>
-            <li>Careers</li>
-            <li>LitDance</li>
+            <li className="first-li">
+              <a href="https://danielguardado.com/" target="_blank">
+                Portfolio
+              </a>
+            </li>
           </ul>
           <ul className="splash-footer-ul">
-            <li className="first-li">Programs</li>
-            <li>LitTok for Good</li>
-            <li>LitTok for Developers</li>
-            <li>Advertise on LitTok</li>
+            <li className="first-li">
+              <a
+                href="https://www.linkedin.com/in/danielguardado1/"
+                target="_blank"
+              >
+                LinkedIn
+              </a>
+            </li>
           </ul>
           <ul className="splash-footer-ul">
-            <li className="first-li">Support</li>
-            <li>Help Center</li>
-            <li>Safety Center</li>
-            <li>Community Guidelines</li>
-            <li>Transparency</li>
+            <li className="first-li">
+              <a href="https://angel.co/u/danielguardado" target="_blank">
+                Angellist
+              </a>
+            </li>
           </ul>
           <ul className="splash-footer-ul">
-            <li className="first-li">Legal</li>
-            <li>Cookies Policy</li>
-            <li>Privacy Policy for Younger Users</li>
-            <li>Intellectual Property Policy</li>
-            <li>Law Enforcement</li>
-            <li>Privacy Policy</li>
-            <li>Terms of Service</li>
+            <li className="first-li">
+              <a href="https://github.com/DanielGuardado" target="_blank">
+                Github
+              </a>
+            </li>
           </ul>
-          <aside className="splash-aside-footer">© 2020 LitTok</aside>
+          {/* <aside className="splash-aside-footer">© 2020 LitTok</aside> */}
         </footer>
       </>
     );

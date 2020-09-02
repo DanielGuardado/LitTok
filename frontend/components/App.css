@@ -779,7 +779,7 @@ video:focus {
   display: flex;
   justify-content: center;
   background: black;
-  height: 300px;
+  height: 170px;
 }
 
 .splash-footer-ul {
@@ -801,8 +801,6 @@ video:focus {
   height: 110px;
   width: 198px;
   position: relative;
-  right: -100px;
-  top: 25px;
 }
 
 .splash-aside-footer {

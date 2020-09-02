@@ -70,30 +70,39 @@ class Sidebar extends React.Component {
             </span>
           </div>
           {status}
-          <a href="https://github.com/DanielGuardado/LitTok">
+          {/* <a href="https://github.com/DanielGuardado/LitTok">
             <img
               className="github-logo"
               src={window.github}
               alt=""
               width={170}
             />
-          </a>
+          </a> */}
           <footer className="footer-wrapper">
-            <ul className="footer-links">
-              <li className="p5">Home</li>
-              <li className="p5">About</li>
-              <li className="p5">Newsroom</li>
-              <li className="p5">Careers</li>
-              <li className="p5">LitTok</li>
-            </ul>
             <ul className="footer-links2">
-              <li className="p5">Help</li>
-              <li className="p5">Safety</li>
-              <li className="p5">Community</li>
-              <li className="p5">Guidelines</li>
-              <li className="p5">Terms</li>
-              <li className="p5">Privacy</li>
-              <li className="p5">Copyright</li>
+              <li className="p5">
+                <a href="https://danielguardado.com/" target="_blank">
+                  Portfolio
+                </a>
+              </li>
+              <li className="p5">
+                <a
+                  href="https://www.linkedin.com/in/danielguardado1/"
+                  target="_blank"
+                >
+                  LinkedIn
+                </a>
+              </li>
+              <li className="p5">
+                <a href="https://angel.co/u/danielguardado" target="_blank">
+                  Angellist
+                </a>
+              </li>
+              <li className="p5">
+                <a href="https://github.com/DanielGuardado" target="_blank">
+                  Github
+                </a>
+              </li>
             </ul>
             <aside className="aside-footer">© 2020 LitTok</aside>
             <form action="#">
