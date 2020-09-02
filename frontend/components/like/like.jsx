@@ -24,40 +24,50 @@ class Like extends React.Component {
   }
 
   handleLike() {
+    this.setState({ like: !this.state.like });
     if (this.state.pic2 === window.bwfire1) {
-      this.setState({ pic2: window.bwfire1 });
-    } else {
       this.setState({ pic2: window.firered1 });
+    } else if (this.state.pic2 === window.firered1) {
+      this.setState({ pic2: window.bwfire1 });
+    }
+    if (this.state.pic === window.bwfire1) {
+      this.setState({ pic: window.firered1 });
+    } else if (this.state.pic === window.firered1) {
+      this.setState({ pic: window.bwfire1 });
     }
     if (this.props.videoId) {
-      this.props
-        .createLike({
-          likeable_type: "Video",
-          likeable_id: this.props.videoId,
-          liker_id: this.props.currentUser.id,
-        })
-        // .then(this.setState({ pic: window.firered1 }))
+      this.props.createLike({
+        likeable_type: "Video",
+        likeable_id: this.props.videoId,
+        liker_id: this.props.currentUser.id,
+      });
+      // .then(this.setState({ pic: window.firered1 }))
 
-        .then(this.setState({ like: !this.state.like }));
+      // .then(this.setState({ like: !this.state.like }));
     } else {
-      this.props
-        .createLike({
-          likeable_type: "Comment",
-          likeable_id: this.props.commentId,
-          liker_id: this.props.currentUser.id,
-        })
-        // .then(this.setState({ pic: window.firered1 }))
+      this.props.createLike({
+        likeable_type: "Comment",
+        likeable_id: this.props.commentId,
+        liker_id: this.props.currentUser.id,
+      });
+      // .then(this.setState({ pic: window.firered1 }))
 
-        .then(this.setState({ like: !this.state.like }));
+      // .then(this.setState({ like: !this.state.like }));
     }
   }
 
   handleDislike(likeId) {
-    if (this.state.pic2 !== window.bwfire1) {
-      this.setState({ pic2: window.firered1 });
-    } else {
-      this.setState({ pic2: window.bwfire1 });
+    if (this.state.pic2 === window.bwfire1) {
+      this.setState({ pic2: window.firered1, pic: window.firered1 });
+    } else if (this.state.pic2 === window.firered1) {
+      this.setState({ pic2: window.bwfire1, pic: window.bwfire1 });
     }
+    // if (this.state.pic === window.bwfire1) {
+    //   this.setState({ pic: window.firered1 });
+    // } else if (this.state.pic === window.firered1) {
+    //   this.setState({ pic: window.bwfire1 });
+    // }
+    // this.setState({ like: !this.state.like });
     this.props
       .deleteLike(likeId)
       .then(this.props.fetchLikes())
