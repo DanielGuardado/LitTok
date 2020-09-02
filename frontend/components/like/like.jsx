@@ -5,20 +5,30 @@ import { fetchLike } from "../../util/likes_api_util";
 class Like extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { like: false, pic: window.bwfire1 };
+    this.state = {
+      like: false,
+      pic: window.bwfire1,
+      pic2: window.firered1,
+      likeId: 0,
+      first: false,
+      picTrigger: false,
+    };
     this.handleLike = this.handleLike.bind(this);
     this.handleDislike = this.handleDislike.bind(this);
   }
 
-  // shouldComponentUpdate(nextProps, nextState) {
-  //   if (nextState.like !== this.state.like) {
-  //     return true;
-  //   } else {
-  //     return false;
-  //   }
-  // }
+  componentWillReceiveProps(nextProps) {
+    if (this.props.likes.length !== nextProps.likes.length) {
+      this.setState({ likeId: nextProps.likes[nextProps.likes.length - 1].id });
+    }
+  }
 
   handleLike() {
+    if (this.state.pic2 === window.bwfire1) {
+      this.setState({ pic2: window.bwfire1 });
+    } else {
+      this.setState({ pic2: window.firered1 });
+    }
     if (this.props.videoId) {
       this.props
         .createLike({
@@ -26,7 +36,7 @@ class Like extends React.Component {
           likeable_id: this.props.videoId,
           liker_id: this.props.currentUser.id,
         })
-        .then(this.setState({ pic: window.firered1 }))
+        // .then(this.setState({ pic: window.firered1 }))
 
         .then(this.setState({ like: !this.state.like }));
     } else {
@@ -36,60 +46,29 @@ class Like extends React.Component {
           likeable_id: this.props.commentId,
           liker_id: this.props.currentUser.id,
         })
-        .then(this.setState({ pic: window.firered1 }))
+        // .then(this.setState({ pic: window.firered1 }))
 
         .then(this.setState({ like: !this.state.like }));
     }
   }
 
-  // handleLike(typeId) {
-  //   this.props
-  //     .createLike({
-  //       likeable_type: typeId,
-  //       likeable_id: this.props.videoId,
-  //       liker_id: this.props.currentUser,
-  //     })
-  //     .then(this.setState({ like: !this.state.like }));
-  // }
-
   handleDislike(likeId) {
+    if (this.state.pic2 !== window.bwfire1) {
+      this.setState({ pic2: window.firered1 });
+    } else {
+      this.setState({ pic2: window.bwfire1 });
+    }
     this.props
       .deleteLike(likeId)
-      .then(this.setState({ like: !this.state.like }));
+      .then(this.props.fetchLikes())
+      .then(
+        this.setState({
+          like: !this.state.like,
+          likeId: likeId + 1,
+          first: true,
+        })
+      );
   }
-
-  // b1() {
-  //   if (!this.props.likes) {
-  //     return;
-  //   }
-  //   const { currentUser } = this.props;
-  //   let status;
-  //   let typeId;
-  //   if (this.props.videoId) {
-  //     typeId = this.props.videoId;
-  //   } else {
-  //     typeId = this.props.commentId;
-  //   }
-
-  //   const a = this.props.likes.map((like) => {
-  //     if (like.liker_id !== currentUser.id) {
-  //       debugger;
-  //       return (
-  //         <button onClick={() => this.handleDislike(like.id)}>Like</button>
-  //       );
-  //     } else {
-  //       debugger;
-  //       return (
-  //         <button
-  //           onClick={() => this.handleLike(like.likeable_type, currentUser.id)}
-  //         >
-  //           dislike
-  //         </button>
-  //       );
-  //     }
-  //   });
-  //   return a;
-  // }
 
   button() {
     let status;
@@ -103,7 +82,7 @@ class Like extends React.Component {
     if (!like) {
       if (this.props.currentUser.likes) {
         this.props.currentUser.likes.forEach((like) => {
-          if (like && like.likeable_id === typeId) {
+          if (like && like.likeable_id === typeId && !this.state.first) {
             status = (
               <button
                 className="red"
@@ -111,7 +90,20 @@ class Like extends React.Component {
               >
                 <img
                   style={{ width: this.props.width }}
-                  src={window.firered1}
+                  src={this.state.pic2}
+                  alt=""
+                />
+              </button>
+            );
+          } else if (like && like.likeable_id === typeId && this.state.first) {
+            status = (
+              <button
+                className="red"
+                onClick={() => this.handleDislike(this.state.likeId)}
+              >
+                <img
+                  style={{ width: this.props.width }}
+                  src={this.state.pic2}
                   alt=""
                 />
               </button>
@@ -149,62 +141,8 @@ class Like extends React.Component {
     }
   }
 
-  // likeButton() {
-  //   let status;
-  //   let typeId;
-  //   if (this.props.videoId) {
-  //     typeId = this.props.videoId;
-  //   } else {
-  //     typeId = this.props.commentId;
-  //   }
-  //   if (this.props.currentUser.likes) {
-  //     this.props.currentUser.likes.forEach((like) => {
-  //       if (like && like.likeable_id === typeId) {
-  //         status = (
-  //           <button className="red" onClick={() => this.handleDislike(like.id)}>
-  //             <img
-  //               style={{ width: this.props.width }}
-  //               src={window.redheart}
-  //               alt=""
-  //             />
-  //           </button>
-  //         );
-  //       }
-  //     });
-  //   }
-  //   if (status !== undefined) {
-  //     return status;
-  //   } else {
-  //     if (this.props.currentUser.id) {
-  //       return (
-  //         <button onClick={this.handleLike}>
-  //           <img
-  //             style={{ width: this.props.width }}
-  //             src={window.bwheart}
-  //             alt=""
-  //           />
-  //         </button>
-  //       );
-  //     } else {
-  //       return (
-  //         <Link to="/login">
-  //           <button>
-  //             <img
-  //               style={{ width: this.props.width }}
-  //               src={window.bwheart}
-  //               alt=""
-  //             />
-  //           </button>
-  //         </Link>
-  //       );
-  //     }
-  //   }
-  // }
-
   render() {
     return <>{this.button()}</>;
-    // return <>{this.likeButton()}</>;
-    // return <>{this.b1()}</>;
   }
 }
 export default Like;

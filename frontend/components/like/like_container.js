@@ -12,7 +12,7 @@ const mapStateToProps = (state) => {
     currentUser: state.session.currentUser
       ? state.entities.users[state.session.currentUser.id]
       : {},
-    // likes: Object.values(state.entities.likes),
+    likes: Object.values(state.entities.likes),
   };
 };
 
