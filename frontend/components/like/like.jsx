@@ -83,6 +83,7 @@ class Like extends React.Component {
       .then(this.props.fetchLikes())
       .then(
         this.setState({
+          like: !this.state.like,
           likeId: likeId + 1,
           first: true,
         })
