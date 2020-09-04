@@ -10,6 +10,7 @@ import VideoForm from "../components/video/video_form_container";
 import VideoIndex from "../components/video/video_index_container";
 import VideoShow from "../components/video/video_show_container";
 import Splash from "../components/splash/splash_container";
+import NotFound from "../components/404/not_found";
 
 const App = () => (
   <div>
@@ -23,6 +24,7 @@ const App = () => (
         <VideoIndex />
       </Route>
       <Route path="/" exact component={Splash} />
+      <Route component={NotFound} />
     </Switch>
   </div>
 );

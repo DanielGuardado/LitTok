@@ -880,3 +880,7 @@ video:focus {
   flex-direction: column;
   padding-bottom: 15px;
 }
+
+.four-p {
+  padding-bottom: 26%;
+}
