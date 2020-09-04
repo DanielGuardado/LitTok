@@ -1,4 +1,5 @@
 import { RECEIVE_USER } from "../actions/session_actions";
+import { RECEIVE_LIKE } from "../actions/like_actions";
 
 const UsersReducer = (state = {}, action) => {
   Object.freeze(state);
@@ -7,6 +8,7 @@ const UsersReducer = (state = {}, action) => {
       return Object.assign({}, state, {
         [action.user.id]: action.user,
       });
+
     default:
       return state;
   }

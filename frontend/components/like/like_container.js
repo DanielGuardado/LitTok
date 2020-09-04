@@ -5,6 +5,7 @@ import {
   fetchLikes,
   fetchLike,
 } from "../../actions/like_actions";
+
 import Like from "./like";
 
 const mapStateToProps = (state) => {
