@@ -36,6 +36,14 @@ class Signup extends React.Component {
     this.props.resetState();
   }
 
+  errs() {
+    let errors = this.props.errors ? this.props.errors : "";
+    let errorMessages = errors.map((error, key) => (
+      <div key={key}>{error}</div>
+    ));
+    return <div className="red-errors">{errorMessages}</div>;
+  }
+
   nav() {
     if (this.props.handleClose) {
       return;
@@ -51,6 +59,11 @@ class Signup extends React.Component {
 
   signupForm() {
     const { birthday, email, password, username } = this.state;
+    const isEnabled =
+      username.length > 0 &&
+      password.length > 0 &&
+      email.length > 0 &&
+      birthday.length > 0;
     return (
       <div className="containerlog center">
         <form>
@@ -81,7 +94,7 @@ class Signup extends React.Component {
               value={password}
             />
           </label>
-          <label>
+          <label className="username-label">
             Username
             <input
               type="text"
@@ -91,7 +104,13 @@ class Signup extends React.Component {
               value={username}
             />
           </label>
-          <button className="LogButton" onClick={this.handleSubmit}>
+          {this.errs()}
+          <button
+            disabled={!isEnabled}
+            style={{ width: "92%" }}
+            className="LogButton"
+            onClick={this.handleSubmit}
+          >
             Sign Up
           </button>
         </form>
@@ -114,14 +133,6 @@ class Signup extends React.Component {
     }
   }
 
-  errs() {
-    let errors = this.props.errors ? this.props.errors : "";
-    let errorMessages = errors.map((error, key) => (
-      <div key={key}>{error}</div>
-    ));
-    return <div>{errorMessages}</div>;
-  }
-
   buttonStatus() {
     if (this.props.handleClose) {
       return (
@@ -139,7 +150,6 @@ class Signup extends React.Component {
         {this.nav()}
         {this.signupForm()}
         {this.footerForm()}
-        {this.errs()}
       </div>
     );
   }

@@ -31,6 +31,9 @@ input:focus {
   outline: none;
 }
 
+*:focus {
+  outline: none;
+}
 a:focus {
   outline: none;
   text-emphasis: none;
@@ -95,6 +98,23 @@ button {
   padding: 12px 58px;
   text-decoration: none;
 }
+.LogButton[disabled] {
+  background-color: #f1f1f2;
+  border-radius: 2px;
+  display: inline-block;
+  cursor: pointer;
+  color: #aeafb2;
+  font-family: Arial;
+  font-size: 18px;
+  padding: 12px 58px;
+  text-decoration: none;
+}
+.LogButton[disabled]:hover {
+  background-color: #f1f1f2;
+  color: #aeafb2;
+  text-decoration: none;
+}
+
 .LogButton:hover {
   background-color: #f47792;
   color: white;
@@ -188,7 +208,18 @@ textarea {
   margin-bottom: 16px;
   resize: vertical;
 }
-
+input[type="text"]:focus {
+  /* outline: 1px solid #00cfe7;
+  border-radius: 4px; */
+  box-shadow: 0 0 0 2px #00cfe7;
+  border-radius: 4px;
+}
+input[type="password"]:focus {
+  /* outline: 1px solid #00cfe7;
+  border-radius: 4px; */
+  box-shadow: 0 0 0 2px #00cfe7;
+  border-radius: 4px;
+}
 .containerlog {
   border-radius: 5px;
   padding: 20px;
@@ -883,4 +914,18 @@ video:focus {
 
 .four-p {
   padding-bottom: 26%;
+}
+
+.red-errors {
+  font-size: 12px;
+  color: #ff493a;
+}
+
+.gray-small {
+  font-size: 12px;
+  color: #505257;
+}
+
+.username-label {
+  width: 92%;
 }

@@ -65,12 +65,14 @@ class Login extends React.Component {
 
   loginForm() {
     const { username, password } = this.state;
+    const isEnabled = username.length > 0 && password.length > 0;
     return (
       <div className="containerlog center">
         <form className="center">
           <h2 className="bold">Log in</h2>
           <label htmlFor="username">Username</label>
           <input
+            className="outline-session"
             placeholder="Username"
             type="text"
             name="username"
@@ -85,8 +87,14 @@ class Login extends React.Component {
             onChange={this.handleInput("password")}
             value={password}
           />
-          <p>Forgot password?</p>
-          <button onClick={this.handleSubmit} className="LogButton">
+          {this.errs()}
+          <p className="gray-small">Forgot password?</p>
+          <button
+            disabled={!isEnabled}
+            style={{ width: "100%" }}
+            onClick={this.handleSubmit}
+            className="LogButton"
+          >
             Log in
           </button>
         </form>
@@ -98,7 +106,7 @@ class Login extends React.Component {
     let errorMessages = errors.map((error, idx) => (
       <div key={idx}>{error}</div>
     ));
-    return <div>{errorMessages}</div>;
+    return <p className="red-errors">{errorMessages}</p>;
   }
 
   buttonStatus() {
@@ -118,7 +126,6 @@ class Login extends React.Component {
         {this.nav()}
         {this.loginForm()}
         {this.footerForm()}
-        {this.errs()}
       </div>
     );
   }
