@@ -1,6 +1,7 @@
 import { RECEIVE_USER } from "../actions/session_actions";
 import { RECEIVE_LIKE } from "../actions/like_actions";
 import { RECEIVE_FOLLOW, REMOVE_FOLLOW } from "../actions/follow_actions";
+import { RECEIVE_USER_PROFILE } from "../actions/user_actions";
 
 const UsersReducer = (state = {}, action) => {
   Object.freeze(state);
@@ -10,7 +11,8 @@ const UsersReducer = (state = {}, action) => {
       return Object.assign({}, state, {
         [action.user.id]: action.user,
       });
-
+    case RECEIVE_USER_PROFILE:
+      return Object.assign({}, state, { [action.user.id]: action.user });
     case RECEIVE_LIKE:
       nextState[Object.keys(nextState)[0]].likes.push(action.like);
       return nextState;

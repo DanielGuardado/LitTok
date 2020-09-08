@@ -143,7 +143,11 @@ class VideoShow extends React.Component {
               <li className="comment-author">{comment.author}</li>
               <li className="comment-section">
                 <div>
-                  <Like likes={this.props.likes} width={25} commentId={comment.id} />
+                  <Like
+                    likes={this.props.likes}
+                    width={25}
+                    commentId={comment.id}
+                  />
                 </div>
                 <div className="comment-body">{comment.body}</div>
               </li>
@@ -241,7 +245,9 @@ class VideoShow extends React.Component {
           <div className="flex w-100">
             <div className="background-show">{this.vidShow()}</div>
             <div className="details">
-              <h1 className="static-username">{video.username}</h1>
+              <Link to={`/users/${this.props.video.uploader_id}`}>
+                <h1 className="static-username">{video.username}</h1>
+              </Link>
               <div className="comment-flex">
                 <div className="desc-main">
                   <p className="desc">{video.description}</p>

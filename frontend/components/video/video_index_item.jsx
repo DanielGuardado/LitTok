@@ -18,7 +18,9 @@ class VideoIndexItem extends React.Component {
       >
         <div>
           <div className="title-desc">
-            <h3 className="video-title-text">{this.props.video.username}</h3>
+            <Link to={`/users/${this.props.video.uploader_id}`}>
+              <h3 className="video-title-text">{this.props.video.username}</h3>
+            </Link>
             <p className="video-caption-text">{this.props.video.description}</p>
           </div>
           <Link to={`/videos/${this.props.video.id}`}>
