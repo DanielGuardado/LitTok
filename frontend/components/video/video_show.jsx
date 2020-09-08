@@ -235,12 +235,15 @@ class VideoShow extends React.Component {
     if (!video) {
       return null;
     }
-
     return (
       <div>
-        <Link className="closeVid" to="/foryou">
+        <div
+          className="closeVid"
+          to="/foryou"
+          onClick={() => this.props.history.goBack()}
+        >
           ✘
-        </Link>
+        </div>
         <div className="show-container">
           <div className="flex w-100">
             <div className="background-show">{this.vidShow()}</div>

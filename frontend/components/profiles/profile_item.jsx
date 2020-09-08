@@ -10,11 +10,11 @@ class ProfileItem extends React.Component {
 
   videoRender() {
     return (
-      <div>
+      <div className="col-4">
         <Link to={`/videos/${this.props.video.id}`}>
           <ReactPlayer
             playing={this.state.playing}
-            className="videoBox"
+            className=""
             height={520}
             width={350}
             controls={true}
@@ -22,13 +22,13 @@ class ProfileItem extends React.Component {
             url={this.props.video.videoUrl}
           />
         </Link>
-        <div className="border-bottom-gr"></div>
+        <div className=""></div>
       </div>
     );
   }
 
   render() {
-    return <div className="margin-top10">{this.videoRender()}</div>;
+    return <div className="">{this.videoRender()}</div>;
   }
 }
 

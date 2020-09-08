@@ -1,5 +1,7 @@
 import React from "react";
 import ProfileItem from "./profile_item";
+import NavBar from "../navbar/navbar_conatiner";
+import SideBar from "../sidebar/sidebar_container";
 
 class Profile extends React.Component {
   constructor(props) {
@@ -13,21 +15,23 @@ class Profile extends React.Component {
   user() {
     const { user } = this.props;
     if (user) {
-      return <div>{user.username}</div>;
+      return <div className="profile-name">{user.username}</div>;
     }
   }
   vids() {
     const vid = this.props.videos.map((video, idx) => (
       <ProfileItem key={idx} video={video} />
     ));
-    return <div className="flex-root-child">{vid}</div>;
+    return <div className="row">{vid}</div>;
   }
 
   render() {
     return (
       <div>
+        <NavBar />
+        <SideBar />
         {this.user()}
-        {this.vids()}
+        <div className="container vids1">{this.vids()}</div>
       </div>
     );
   }

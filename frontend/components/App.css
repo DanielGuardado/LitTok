@@ -929,3 +929,20 @@ video:focus {
 .username-label {
   width: 92%;
 }
+
+.profile-view {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.vids1 {
+  padding-right: 0px;
+  margin-right: 0px;
+  margin-left: 235px;
+}
+
+.profile-name {
+  padding-top: 100px;
+  font-size: 35px;
+  font-weight: bold;
+}
