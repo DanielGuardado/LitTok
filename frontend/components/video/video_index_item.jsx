@@ -23,8 +23,17 @@ class VideoIndexItem extends React.Component {
                 src={this.props.video.pro_pic}
                 className="p-1 rounded-circle img-thumbnail-p1"
               />
-              <h3 className="video-title-text">{this.props.video.username}</h3>
             </Link>
+            <div>
+              <div className="d-flex mb-3 justify-content-between align-items-baseline">
+                <Link to={`/users/${this.props.video.uploader_id}`}>
+                  <h3 className="video-title-text">
+                    {this.props.video.username}
+                  </h3>
+                </Link>
+                <button className="FollowIndex">Follow</button>
+              </div>
+            </div>
             <p className="video-caption-text">{this.props.video.description}</p>
           </div>
           <Link to={`/videos/${this.props.video.id}`}>

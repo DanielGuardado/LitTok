@@ -1007,3 +1007,37 @@ video:focus {
   position: relative;
   right: 90%;
 }
+
+.FollowIndex {
+  border-radius: 2px;
+  display: inline-block;
+  cursor: pointer;
+  color: #f12c54;
+  border: 1px solid #f12c54;
+  padding: 1px 21px;
+  text-decoration: none;
+}
+.FollowIndex:hover {
+  text-decoration: none;
+  color: #f12c54;
+}
+.img-thumbnail-p2 {
+  margin: -15px 10px 0px 0px;
+  height: 50px;
+  width: 50px;
+}
+
+.FollowShow {
+  border-radius: 2px;
+  display: inline-block;
+  cursor: pointer;
+  color: #f12c54;
+  border: 1px solid #f12c54;
+  padding: 0px 36px;
+  text-decoration: none;
+  height: 35px;
+}
+.FollowShow:hover {
+  text-decoration: none;
+  color: #f12c54;
+}

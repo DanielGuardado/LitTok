@@ -248,9 +248,18 @@ class VideoShow extends React.Component {
           <div className="flex w-100">
             <div className="background-show">{this.vidShow()}</div>
             <div className="details">
-              <Link to={`/users/${this.props.video.uploader_id}`}>
-                <h1 className="static-username">{video.username}</h1>
-              </Link>
+              <div className="d-flex align-items-baseline">
+                <Link to={`/users/${this.props.video.uploader_id}`}>
+                  <img
+                    src={video.pro_pic}
+                    className="p-1 rounded-circle img-thumbnail-p2"
+                  />
+                </Link>
+                <Link to={`/users/${this.props.video.uploader_id}`}>
+                  <h1 className="static-username">{video.username}</h1>
+                </Link>
+                <button className="FollowShow">Follow</button>
+              </div>
               <div className="comment-flex">
                 <div className="desc-main">
                   <p className="desc">{video.description}</p>
