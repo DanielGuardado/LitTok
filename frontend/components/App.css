@@ -943,6 +943,58 @@ video:focus {
 
 .profile-name {
   padding-top: 100px;
-  font-size: 35px;
-  font-weight: bold;
+  padding-left: 15%;
+  padding-bottom: 20px;
+}
+
+.videoBox1 {
+  background-color: #020102;
+}
+
+.p5-1 {
+  padding: 0px 5px 5px 5px;
+}
+
+.img-thumbnail-p {
+  height: 100px;
+  width: 100px;
+}
+.title-p {
+  padding-left: 20px;
+}
+.p-sizing {
+  width: 125%;
+}
+.p-left-profile {
+  padding-left: 10%;
+}
+.bio {
+  padding-left: 8%;
+  width: 73%;
+}
+
+.FollowButton {
+  background-color: #f12c54;
+  border-radius: 2px;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: Arial;
+  font-size: 17px;
+  padding: 5px 80px;
+  text-decoration: none;
+}
+
+.FollowButton:hover {
+  background-color: #f47792;
+  color: white;
+  text-decoration: none;
+}
+.FollowButton:active {
+  position: relative;
+  top: 1px;
+  text-decoration: none;
+}
+.pro-color {
+  color: #4e4e4e;
 }

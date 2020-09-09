@@ -10,16 +10,21 @@ class ProfileItem extends React.Component {
 
   videoRender() {
     return (
-      <div className="col-4">
+      <div
+        className="col-4 p5-1"
+        onMouseEnter={() => this.setState({ playing: true })}
+        onMouseLeave={() => this.setState({ playing: false })}
+      >
         <Link to={`/videos/${this.props.video.id}`}>
           <ReactPlayer
             playing={this.state.playing}
             className=""
-            height={520}
-            width={350}
+            height={360}
+            width={280}
             controls={true}
             volume={0}
             url={this.props.video.videoUrl}
+            className="videoBox1"
           />
         </Link>
         <div className=""></div>
