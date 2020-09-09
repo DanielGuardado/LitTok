@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_05_085315) do
+ActiveRecord::Schema.define(version: 2020_09_09_174023) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -63,6 +63,7 @@ ActiveRecord::Schema.define(version: 2020_08_05_085315) do
     t.bigint "likeable_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "status", default: false
     t.index ["likeable_type", "likeable_id", "liker_id"], name: "index_likes_on_likeable_type_and_likeable_id_and_liker_id", unique: true
     t.index ["likeable_type", "likeable_id"], name: "index_likes_on_likeable_type_and_likeable_id"
   end
@@ -75,6 +76,8 @@ ActiveRecord::Schema.define(version: 2020_08_05_085315) do
     t.string "session_token", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "pro_pic", default: "https://www.vippng.com/png/full/416-4161690_empty-profile-picture-blank-avatar-image-circle.png"
+    t.string "bio", default: ""
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["password_digest"], name: "index_users_on_password_digest", unique: true
     t.index ["username"], name: "index_users_on_username", unique: true

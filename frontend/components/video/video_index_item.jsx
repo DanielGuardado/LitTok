@@ -19,6 +19,10 @@ class VideoIndexItem extends React.Component {
         <div>
           <div className="title-desc">
             <Link to={`/users/${this.props.video.uploader_id}`}>
+              <img
+                src={this.props.video.pro_pic}
+                className="p-1 rounded-circle img-thumbnail-p1"
+              />
               <h3 className="video-title-text">{this.props.video.username}</h3>
             </Link>
             <p className="video-caption-text">{this.props.video.description}</p>

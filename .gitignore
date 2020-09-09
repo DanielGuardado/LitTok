@@ -30,3 +30,4 @@ bundle.js.map
 /config/credentials.yml.enc
 /public/assets
 .gitignore
+/frontend/components/profiles/firebase2.js

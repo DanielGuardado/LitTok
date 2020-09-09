@@ -959,6 +959,10 @@ video:focus {
   height: 100px;
   width: 100px;
 }
+.img-thumbnail-p1 {
+  height: 75px;
+  width: 75px;
+}
 .title-p {
   padding-left: 20px;
 }
@@ -997,4 +1001,9 @@ video:focus {
 }
 .pro-color {
   color: #4e4e4e;
+}
+
+.bio-pro {
+  position: relative;
+  right: 90%;
 }
