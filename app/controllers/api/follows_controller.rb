@@ -21,20 +21,20 @@ class Api::FollowsController < ApplicationController
     end
   end
 
-  # def destroy
-  #   @follow = Follow.find_by!(follower_id:current_user.id, followee_id:params[:id])
-
-  #   @follow.destroy
-  #   render :show
-  # end
   def destroy
-    @follow = Follow.find(params[:id])
+    @follow = Follow.find_by!(follower_id:current_user.id, followee_id:params[:id])
 
-    if @follow.destroy 
-    else
-      render json: @follow.errors.full_messages, status: 404
-    end
+    @follow.destroy
+    render :show
   end
+  # def destroy
+  #   @follow = Follow.find(params[:id])
+
+  #   if @follow.destroy 
+  #   else
+  #     render json: @follow.errors.full_messages, status: 404
+  #   end
+  # end
 
 private
 

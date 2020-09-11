@@ -22,7 +22,19 @@ const UsersReducer = (state = {}, action) => {
       );
       return nextState;
     case REMOVE_FOLLOW:
-      debugger;
+      // debugger;
+      // delete nextState[action.follow.follower_id].follower_relationships[0];
+      nextState[action.follow.follower_id].follower_relationships.forEach(
+        (el) => {
+          if (el.follow_id === action.follow.follow_id) {
+            delete el.follow_id;
+            delete el.follower_id;
+            delete el.followee_id;
+          }
+        }
+      );
+      return nextState;
+
     // return Object.assign({}, { [action.like.id]: action.like });
     default:
       return state;

@@ -39,8 +39,7 @@ class Profile extends React.Component {
         a = el.id;
       }
     });
-    debugger;
-    this.props.deleteFollow(a);
+    this.props.deleteFollow(this.props.user.id);
   }
 
   handleSubmit(e) {
@@ -84,7 +83,6 @@ class Profile extends React.Component {
     let button;
     if (this.props.currentUser.follower_relationships) {
       this.props.currentUser.follower_relationships.forEach((el) => {
-        debugger;
         if (el.followee_id === id) {
           button = (
             <div className="d-flex mb-3">

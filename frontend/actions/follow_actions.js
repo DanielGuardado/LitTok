@@ -7,9 +7,9 @@ const receiveFollow = (follow) => ({
   type: RECEIVE_FOLLOW,
   follow,
 });
-const removeFollow = (followId) => ({
+const removeFollow = (follow) => ({
   type: REMOVE_FOLLOW,
-  followId,
+  follow,
 });
 
 export const createFollow = (follow) => (dispatch) =>
@@ -17,7 +17,7 @@ export const createFollow = (follow) => (dispatch) =>
     dispatch(receiveFollow(follow))
   );
 
-export const deleteFollow = (followId) => (dispatch) =>
-  FollowAPIUtil.deleteFollow(followId).then(() =>
-    dispatch(removeFollow(followId))
+export const deleteFollow = (id) => (dispatch) =>
+  FollowAPIUtil.deleteFollow(id).then((follow) =>
+    dispatch(removeFollow(follow))
   );
