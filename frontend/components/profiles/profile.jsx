@@ -10,8 +10,8 @@ class Profile extends React.Component {
     this.state = { bioEdit: false, picEdit: false };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleFollow = this.handleFollow.bind(this);
-    this.handleProPicSubmit = this.handleProPicSubmit.bind(this);
     this.handleUnfollow = this.handleUnfollow.bind(this);
+    this.handleProPicSubmit = this.handleProPicSubmit.bind(this);
   }
   componentWillMount() {
     this.props.fetchUser(this.props.match.params.id);
