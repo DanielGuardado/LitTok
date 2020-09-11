@@ -1,6 +1,7 @@
 import { connect } from "react-redux";
 import { fetchUser, updateUser } from "../../actions/user_actions";
 import { fetchVideos } from "../../actions/video_actions";
+import { createFollow, deleteFollow } from "../../actions/follow_actions";
 import Profile from "./profile";
 
 const mapStateToProps = (state, ownProps) => {
@@ -26,6 +27,8 @@ const mapDispatchToProps = (dispatch) => ({
   fetchUser: (userId) => dispatch(fetchUser(userId)),
   fetchVideos: () => dispatch(fetchVideos()),
   updateUser: (user) => dispatch(updateUser(user)),
+  createFollow: (follow) => dispatch(createFollow(follow)),
+  deleteFollow: (followId) => dispatch(deleteFollow(followId)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Profile);

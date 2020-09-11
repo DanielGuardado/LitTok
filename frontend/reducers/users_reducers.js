@@ -16,6 +16,13 @@ const UsersReducer = (state = {}, action) => {
     case RECEIVE_LIKE:
       nextState[Object.keys(nextState)[0]].likes.push(action.like);
       return nextState;
+    case RECEIVE_FOLLOW:
+      nextState[action.follow.follower_id].follower_relationships.push(
+        action.follow
+      );
+      return nextState;
+    case REMOVE_FOLLOW:
+      debugger;
     // return Object.assign({}, { [action.like.id]: action.like });
     default:
       return state;

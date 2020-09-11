@@ -5,11 +5,15 @@ const FollowsReducer = (state = {}, action) => {
   let nextState = Object.assign({}, state);
   switch (action.type) {
     case RECEIVE_FOLLOW:
-      return Object.assign({}, state, { [action.follow.id]: action.follow });
+      return Object.assign({}, state, {
+        [action.follow.followee_id]: action.follow,
+      });
     case REMOVE_FOLLOW:
+      debugger;
       delete nextState[action.follow.id];
       return nextState;
     default:
       return state;
   }
 };
+export default FollowsReducer;

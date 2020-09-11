@@ -9,7 +9,9 @@ class Profile extends React.Component {
     super(props);
     this.state = { bioEdit: false, picEdit: false };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleFollow = this.handleFollow.bind(this);
     this.handleProPicSubmit = this.handleProPicSubmit.bind(this);
+    this.handleUnfollow = this.handleUnfollow.bind(this);
   }
   componentWillMount() {
     this.props.fetchUser(this.props.match.params.id);
@@ -22,6 +24,23 @@ class Profile extends React.Component {
         pro_pic: this.props.user.pro_pic,
       });
     }
+  }
+  handleFollow(e) {
+    e.preventDefault();
+    this.props.createFollow({ followee_id: this.props.user.id });
+  }
+
+  handleUnfollow(e) {
+    e.preventDefault();
+    let a;
+    let id = this.props.user.id;
+    this.props.currentUser.follower_relationships.forEach((el) => {
+      if (el.followee_id === id) {
+        a = el.id;
+      }
+    });
+    debugger;
+    this.props.deleteFollow(a);
   }
 
   handleSubmit(e) {
@@ -60,6 +79,35 @@ class Profile extends React.Component {
     this.setState({ picEdit: false });
   };
 
+  followButton() {
+    let id = this.props.user.id;
+    let button;
+    if (this.props.currentUser.follower_relationships) {
+      this.props.currentUser.follower_relationships.forEach((el) => {
+        debugger;
+        if (el.followee_id === id) {
+          button = (
+            <div className="d-flex mb-3">
+              <button onClick={this.handleUnfollow} className="FollowButton">
+                Unfollow
+              </button>
+            </div>
+          );
+        }
+      });
+    }
+    if (!button) {
+      return (
+        <div className="d-flex mb-3">
+          <button onClick={this.handleFollow} className="FollowButton">
+            Follow
+          </button>
+        </div>
+      );
+    } else {
+      return button;
+    }
+  }
   user() {
     const { user } = this.state;
     if (this.state.pro_pic) {
@@ -77,9 +125,12 @@ class Profile extends React.Component {
               <div className="d-flex mb-3">
                 <h3 className="pr-5">{this.props.user.username}</h3>
               </div>
-              <div className="d-flex mb-3">
-                <button className="FollowButton">Follow</button>
-              </div>
+              {/* <div className="d-flex mb-3">
+                <button onClick={this.handleFollow} className="FollowButton">
+                  Follow
+                </button> */}
+              {this.followButton()}
+              {/* </div> */}
             </div>
             <p className="text-left p-left-profile pro-color">
               <span className="mr-5 p-sizing">
