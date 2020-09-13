@@ -102,8 +102,8 @@ class Profile extends React.Component {
         if (el.followee_id === id) {
           button = (
             <div className="d-flex mb-3">
-              <button onClick={this.handleUnfollow} className="FollowButton">
-                Unfollow
+              <button onClick={this.handleUnfollow} className="FollowButton1">
+                Following
               </button>
             </div>
           );

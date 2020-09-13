@@ -18,6 +18,11 @@ class VideoIndex extends React.Component {
         key={idx}
         video={video}
         likes={this.props.likes}
+        createFollow={this.props.createFollow}
+        deleteFollow={this.props.deleteFollow}
+        currentUser={this.props.currentUser}
+        user={this.props.user}
+        fetchUser={this.props.fetchUser}
       />
     ));
     return <div className="flex-root-child">{vid}</div>;

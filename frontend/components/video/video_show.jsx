@@ -59,8 +59,8 @@ class VideoShow extends React.Component {
       this.props.currentUser.follower_relationships.forEach((el) => {
         if (el.followee_id === id) {
           button = (
-            <button onClick={this.handleUnfollow} className="FollowShow">
-              Unfollow
+            <button onClick={this.handleUnfollow} className="FollowShow1">
+              Following
             </button>
           );
         }
