@@ -3,6 +3,7 @@ import ProfileItem from "./profile_item";
 import NavBar from "../navbar/navbar_conatiner";
 import SideBar from "../sidebar/sidebar_container";
 import { storage } from "./firebase";
+import { Link } from "react-router-dom";
 
 class Profile extends React.Component {
   constructor(props) {
@@ -22,12 +23,23 @@ class Profile extends React.Component {
       this.setState({
         bio: this.props.user.bio,
         pro_pic: this.props.user.pro_pic,
+        followers: this.props.user.followee_relationships.length,
       });
+      // this.props.fetchUser(this.props.match.params.id);
     }
+    // if (
+    //   prevProps.user.followee_relationships.length !==
+    //   this.props.user.followee_relationships.length
+    // ) {
+    //   debugger;
+    //   this.props.fetchUser(this.props.match.params.id);
+    // }
   }
+
   handleFollow(e) {
     e.preventDefault();
     this.props.createFollow({ followee_id: this.props.user.id });
+    this.setState({ followers: this.state.followers + 1 });
   }
 
   handleUnfollow(e) {
@@ -40,6 +52,7 @@ class Profile extends React.Component {
       }
     });
     this.props.deleteFollow(this.props.user.id);
+    this.setState({ followers: this.state.followers - 1 });
   }
 
   handleSubmit(e) {
@@ -81,6 +94,9 @@ class Profile extends React.Component {
   followButton() {
     let id = this.props.user.id;
     let button;
+    if (id === this.props.currentUser.id) {
+      return;
+    }
     if (this.props.currentUser.follower_relationships) {
       this.props.currentUser.follower_relationships.forEach((el) => {
         if (el.followee_id === id) {
@@ -94,7 +110,17 @@ class Profile extends React.Component {
         }
       });
     }
-    if (!button) {
+    if (id === this.props.currentUser.id) {
+      return;
+    } else if (!this.props.currentUser.id) {
+      return (
+        <div className="d-flex mb-3">
+          <Link to="/login">
+            <button className="FollowButton">Follow</button>
+          </Link>
+        </div>
+      );
+    } else if (!button) {
       return (
         <div className="d-flex mb-3">
           <button onClick={this.handleFollow} className="FollowButton">
@@ -106,8 +132,22 @@ class Profile extends React.Component {
       return button;
     }
   }
+
+  videoLikeCount() {
+    let count;
+    if (this.props.user.likes) {
+      count = this.props.user.likes.filter((el) => {
+        if (el.likeable_type === "Video") {
+          return el;
+        }
+      });
+    }
+    return count.length;
+  }
+
   user() {
     const { user } = this.state;
+
     if (this.state.pro_pic) {
       return (
         <div className="container profile-name">
@@ -132,13 +172,22 @@ class Profile extends React.Component {
             </div>
             <p className="text-left p-left-profile pro-color">
               <span className="mr-5 p-sizing">
-                <strong className="font-weight-bold">9</strong> Following
+                <strong className="font-weight-bold">
+                  {this.props.user.follower_relationships.length}
+                </strong>{" "}
+                Following
               </span>
               <span>
-                <strong className="font-weight-bold">16.1k</strong> Followers
+                <strong className="font-weight-bold">
+                  {this.state.followers}
+                </strong>{" "}
+                Followers
               </span>
               <span className="ml-5">
-                <strong className="font-weight-bold">840</strong> Likes
+                <strong className="font-weight-bold">
+                  {this.videoLikeCount()}
+                </strong>{" "}
+                Likes
               </span>
             </p>
           </div>
@@ -220,7 +269,7 @@ class Profile extends React.Component {
               />
             </label>
             <button className="" type="submit">
-              Submit
+              Edit Bio
             </button>
           </form>
         </div>

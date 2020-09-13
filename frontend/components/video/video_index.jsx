@@ -6,34 +6,6 @@ class VideoIndex extends React.Component {
     super(props);
   }
 
-  // componentDidUpdate(prev) {
-  //   debugger;
-  //   if (this.state.likes && prev.likes.length !== this.state.likes.length) {
-  //     this.setState({ likes: this.props.likes });
-  //   }
-  // }
-  // shouldComponentUpdate(prevProps) {
-  //   debugger
-  //   return true
-  //   // if (prevProps !== this.props) {
-  //   //   debugger;
-  //   //   return true;
-  //   // } else {
-  //   //   debugger;
-  //   //   false;
-  //   // }
-  // }
-
-  // componentWillReceiveProps(a) {
-  //   if (a.likes.length !== this.props.likes.length) {
-  //     this.setState({status:true})
-  //     console.log(this.state.status)
-  //     true;
-  //   } else {
-  //     false;
-  //   }
-  // }
-
   componentDidMount() {
     this.props.fetchVideos();
     this.props.fetchLikes();

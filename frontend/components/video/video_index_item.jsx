@@ -8,7 +8,66 @@ class VideoIndexItem extends React.Component {
   constructor(props) {
     super(props);
     this.state = { playing: false };
+    // this.handleFollow = this.handleFollow.bind(this);
+    // this.handleUnfollow = this.handleUnfollow.bind(this);
   }
+
+  // componentWillReceiveProps(nextProps) {
+  //   debugger;
+  //   if (nextProps.video !== this.props.video) {
+  //     this.props.fetchUser(parseInt(nextProps.video.uploader_id));
+  //   }
+  // }
+
+  // handleFollow(e) {
+  //   debugger;
+  //   e.preventDefault();
+  //   this.props.createFollow({
+  //     followee_id: this.props.user[parseInt(this.props.video.uploader_id)].id,
+  //   });
+  // }
+
+  // followButton() {
+  //   if (!this.props.user[parseInt(this.props.video.uploader_id)]) {
+  //     return;
+  //   }
+  //   let id = this.props.user[parseInt(this.props.video.uploader_id)].id;
+  //   let button;
+  //   if (this.props.currentUser.follower_relationships) {
+  //     this.props.currentUser.follower_relationships.forEach((el) => {
+  //       if (el.followee_id === id) {
+  //         button = (
+  //           <button onClick={this.handleUnfollow} className="FollowIndex">
+  //             Unfollow
+  //           </button>
+  //         );
+  //       }
+  //     });
+  //   }
+  //   if (!button) {
+  //     return (
+  //       <button onClick={this.handleFollow} className="FollowIndex">
+  //         Follow
+  //       </button>
+  //     );
+  //   } else {
+  //     return button;
+  //   }
+  // }
+
+  // handleUnfollow(e) {
+  //   e.preventDefault();
+  //   let a;
+  //   let id = this.props.user[parseInt(this.props.video.uploader_id)].id;
+  //   this.props.currentUser.follower_relationships.forEach((el) => {
+  //     if (el.followee_id === id) {
+  //       a = el.id;
+  //     }
+  //   });
+  //   this.props.deleteFollow(
+  //     this.props.user[parseInt(this.props.video.uploader_id)].id
+  //   );
+  // }
 
   videoRender() {
     return (
@@ -31,7 +90,8 @@ class VideoIndexItem extends React.Component {
                     {this.props.video.username}
                   </h3>
                 </Link>
-                <button className="FollowIndex">Follow</button>
+                {/* <button className="FollowIndex">Follow</button> */}
+                {/* {this.followButton()} */}
               </div>
             </div>
             <p className="video-caption-text">{this.props.video.description}</p>

@@ -406,7 +406,13 @@ html {
 
 .upload-btn {
   position: absolute;
-  right: 212px;
+  right: 260px;
+  top: 19px;
+}
+
+.upload-btn2 {
+  position: absolute;
+  right: 200px;
   top: 19px;
 }
 
@@ -962,6 +968,13 @@ video:focus {
 .img-thumbnail-p1 {
   height: 75px;
   width: 75px;
+}
+.img-thumbnail-p3 {
+  height: 50px;
+  width: 50px;
+  position: absolute;
+  right: 195px;
+  top: 5px;
 }
 .title-p {
   padding-left: 20px;

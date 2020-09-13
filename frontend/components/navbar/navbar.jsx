@@ -18,11 +18,27 @@ class Navbar extends React.Component {
     } else {
       return (
         <Link to="/login">
-          <img className="upload-btn" src={window.upload} alt="upload" />
+          <img className="upload-btn2" src={window.upload} alt="upload" />
         </Link>
         // <Modals classname={"LogButton"}>
         //   <img className="upload-btn" src={window.upload} alt="upload" />
         // </Modals>
+      );
+    }
+  }
+
+  avatar() {
+    if (this.props.currentUser.id) {
+      return (
+        <div>
+          <Link to={`/users/${this.props.currentUser.id}`}>
+            <img
+              className="p-1 rounded-circle img-thumbnail-p3"
+              src={this.props.currentUser.pro_pic}
+              alt="avi"
+            />
+          </Link>
+        </div>
       );
     }
   }
@@ -49,6 +65,7 @@ class Navbar extends React.Component {
           <img className="upload-btn" src={window.upload} alt="upload" />
         </Link> */}
         {this.uploadBtn()}
+        {this.avatar()}
         {loggedIn}
       </div>
     );

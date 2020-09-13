@@ -13,14 +13,79 @@ class VideoShow extends React.Component {
       commentTrigger: false,
       comments: null,
     };
+    this.handleFollow = this.handleFollow.bind(this);
+    this.handleUnfollow = this.handleUnfollow.bind(this);
     this.videoComments = this.videoComments.bind(this);
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.video !== this.props.video) {
+      this.props.fetchUser(parseInt(nextProps.video.uploader_id));
+    }
+  }
   componentDidMount() {
     this.props.fetchVideo(this.props.match.params.videoId);
     this.props.fetchLikes();
   }
 
+  handleFollow(e) {
+    e.preventDefault();
+    this.props.createFollow({
+      followee_id: this.props.user[parseInt(this.props.video.uploader_id)].id,
+    });
+  }
+
+  handleUnfollow(e) {
+    e.preventDefault();
+    let a;
+    let id = this.props.user[parseInt(this.props.video.uploader_id)].id;
+    this.props.currentUser.follower_relationships.forEach((el) => {
+      if (el.followee_id === id) {
+        a = el.id;
+      }
+    });
+    this.props.deleteFollow(
+      this.props.user[parseInt(this.props.video.uploader_id)].id
+    );
+  }
+
+  followButton() {
+    if (!this.props.user[parseInt(this.props.video.uploader_id)]) {
+      return;
+    }
+    let id = this.props.user[parseInt(this.props.video.uploader_id)].id;
+    let button;
+    if (this.props.currentUser.follower_relationships) {
+      this.props.currentUser.follower_relationships.forEach((el) => {
+        if (el.followee_id === id) {
+          button = (
+            <button onClick={this.handleUnfollow} className="FollowShow">
+              Unfollow
+            </button>
+          );
+        }
+      });
+    }
+    if (parseInt(this.props.video.uploader_id) === this.props.currentUser.id) {
+      return;
+    } else if (!this.props.currentUser.id) {
+      return (
+        <div className="d-flex mb-3">
+          <Link to="/login">
+            <button className="FollowButton">Follow</button>
+          </Link>
+        </div>
+      );
+    } else if (!button) {
+      return (
+        <button onClick={this.handleFollow} className="FollowShow">
+          Follow
+        </button>
+      );
+    } else {
+      return button;
+    }
+  }
   //REMEMBER  THIS!!!!!!!! HUGEEE!!!!!!
   //FLOW OF INFORMATION
   btnTrigger = () => {
@@ -258,7 +323,8 @@ class VideoShow extends React.Component {
                 <Link to={`/users/${this.props.video.uploader_id}`}>
                   <h1 className="static-username">{video.username}</h1>
                 </Link>
-                <button className="FollowShow">Follow</button>
+                {/* <button className="FollowShow">Follow</button> */}
+                {this.followButton()}
               </div>
               <div className="comment-flex">
                 <div className="desc-main">
