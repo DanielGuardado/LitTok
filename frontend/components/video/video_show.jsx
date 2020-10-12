@@ -16,10 +16,11 @@ class VideoShow extends React.Component {
     this.handleFollow = this.handleFollow.bind(this);
     this.handleUnfollow = this.handleUnfollow.bind(this);
     this.videoComments = this.videoComments.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.video !== this.props.video) {
+    if (nextProps.video && nextProps.video !== this.props.video) {
       this.props.fetchUser(parseInt(nextProps.video.uploader_id));
     }
   }
@@ -47,6 +48,14 @@ class VideoShow extends React.Component {
     this.props.deleteFollow(
       this.props.user[parseInt(this.props.video.uploader_id)].id
     );
+  }
+
+  handleDelete(e) {
+    e.preventDefault();
+
+    this.props
+      .deleteVideo(this.props.video.id)
+      .then(() => this.props.history.push("/foryou"));
   }
 
   followButton() {
@@ -121,14 +130,7 @@ class VideoShow extends React.Component {
     ) {
       return (
         <div>
-          <button
-            className="DelButton"
-            onClick={() =>
-              this.props
-                .deleteVideo(this.props.video.id)
-                .then(() => this.props.history.push("/foryou"))
-            }
-          >
+          <button className="DelButton" onClick={this.handleDelete}>
             Delete Video
           </button>
         </div>
