@@ -30,8 +30,8 @@ class Sidebar extends React.Component {
     if (this.props.currentUser.id) {
       status = (
         <div>
-          <p>Welcome {this.props.currentUser.username}</p>
-          <button onClick={this.props.logout}>Log out</button>
+          {/* <p>Welcome {this.props.currentUser.username}</p>
+          <button onClick={this.props.logout}>Log out</button> */}
         </div>
       );
     } else {
@@ -56,18 +56,12 @@ class Sidebar extends React.Component {
       <React.Fragment>
         <div className="sidenav zin">
           <div className="bpadding">
-            <span className="disp1 box active">
-              <img src={window.house} alt="littok" height="35" width="35" />
-              For You
-            </span>
-            <span className="disp1 box not-active">
-              <img src={window.hash} alt="littok" height="30" width="30" />
-              Discover
-            </span>
-            <span className="disp1 box not-active">
-              <img src={window.social} alt="littok" height="30" width="35" />
-              Following
-            </span>
+            <Link to="/foryou">
+              <span className="disp1 box active">
+                <img src={window.house} alt="littok" height="35" width="35" />
+                <div>For You</div>
+              </span>
+            </Link>
           </div>
           {status}
           {/* <a href="https://github.com/DanielGuardado/LitTok">
